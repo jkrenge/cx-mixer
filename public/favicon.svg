@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#13233C"/>
+  <text x="8" y="42" font-family="system-ui, sans-serif" font-weight="800" font-size="28" fill="#FFFFFF">CX</text>
+  <text x="8" y="56" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#F9733A">MIXER</text>
+  <circle cx="54" cy="14" r="5" fill="#1FA6A0"/>
+</svg>

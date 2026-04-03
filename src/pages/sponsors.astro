@@ -1,0 +1,285 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+
+const opportunities = [
+  {
+    title: 'Event Sponsorship',
+    desc: 'Put your brand in the room with e-commerce decision-makers at curated, conference-side gatherings.',
+    features: ['Logo placement at events', 'Speaking opportunities', 'Curated introductions', 'Post-event recap visibility'],
+    icon: '&#x1F3AA;',
+  },
+  {
+    title: 'Podcast Sponsorship',
+    desc: 'Align your brand with smart, practical conversations that e-commerce leaders actually listen to.',
+    features: ['Pre/mid-roll mentions', 'Episode co-branding', 'Social media amplification', 'Newsletter features'],
+    icon: '&#x1F399;',
+    featured: true,
+  },
+  {
+    title: 'Community Sponsorship',
+    desc: 'Support the CX Collective and build visibility with an engaged network of brand operators.',
+    features: ['Community presence', 'Exclusive content opportunities', 'Member introductions', 'Long-term brand association'],
+    icon: '&#x1F91D;',
+  },
+];
+
+const values = [
+  'Brands that value relationships over transactions',
+  'Companies supporting authentic community building',
+  'Partners who want meaningful visibility, not logo wallpaper',
+  'Teams that get the e-commerce operator mindset',
+];
+---
+
+<Base title="Sponsor CX Mixer | E-commerce Event & Podcast Sponsorship" description="Partner with CX Mixer to reach e-commerce decision-makers through curated events, podcast sponsorship, and community visibility.">
+
+  <!-- HERO -->
+  <section class="page-hero section--dark">
+    <div class="page-hero-bg" aria-hidden="true">
+      <div class="hero-shape hero-shape--1"></div>
+      <div class="hero-shape hero-shape--2"></div>
+    </div>
+    <div class="container page-hero-content">
+      <span class="badge badge--orange reveal">Sponsors</span>
+      <h1 class="reveal reveal-delay-1">Support the rooms people actually want to be in</h1>
+      <p class="page-hero-subtitle reveal reveal-delay-2">
+        CX Mixer partners with select sponsors who want meaningful visibility with e-commerce brands through events, media, and community.
+      </p>
+      <a href={`${base}contact/`} class="btn btn--primary reveal reveal-delay-3">Become a Sponsor</a>
+    </div>
+  </section>
+
+  <!-- WHY SPONSOR -->
+  <section class="section">
+    <div class="container" style="max-width: 750px;">
+      <div class="reveal text-center">
+        <span class="section-label" style="justify-content: center;">Why Sponsor</span>
+        <h2 class="mb-md text-balance">Why it works</h2>
+        <p>The best sponsorships don't feel forced. CX Mixer gives partners the chance to show up in authentic spaces, build real relationships, and support experiences that people genuinely want to attend.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPPORTUNITIES -->
+  <section class="section" style="background: #fff;">
+    <div class="container">
+      <div class="reveal mb-xl text-center">
+        <span class="section-label" style="justify-content: center;">Packages</span>
+        <h2>Ways to partner</h2>
+      </div>
+      <div class="grid-3">
+        {opportunities.map((opp, i) => (
+          <div class={`sponsor-card ${opp.featured ? 'sponsor-card--featured' : ''} reveal reveal-delay-${i + 1}`}>
+            <span class="sponsor-icon" set:html={opp.icon} />
+            <h3>{opp.title}</h3>
+            <p class="sponsor-desc">{opp.desc}</p>
+            <ul class="sponsor-features">
+              {opp.features.map((f) => (
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href={`${base}contact/`} class={`btn ${opp.featured ? 'btn--primary' : 'btn--secondary'}`}>Inquire</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE WORK WITH -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="fit-grid">
+        <div class="reveal">
+          <span class="section-label" style="color: var(--orange);">Best Fit</span>
+          <h2>Who we love working with</h2>
+          <p style="color: rgba(255,255,255,0.7);">We work best with sponsors who value relationships, community, and long-term credibility over short-term noise.</p>
+        </div>
+        <div class="fit-list">
+          {values.map((v, i) => (
+            <div class={`fit-item reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>{v}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--teal">
+    <div class="container text-center">
+      <div class="reveal">
+        <h2 class="mb-md text-balance">Let's build something people remember</h2>
+        <p style="max-width: 50ch; margin: 0 auto var(--space-lg);">From conference-side activations to podcast support to creative custom collabs — we build sponsor opportunities that feel aligned with the CX Mixer experience.</p>
+        <a href={`${base}contact/`} class="btn btn--white">Inquire About Sponsorship</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(72px + var(--space-3xl)) 0 var(--space-3xl);
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .hero-shape--1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(31, 166, 160, 0.15);
+    top: -150px;
+    right: -100px;
+  }
+
+  .hero-shape--2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(249, 115, 58, 0.12);
+    bottom: -150px;
+    left: -100px;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+
+  .page-hero-content h1 {
+    color: #fff;
+    margin: var(--space-md) 0;
+  }
+
+  .page-hero-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.15rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* SPONSOR CARDS */
+  .sponsor-card {
+    background: var(--cream);
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .sponsor-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(19, 35, 60, 0.1);
+  }
+
+  .sponsor-card--featured {
+    border-color: var(--orange);
+    background: #fff;
+    position: relative;
+  }
+
+  .sponsor-card--featured::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 1rem;
+    border-radius: var(--radius-full);
+  }
+
+  .sponsor-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .sponsor-card h3 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .sponsor-desc {
+    font-size: 0.9rem;
+    color: rgba(42, 47, 54, 0.7);
+    margin-bottom: var(--space-md);
+  }
+
+  .sponsor-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: auto;
+    padding-bottom: var(--space-lg);
+  }
+
+  .sponsor-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    color: var(--charcoal);
+  }
+
+  /* FIT SECTION */
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .fit-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .fit-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    color: #fff;
+    font-weight: 500;
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+
+  .fit-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .fit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

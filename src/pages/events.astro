@@ -1,0 +1,280 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+
+const upcomingEvents = [
+  {
+    name: 'Morning Mixer',
+    type: 'Breakfast',
+    description: 'Start the conference day with coffee, conversation, and the kind of intros that actually lead somewhere. A curated room of brand leaders with zero agenda beyond connection.',
+    date: 'Coming Soon',
+    location: 'TBA',
+    featured: false,
+  },
+  {
+    name: 'The Hangover Hangout',
+    type: 'Happy Hour',
+    description: 'A casual mid-conference reset with great food, good people, and zero pressure. Grab a seat, meet some fellow brand folks, and head back to the chaos feeling slightly more human.',
+    date: 'Coming Soon',
+    location: 'TBA',
+    featured: true,
+  },
+  {
+    name: 'Late Night Conversations',
+    type: 'VIP Dinner',
+    description: 'An intimate dinner for brand leaders who want to go deeper. Curated guest list. Great food. No agenda beyond real talk.',
+    date: 'Coming Soon',
+    location: 'TBA',
+    featured: false,
+  },
+];
+
+const expectations = [
+  { icon: '&#x2728;', title: 'Curated', desc: 'Designed for e-commerce brands and industry leaders' },
+  { icon: '&#x1F91D;', title: 'Real Connection', desc: 'Built around genuine relationships, not lead capture' },
+  { icon: '&#x1F3D9;', title: 'Conference-Adjacent', desc: 'Hosted alongside major industry gatherings' },
+  { icon: '&#x1F389;', title: 'Memorable', desc: 'Relaxed, fun, and designed to be the highlight of your trip' },
+];
+---
+
+<Base title="CX Mixer Events | Networking for E-commerce Brands" description="Explore upcoming CX Mixer events designed for e-commerce brands, operators, and leaders looking for real connection beyond the conference floor.">
+
+  <!-- HERO -->
+  <section class="page-hero section--dark">
+    <div class="page-hero-bg" aria-hidden="true">
+      <div class="hero-shape hero-shape--1"></div>
+      <div class="hero-shape hero-shape--2"></div>
+    </div>
+    <div class="container page-hero-content">
+      <span class="badge badge--orange reveal">Events</span>
+      <h1 class="reveal reveal-delay-1">No pitches.<br/>Just brands.</h1>
+      <p class="page-hero-subtitle reveal reveal-delay-2">
+        CX Mixer events are built to help e-commerce people connect in real life through curated gatherings tied to the industry's biggest moments.
+      </p>
+      <a href="#upcoming" class="btn btn--primary reveal reveal-delay-3">View Upcoming Events</a>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section class="section">
+    <div class="container">
+      <div class="expect-grid">
+        <div class="reveal">
+          <span class="section-label">What to Expect</span>
+          <h2 class="text-balance">What makes a CX Mixer event different</h2>
+          <p>We design events that feel intentional, easy, and actually worth leaving the conference floor for. That means the right people, the right atmosphere, and conversations that don't feel transactional.</p>
+        </div>
+        <div class="expect-cards">
+          {expectations.map((item, i) => (
+            <div class={`expect-card reveal reveal-delay-${i + 1}`}>
+              <span class="expect-icon" set:html={item.icon} />
+              <div>
+                <h4>{item.title}</h4>
+                <p>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section class="section section--dark" id="upcoming">
+    <div class="container">
+      <div class="reveal mb-xl">
+        <span class="section-label" style="color: var(--orange);">Upcoming</span>
+        <h2>Upcoming Mixers</h2>
+      </div>
+      <div class="grid-3">
+        {upcomingEvents.map((event, i) => (
+          <div class={`event-detail-card ${event.featured ? 'event-detail-card--featured' : ''} reveal reveal-delay-${i + 1}`}>
+            <span class="badge badge--orange">{event.type}</span>
+            <h3>{event.name}</h3>
+            <p class="event-detail-desc">{event.description}</p>
+            <div class="event-detail-meta">
+              <div class="event-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>{event.date}</span>
+              </div>
+              <div class="event-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>{event.location}</span>
+              </div>
+            </div>
+            <a href={`${base}contact/`} class="btn btn--primary" style="margin-top: auto;">Get Notified</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ATTEND -->
+  <section class="section">
+    <div class="container text-center">
+      <div class="reveal" style="max-width: 600px; margin: 0 auto;">
+        <span class="section-label" style="justify-content: center;">Why Attend</span>
+        <h2 class="mb-md">Why people keep coming back</h2>
+        <p class="mb-lg">Because the best part of the industry is still the people in it. CX Mixer gives brand leaders a place to meet peers, swap ideas, and create the kinds of connections that make conferences feel a lot less random.</p>
+        <a href={`${base}contact/`} class="btn btn--teal">Join the Next Event</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL SIGNUP -->
+  <section class="section section--teal">
+    <div class="container text-center">
+      <div class="reveal">
+        <h2 class="mb-md">Don't miss the next one</h2>
+        <p style="max-width: 50ch; margin: 0 auto var(--space-lg);">Get updates on upcoming events, city drops, and the occasional reason to leave the booth and go do something more fun.</p>
+        <a href={`${base}contact/`} class="btn btn--white">Get Event Updates</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(72px + var(--space-3xl)) 0 var(--space-3xl);
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .hero-shape--1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(249, 115, 58, 0.15);
+    top: -150px;
+    right: -100px;
+  }
+
+  .hero-shape--2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(31, 166, 160, 0.1);
+    bottom: -100px;
+    left: -50px;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+
+  .page-hero-content h1 {
+    color: #fff;
+    margin: var(--space-md) 0;
+  }
+
+  .page-hero-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+    max-width: 50ch;
+  }
+
+  .expect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .expect-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .expect-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .expect-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 20px rgba(19, 35, 60, 0.06);
+  }
+
+  .expect-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .expect-card h4 { margin-bottom: 0.15rem; }
+  .expect-card p { font-size: 0.9rem; color: rgba(42, 47, 54, 0.7); }
+
+  .event-detail-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .event-detail-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .event-detail-card--featured {
+    border-color: var(--orange);
+    background: rgba(249, 115, 58, 0.08);
+  }
+
+  .event-detail-card h3 {
+    color: #fff;
+    font-size: 1.3rem;
+  }
+
+  .event-detail-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .event-detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .event-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--teal);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px) {
+    .expect-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

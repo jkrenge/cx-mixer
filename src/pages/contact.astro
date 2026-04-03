@@ -1,0 +1,307 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+
+const inquiryTypes = [
+  { label: 'General Inquiry', icon: '&#x1F4E8;' },
+  { label: 'Event Questions', icon: '&#x1F3AB;' },
+  { label: 'Sponsor Inquiry', icon: '&#x1F4BC;' },
+  { label: 'Podcast Guest', icon: '&#x1F399;' },
+  { label: 'Join the Collective', icon: '&#x1F91D;' },
+];
+
+const socials = [
+  { name: 'YouTube', url: 'https://www.youtube.com/@CXMixer', svg: '<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/>' },
+  { name: 'Spotify', url: 'https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ', svg: '<path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/>' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/company/cxmixer', svg: '<path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/>' },
+  { name: 'Instagram', url: 'https://www.instagram.com/cxmixer', svg: '<path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4C1.3 2.6.9 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.2.5 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.5C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c1.3-.1 2.2-.2 2.9-.5.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.2-.5-2.9-.3-.8-.7-1.5-1.4-2.2-.7-.7-1.4-1.1-2.2-1.4C19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.8-10.4a1.4 1.4 0 1 0-2.8 0 1.4 1.4 0 0 0 2.8 0z"/>' },
+];
+---
+
+<Base title="Contact CX Mixer | Get in Touch" description="Whether you want to attend, partner, sponsor, or just say hey — we'd love to hear from you.">
+
+  <!-- HERO -->
+  <section class="page-hero section--dark">
+    <div class="page-hero-bg" aria-hidden="true">
+      <div class="hero-shape hero-shape--1"></div>
+      <div class="hero-shape hero-shape--2"></div>
+    </div>
+    <div class="container page-hero-content text-center" style="max-width: 650px; margin: 0 auto;">
+      <h1 class="reveal">Let's connect</h1>
+      <p class="page-hero-subtitle reveal reveal-delay-1" style="margin: 0 auto var(--space-lg);">
+        Whether you want to attend, partner, sponsor, or just say hey — we'd love to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-wrapper reveal">
+          <h2 class="mb-md">Send your note</h2>
+          <form class="contact-form" name="contact" method="POST" data-netlify="true">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name" />
+              </div>
+              <div class="form-field">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your company" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="you@company.com" />
+              </div>
+              <div class="form-field">
+                <label for="role">Role</label>
+                <input type="text" id="role" name="role" placeholder="Your role" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="type">Inquiry Type</label>
+              <select id="type" name="inquiry_type" required>
+                <option value="" disabled selected>Pick the lane that fits</option>
+                {inquiryTypes.map((t) => (
+                  <option value={t.label}>{t.label}</option>
+                ))}
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="What's on your mind?"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send Your Note</button>
+          </form>
+        </div>
+
+        <div class="contact-sidebar">
+          <div class="sidebar-card reveal reveal-delay-1">
+            <h3>Find us online</h3>
+            <div class="social-links">
+              {socials.map((s) => (
+                <a href={s.url} target="_blank" rel="noopener" class="social-link">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" set:html={s.svg} />
+                  <span>{s.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="sidebar-card reveal reveal-delay-2">
+            <h3>Quick links</h3>
+            <div class="quick-links">
+              <a href={`${base}events/`}>Upcoming Events</a>
+              <a href={`${base}podcast/`}>Podcast Episodes</a>
+              <a href={`${base}collective/`}>Join the Collective</a>
+              <a href={`${base}sponsors/`}>Sponsorship Info</a>
+            </div>
+          </div>
+
+          <div class="sidebar-quote reveal reveal-delay-3">
+            <p>We're always up for good people, good ideas, and reasons to make the e-commerce world feel a little more connected.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(72px + var(--space-3xl)) 0 var(--space-2xl);
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .hero-shape--1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(249, 115, 58, 0.12);
+    top: -100px;
+    left: -50px;
+  }
+
+  .hero-shape--2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(31, 166, 160, 0.12);
+    bottom: -80px;
+    right: -50px;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-hero-content h1 {
+    color: #fff;
+  }
+
+  .page-hero-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.15rem;
+  }
+
+  /* CONTACT GRID */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  /* FORM */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--navy);
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-md);
+    background: #fff;
+    color: var(--charcoal);
+    transition: all var(--duration-fast) var(--ease-out);
+    outline: none;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(31, 166, 160, 0.1);
+  }
+
+  .form-field textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232A2F36' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  /* SIDEBAR */
+  .sidebar-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    margin-bottom: var(--space-md);
+  }
+
+  .sidebar-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-md);
+    color: var(--navy);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all var(--duration-fast) var(--ease-out);
+  }
+
+  .social-link:hover {
+    background: rgba(31, 166, 160, 0.06);
+    color: var(--teal);
+  }
+
+  .quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .quick-links a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    color: var(--navy);
+    font-weight: 500;
+    transition: color var(--duration-fast);
+  }
+
+  .quick-links a:hover {
+    color: var(--teal);
+  }
+
+  .sidebar-quote {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .sidebar-quote p {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
