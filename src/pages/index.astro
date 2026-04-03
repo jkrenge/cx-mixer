@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-const base = import.meta.env.BASE_URL;
 
 const brands = [
   'Glossier', 'True Classic', 'Everlane', 'Vuori', 'Tommy John',
@@ -13,6 +12,9 @@ const episodes = [
   { title: 'How 8 CX Leaders Are Making AI Work — Right Now', guests: 'Glossier, Dr. Squatch, Caraway & more', tag: 'Bonus', num: '01' },
   { title: '0 to 100: Building CX From Day One', guests: 'Breanna Moreno & Dan Kaparski', tag: 'S2', num: '02' },
   { title: 'Quiet Luxury, Human CX', guests: 'Everlane & Vuori', tag: 'S2', num: '03' },
+  { title: 'The Modern Man\'s Journey', guests: 'Suit Shop & Taylor Stitch', tag: 'S2', num: '04' },
+  { title: 'The Fine Print: Fighting Fraud', guests: 'Fanatics Live & Nathan James', tag: 'S2', num: '05' },
+  { title: 'From Cart to Closet to Cup Holder', guests: 'Simple Modern & 32 Degrees', tag: 'S1', num: '06' },
 ];
 
 const features = [
@@ -21,6 +23,16 @@ const features = [
   { icon: '&#x1F310;', title: 'Trusted Community', desc: 'A network that skips the pitch and shares the playbook' },
   { icon: '&#x2728;', title: 'Zero Sales Energy', desc: 'Connection without the noise. Just great people, period.' },
 ];
+
+const values = [
+  { icon: '&#x1F49A;', text: 'Be generous' },
+  { icon: '&#x1F3AF;', text: 'Keep it real' },
+  { icon: '&#x1F4A1;', text: 'Share what\'s useful' },
+  { icon: '&#x1F64F;', text: 'Respect the room' },
+  { icon: '&#x1F91D;', text: 'Build relationships, not transactions' },
+];
+
+const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', 'Podcast Guest', 'Join the Collective'];
 ---
 
 <Base title="CX Mixer | E-commerce Events, Community & Podcast">
@@ -32,7 +44,6 @@ const features = [
       <div class="hero__orb hero__orb--2"></div>
       <div class="hero__orb hero__orb--3"></div>
       <div class="hero__grid"></div>
-      <!-- Decorative floating elements -->
       <div class="hero__deco hero__deco--star">&#x2726;</div>
       <div class="hero__deco hero__deco--cross">+</div>
       <div class="hero__deco hero__deco--ring"></div>
@@ -53,8 +64,8 @@ const features = [
       </p>
 
       <div class="hero__actions" style="animation: slide-up 0.7s var(--ease) 0.3s both;">
-        <a href={`${base}collective/`} class="btn btn--primary">Join the Collective</a>
-        <a href={`${base}events/`} class="btn btn--ghost">See Upcoming Events</a>
+        <a href="#collective" class="btn btn--primary">Join the Collective</a>
+        <a href="#events" class="btn btn--ghost">See Upcoming Events</a>
       </div>
 
       <div class="hero__listen" style="animation: fade-in 1s var(--ease) 0.6s both;">
@@ -65,13 +76,9 @@ const features = [
         <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" class="hero__listen-icon" aria-label="YouTube">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
         </a>
-        <a href="https://podcasts.apple.com/us/podcast/the-cx-mixer" target="_blank" rel="noopener" class="hero__listen-icon" aria-label="Apple Podcasts">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 3.6c4.6 0 8.4 3.8 8.4 8.4 0 2.4-1 4.5-2.6 6.1-.3-.9-.7-1.6-1.2-2.3 1-1.1 1.6-2.4 1.6-3.8 0-3.4-2.8-6.2-6.2-6.2S5.8 8.6 5.8 12c0 1.4.6 2.8 1.6 3.8-.5.6-.9 1.4-1.2 2.3C4.6 16.5 3.6 14.4 3.6 12c0-4.6 3.8-8.4 8.4-8.4zm0 4.8c-2 0-3.6 1.6-3.6 3.6 0 1.2.6 2.3 1.5 2.9-.2.5-.3 1-.4 1.5-.1.6 0 1.2.1 1.7l.8 3.6c.2.7.8 1.3 1.6 1.3s1.4-.5 1.6-1.3l.8-3.6c.2-.5.2-1.1.1-1.7-.1-.5-.2-1-.4-1.5.9-.7 1.5-1.7 1.5-2.9 0-2-1.6-3.6-3.6-3.6zm0 2.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
-        </a>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
     <div class="hero__scroll" aria-hidden="true" style="animation: fade-in 1.2s var(--ease) 1s both;">
       <span>Scroll</span>
       <div class="hero__scroll-line"></div>
@@ -79,7 +86,7 @@ const features = [
   </section>
 
   <!-- ═══ INTRO ═══ -->
-  <section class="section intro" id="intro">
+  <section class="section intro">
     <div class="container">
       <div class="intro__layout">
         <div class="intro__text reveal">
@@ -88,7 +95,7 @@ const features = [
           <p class="mb-md">
             CX Mixer is where e-commerce leaders come to meet good people, share what's actually working, and build relationships that go beyond a badge scan. From curated conference-side events to podcast conversations and a growing community of operators — this is a space designed for connection without the noise.
           </p>
-          <a href={`${base}collective/`} class="btn btn--teal">Explore the Community</a>
+          <a href="#collective" class="btn btn--teal">Explore the Community</a>
         </div>
         <div class="intro__cards">
           {features.map((f, i) => (
@@ -107,7 +114,6 @@ const features = [
 
   <!-- ═══ EVENTS ═══ -->
   <section class="section section--dark events" id="events">
-    <!-- Decorative top border -->
     <div class="divider" style="position:absolute;top:0;left:0;right:0;height:4px;" aria-hidden="true"></div>
     <div class="container">
       <div class="events__head reveal">
@@ -140,9 +146,6 @@ const features = [
           <span class="events__card-tag">Coming Soon</span>
         </div>
       </div>
-      <div class="text-center reveal" style="margin-top: var(--sp-xl);">
-        <a href={`${base}events/`} class="btn btn--ghost">View All Events</a>
-      </div>
     </div>
   </section>
 
@@ -167,8 +170,8 @@ const features = [
     </div>
   </section>
 
-  <!-- ═══ COMMUNITY ═══ -->
-  <section class="section community">
+  <!-- ═══ COLLECTIVE ═══ -->
+  <section class="section community" id="collective">
     <div class="container">
       <div class="community__layout">
         <div class="community__visual reveal">
@@ -192,14 +195,21 @@ const features = [
           <p class="community__quote mb-lg">
             Think of it as your industry group chat — but with better people and fewer random pitches.
           </p>
-          <a href={`${base}collective/`} class="btn btn--teal">Join the Collective</a>
+          <div class="community__values">
+            {values.map((v) => (
+              <div class="community__value">
+                <span set:html={v.icon} />
+                <span>{v.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ PODCAST ═══ -->
-  <section class="section section--dark podcast">
+  <section class="section section--dark podcast" id="podcast">
     <div class="divider" style="position:absolute;top:0;left:0;right:0;height:4px;" aria-hidden="true"></div>
     <div class="container">
       <div class="podcast__head reveal">
@@ -211,7 +221,7 @@ const features = [
       </div>
       <div class="podcast__list">
         {episodes.map((ep, i) => (
-          <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class={`podcast__ep reveal reveal-delay-${i + 1}`}>
+          <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class={`podcast__ep reveal ${i < 4 ? `reveal-delay-${i + 1}` : ''}`}>
             <span class="podcast__ep-num">{ep.num}</span>
             <div class="podcast__ep-info">
               <span class="badge badge--dark" style="margin-bottom:0.4rem;">{ep.tag}</span>
@@ -262,8 +272,8 @@ const features = [
     </div>
   </section>
 
-  <!-- ═══ SPONSORS TEASER ═══ -->
-  <section class="section section--coral sponsor-tease">
+  <!-- ═══ SPONSORS ═══ -->
+  <section class="section section--coral sponsor-tease" id="sponsors">
     <div class="sponsor-tease__deco" aria-hidden="true">&#x2726;</div>
     <div class="container text-center">
       <div class="reveal" style="max-width: 600px; margin: 0 auto;">
@@ -271,22 +281,101 @@ const features = [
         <p style="max-width: 50ch; margin: 0 auto var(--sp-lg); opacity: 0.85;">
           CX Mixer works with select sponsors who want to show up in the right rooms, support authentic connection, and build real visibility with e-commerce decision-makers.
         </p>
-        <a href={`${base}sponsors/`} class="btn btn--white">Become a Sponsor</a>
+        <a href="#contact" class="btn btn--white">Become a Sponsor</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══ FINAL CTA ═══ -->
-  <section class="section cta-final">
-    <div class="container text-center">
-      <div class="reveal" style="max-width: 650px; margin: 0 auto;">
-        <h2 class="mb-md text-balance">Come hang with the <em class="serif">good side</em> of e-commerce</h2>
-        <p style="max-width: 45ch; margin: 0 auto var(--sp-lg); font-size: 1.1rem; color: var(--text-muted);">
-          Come for the event. Stay for the people.
-        </p>
-        <div style="display: flex; gap: var(--sp-sm); justify-content: center; flex-wrap: wrap;">
-          <a href={`${base}collective/`} class="btn btn--primary">Join the Collective</a>
-          <a href={`${base}events/`} class="btn btn--secondary">Get Event Updates</a>
+  <!-- ═══ ABOUT ═══ -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about__layout">
+        <div class="reveal">
+          <span class="section-label">About</span>
+          <h2 class="text-balance">It started with a <em class="serif">simple idea</em></h2>
+          <p class="mb-md">
+            CX Mixer started from a belief that the best part of this industry is the people in it. Conferences are full of smart brands and great conversations, but too often the real connection gets buried under schedules, badges, and back-to-back pitches.
+          </p>
+          <p>
+            CX Mixer was built to create the kind of space where those real conversations could actually happen — no forced networking, no agenda beyond genuine connection.
+          </p>
+        </div>
+        <div class="about__card reveal reveal-delay-1">
+          <div class="about__avatar">
+            <span class="about__initials">LT</span>
+          </div>
+          <h3>Larry Thoma</h3>
+          <p class="about__role">Host & Creator, CX Mixer</p>
+          <p class="about__role">Post-Purchase Experience Expert, parcelLab</p>
+          <p class="about__bio">Larry brings the energy, the guest list, and the belief that the industry is better when good people know each other.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section class="section section--dark contact-section" id="contact">
+    <div class="divider" style="position:absolute;top:0;left:0;right:0;height:4px;" aria-hidden="true"></div>
+    <div class="container">
+      <div class="contact__layout">
+        <div class="contact__info reveal">
+          <span class="section-label" style="color: var(--teal);">Get in Touch</span>
+          <h2>Let's <em class="serif">connect</em></h2>
+          <p style="color: rgba(255,255,255,0.55); margin-bottom: var(--sp-lg);">
+            Whether you want to attend, partner, sponsor, or just say hey — we'd love to hear from you.
+          </p>
+          <div class="contact__links">
+            <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" class="contact__link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+              YouTube
+            </a>
+            <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class="contact__link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
+              Spotify
+            </a>
+            <a href="https://www.linkedin.com/company/cxmixer" target="_blank" rel="noopener" class="contact__link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://www.instagram.com/cxmixer" target="_blank" rel="noopener" class="contact__link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4C1.3 2.6.9 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.2.5 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.5C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c1.3-.1 2.2-.2 2.9-.5.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.2-.5-2.9-.3-.8-.7-1.5-1.4-2.2-.7-.7-1.4-1.1-2.2-1.4C19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.8-10.4a1.4 1.4 0 1 0-2.8 0 1.4 1.4 0 0 0 2.8 0z"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+        <div class="contact__form-wrap reveal reveal-delay-1">
+          <form class="contact__form" name="contact" method="POST" data-netlify="true">
+            <div class="contact__form-row">
+              <div class="contact__field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name" />
+              </div>
+              <div class="contact__field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="you@company.com" />
+              </div>
+            </div>
+            <div class="contact__form-row">
+              <div class="contact__field">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your company" />
+              </div>
+              <div class="contact__field">
+                <label for="type">Inquiry Type</label>
+                <select id="type" name="inquiry_type" required>
+                  <option value="" disabled selected>Pick the lane that fits</option>
+                  {inquiryTypes.map((t) => (
+                    <option value={t}>{t}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div class="contact__field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required placeholder="What's on your mind?"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send Your Note</button>
+          </form>
         </div>
       </div>
     </div>
@@ -295,587 +384,154 @@ const features = [
 </Base>
 
 <style>
-  /* ═══════════════════════════════════
-     HERO — full-screen, dramatic
-     ═══════════════════════════════════ */
+  /* ═══ HERO ═══ */
   .hero {
     position: relative;
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
     align-items: center;
-    padding-top: 76px;
+    padding-top: 68px;
     overflow: hidden;
     background: var(--ink);
   }
 
-  .hero__bg {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
+  .hero__bg { position: absolute; inset: 0; overflow: hidden; }
 
-  .hero__orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    will-change: transform;
-  }
+  .hero__orb { position: absolute; border-radius: 50%; filter: blur(100px); will-change: transform; }
+  .hero__orb--1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(255,94,53,0.3), transparent 70%); top: -250px; right: -150px; animation: float 20s ease-in-out infinite; }
+  .hero__orb--2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,212,170,0.2), transparent 70%); bottom: -150px; left: -100px; animation: float 25s ease-in-out infinite reverse; }
+  .hero__orb--3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%); top: 45%; left: 55%; animation: float 18s ease-in-out infinite 3s; }
 
-  .hero__orb--1 {
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(255, 94, 53, 0.3), transparent 70%);
-    top: -250px; right: -150px;
-    animation: float 20s ease-in-out infinite;
-  }
+  .hero__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%); }
 
-  .hero__orb--2 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(0, 212, 170, 0.2), transparent 70%);
-    bottom: -150px; left: -100px;
-    animation: float 25s ease-in-out infinite reverse;
-  }
+  .hero__deco { position: absolute; pointer-events: none; }
+  .hero__deco--star { font-size: 3rem; color: var(--coral); opacity: 0.25; top: 18%; right: 12%; animation: pulse-glow 4s ease-in-out infinite; }
+  .hero__deco--cross { font-family: var(--font-display); font-size: 4rem; font-weight: 900; color: var(--teal); opacity: 0.12; bottom: 25%; right: 22%; animation: spin-slow 40s linear infinite reverse; }
+  .hero__deco--ring { width: 180px; height: 180px; border: 3px solid var(--electric); border-radius: 50%; opacity: 0.08; top: 30%; right: 5%; animation: spin-slow 50s linear infinite; }
 
-  .hero__orb--3 {
-    width: 350px; height: 350px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent 70%);
-    top: 45%; left: 55%;
-    animation: float 18s ease-in-out infinite 3s;
-  }
-
-  .hero__grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%);
-  }
-
-  /* Decorative floating symbols */
-  .hero__deco {
-    position: absolute;
-    pointer-events: none;
-    animation: spin-slow 30s linear infinite;
-  }
-
-  .hero__deco--star {
-    font-size: 3rem;
-    color: var(--coral);
-    opacity: 0.25;
-    top: 18%;
-    right: 12%;
-    animation: pulse-glow 4s ease-in-out infinite;
-  }
-
-  .hero__deco--cross {
-    font-family: var(--font-display);
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--teal);
-    opacity: 0.12;
-    bottom: 25%;
-    right: 22%;
-    animation: spin-slow 40s linear infinite reverse;
-  }
-
-  .hero__deco--ring {
-    width: 180px;
-    height: 180px;
-    border: 3px solid var(--electric);
-    border-radius: 50%;
-    opacity: 0.08;
-    top: 30%;
-    right: 5%;
-    animation: spin-slow 50s linear infinite;
-  }
-
-  .hero__content {
-    position: relative;
-    z-index: 1;
-    padding: var(--sp-3xl) 0;
-    max-width: 780px;
-  }
-
+  .hero__content { position: relative; z-index: 1; padding: var(--sp-3xl) 0; max-width: 780px; }
   .hero__eyebrow { margin-bottom: var(--sp-md); }
+  .hero__title { color: #fff; margin-bottom: var(--sp-md); line-height: 1.0; }
+  .hero__em { display: block; background: linear-gradient(135deg, var(--coral) 0%, var(--lemon) 50%, var(--teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-top: 0.1em; }
+  .hero__em .serif { font-size: 1.1em; }
+  .hero__sub { color: rgba(255,255,255,0.55); font-size: 1.1rem; line-height: 1.75; margin-bottom: var(--sp-lg); max-width: 52ch; }
+  .hero__actions { display: flex; gap: var(--sp-sm); flex-wrap: wrap; margin-bottom: var(--sp-xl); }
+  .hero__listen { display: flex; align-items: center; gap: var(--sp-sm); }
+  .hero__listen-label { color: rgba(255,255,255,0.3); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; font-family: var(--font-display); }
+  .hero__listen-icon { color: rgba(255,255,255,0.3); transition: all var(--fast) var(--ease-bounce); display: flex; }
+  .hero__listen-icon:hover { color: var(--coral); transform: scale(1.2) translateY(-2px); }
 
-  .hero__title {
-    color: #fff;
-    margin-bottom: var(--sp-md);
-    line-height: 1.0;
-  }
-
-  .hero__em {
-    display: block;
-    background: linear-gradient(135deg, var(--coral) 0%, var(--lemon) 50%, var(--teal) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    padding-top: 0.1em;
-  }
-
-  .hero__em .serif {
-    font-size: 1.1em;
-  }
-
-  .hero__sub {
-    color: rgba(255,255,255,0.55);
-    font-size: 1.1rem;
-    line-height: 1.75;
-    margin-bottom: var(--sp-lg);
-    max-width: 52ch;
-  }
-
-  .hero__actions {
-    display: flex;
-    gap: var(--sp-sm);
-    flex-wrap: wrap;
-    margin-bottom: var(--sp-xl);
-  }
-
-  .hero__listen {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-sm);
-  }
-
-  .hero__listen-label {
-    color: rgba(255,255,255,0.3);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-family: var(--font-display);
-  }
-
-  .hero__listen-icon {
-    color: rgba(255,255,255,0.3);
-    transition: all var(--fast) var(--ease-bounce);
-    display: flex;
-  }
-
-  .hero__listen-icon:hover {
-    color: var(--coral);
-    transform: scale(1.2) translateY(-2px);
-  }
-
-  /* Scroll indicator */
-  .hero__scroll {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: rgba(255,255,255,0.25);
-    font-family: var(--font-display);
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-
-  .hero__scroll-line {
-    width: 1.5px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--coral), transparent);
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
+  .hero__scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.25); font-family: var(--font-display); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; }
+  .hero__scroll-line { width: 1.5px; height: 40px; background: linear-gradient(to bottom, var(--coral), transparent); animation: pulse-glow 2s ease-in-out infinite; }
 
   /* ═══ INTRO ═══ */
-  .intro__layout {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: var(--sp-2xl);
-    align-items: start;
-  }
-
-  .intro__cards {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .intro__card {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--sp-md);
-    padding: var(--sp-md) var(--sp-lg);
-    background: var(--surface);
-    border-radius: var(--r-lg);
-    border: 2px solid var(--border);
-    transition: all var(--med) var(--ease);
-    cursor: default;
-  }
-
-  .intro__card:hover {
-    border-color: var(--coral);
-    transform: translateX(6px);
-    box-shadow: -6px 6px 0 var(--coral);
-  }
-
-  .intro__card-icon {
-    font-size: 1.8rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
+  .intro__layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--sp-2xl); align-items: start; }
+  .intro__cards { display: flex; flex-direction: column; gap: 0.75rem; }
+  .intro__card { display: flex; align-items: flex-start; gap: var(--sp-md); padding: var(--sp-md) var(--sp-lg); background: var(--surface); border-radius: var(--r-lg); border: 2px solid var(--border); transition: all var(--med) var(--ease); cursor: default; }
+  .intro__card:hover { border-color: var(--coral); transform: translateX(6px); box-shadow: -6px 6px 0 var(--coral); }
+  .intro__card-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
   .intro__card h4 { margin-bottom: 0.1rem; font-size: 1.05rem; }
   .intro__card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
 
-  @media (max-width: 768px) {
-    .intro__layout { grid-template-columns: 1fr; gap: var(--sp-xl); }
-  }
+  @media (max-width: 768px) { .intro__layout { grid-template-columns: 1fr; gap: var(--sp-xl); } }
 
   /* ═══ EVENTS ═══ */
   .events__head { margin-bottom: var(--sp-xl); }
-
   .events__head .section-label::before { background: var(--teal); }
+  .events__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
+  .events__card { background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); border-radius: var(--r-xl); padding: var(--sp-lg); position: relative; overflow: hidden; transition: all var(--med) var(--ease); }
+  .events__card:hover { border-color: var(--coral); transform: translateY(-6px) rotate(-0.5deg); box-shadow: 0 20px 50px rgba(255,94,53,0.12); }
+  .events__card--featured { border-color: var(--coral); background: rgba(255,94,53,0.06); }
+  .events__card-num { font-family: var(--font-display); font-weight: 900; font-size: 5rem; color: rgba(255,255,255,0.04); position: absolute; top: -0.5rem; right: 1rem; line-height: 1; pointer-events: none; }
+  .events__card h3 { color: #fff; font-size: 1.3rem; margin: 0.6rem 0 0.4rem; }
+  .events__card p { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: var(--sp-md); }
+  .events__card-tag { font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; }
 
-  .events__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-md);
-  }
-
-  .events__card {
-    background: rgba(255,255,255,0.03);
-    border: 2px solid rgba(255,255,255,0.08);
-    border-radius: var(--r-xl);
-    padding: var(--sp-lg);
-    position: relative;
-    overflow: hidden;
-    transition: all var(--med) var(--ease);
-  }
-
-  .events__card:hover {
-    border-color: var(--coral);
-    transform: translateY(-6px) rotate(-0.5deg);
-    box-shadow: 0 20px 50px rgba(255, 94, 53, 0.12);
-  }
-
-  .events__card--featured {
-    border-color: var(--coral);
-    background: rgba(255, 94, 53, 0.06);
-  }
-
-  .events__card-num {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 5rem;
-    color: rgba(255,255,255,0.04);
-    position: absolute;
-    top: -0.5rem;
-    right: 1rem;
-    line-height: 1;
-    pointer-events: none;
-  }
-
-  .events__card h3 {
-    color: #fff;
-    font-size: 1.3rem;
-    margin: 0.6rem 0 0.4rem;
-  }
-
-  .events__card p {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.9rem;
-    margin-bottom: var(--sp-md);
-  }
-
-  .events__card-tag {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.75rem;
-    color: var(--teal);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  @media (max-width: 768px) {
-    .events__grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 768px) { .events__grid { grid-template-columns: 1fr; } }
 
   /* ═══ BRANDS ═══ */
   .brands { padding-bottom: var(--sp-xl); overflow: hidden; }
-
-  .brands__pill {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--ink);
-    padding: 0.55rem 1.4rem;
-    margin: 0 0.35rem;
-    background: var(--surface);
-    border-radius: var(--r-pill);
-    border: 2px solid var(--border);
-    white-space: nowrap;
-    transition: all var(--fast) var(--ease);
-    letter-spacing: -0.01em;
-  }
-
-  .brands__pill:hover {
-    border-color: var(--coral);
-    color: var(--coral);
-    transform: scale(1.05);
-  }
-
-  .brands__pill--alt {
-    background: var(--ink);
-    color: rgba(255,255,255,0.7);
-    border-color: rgba(255,255,255,0.1);
-  }
-
-  .brands__pill--alt:hover {
-    border-color: var(--teal);
-    color: var(--teal);
-  }
+  .brands__pill { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--ink); padding: 0.55rem 1.4rem; margin: 0 0.35rem; background: var(--surface); border-radius: var(--r-pill); border: 2px solid var(--border); white-space: nowrap; transition: all var(--fast) var(--ease); letter-spacing: -0.01em; }
+  .brands__pill:hover { border-color: var(--coral); color: var(--coral); transform: scale(1.05); }
+  .brands__pill--alt { background: var(--ink); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.1); }
+  .brands__pill--alt:hover { border-color: var(--teal); color: var(--teal); }
 
   /* ═══ COMMUNITY ═══ */
-  .community__layout {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: var(--sp-2xl);
-    align-items: center;
-  }
-
-  .community__visual {
-    position: relative;
-    height: 380px;
-  }
-
-  .community__blob {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(0, 212, 170, 0.15), rgba(124, 58, 237, 0.1));
-    filter: blur(60px);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .community__float {
-    position: absolute;
-    background: var(--surface);
-    border-radius: var(--r-lg);
-    padding: 0.85rem 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 0.85rem;
-    box-shadow: 0 12px 40px rgba(10, 15, 28, 0.12);
-    border: 2px solid var(--border);
-    animation: float 6s ease-in-out infinite;
-  }
-
+  .community__layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--sp-2xl); align-items: center; }
+  .community__visual { position: relative; height: 380px; }
+  .community__blob { position: absolute; width: 260px; height: 260px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,212,170,0.15), rgba(124,58,237,0.1)); filter: blur(60px); top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .community__float { position: absolute; background: var(--surface); border-radius: var(--r-lg); padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 0.75rem; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; box-shadow: 0 12px 40px rgba(10,15,28,0.12); border: 2px solid var(--border); animation: float 6s ease-in-out infinite; }
   .community__float span:first-child { font-size: 1.4rem; }
-
   .community__float--1 { top: 15%; left: 5%; }
   .community__float--2 { top: 45%; right: 0%; animation-delay: 2s; }
   .community__float--3 { bottom: 10%; left: 12%; animation-delay: 4s; }
+  .community__quote { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--coral); border-left: 3px solid var(--coral); padding-left: var(--sp-md); }
+  .community__values { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--sp-lg); }
+  .community__value { display: flex; align-items: center; gap: 0.5rem; background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.15); border-radius: var(--r-pill); padding: 0.45rem 1rem; font-size: 0.85rem; font-weight: 500; }
 
-  .community__quote {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--coral);
-    border-left: 3px solid var(--coral);
-    padding-left: var(--sp-md);
-  }
-
-  @media (max-width: 768px) {
-    .community__layout { grid-template-columns: 1fr; }
-    .community__visual { height: 260px; }
-  }
+  @media (max-width: 768px) { .community__layout { grid-template-columns: 1fr; } .community__visual { height: 260px; } }
 
   /* ═══ PODCAST ═══ */
   .podcast__head { margin-bottom: var(--sp-xl); }
   .podcast__head .section-label::before { background: var(--teal); }
-
-  .podcast__list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    border-radius: var(--r-lg);
-    overflow: hidden;
-  }
-
-  .podcast__ep {
-    display: grid;
-    grid-template-columns: 80px 1fr 56px;
-    gap: var(--sp-md);
-    align-items: center;
-    padding: var(--sp-md) var(--sp-lg);
-    background: rgba(255,255,255,0.03);
-    transition: all var(--fast) var(--ease);
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .podcast__ep:hover {
-    background: rgba(255,255,255,0.06);
-  }
-
-  .podcast__ep:hover .podcast__ep-play {
-    transform: scale(1.15);
-    box-shadow: 0 8px 24px rgba(255, 94, 53, 0.4);
-  }
-
-  .podcast__ep-num {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 2rem;
-    color: rgba(255,255,255,0.08);
-    text-align: center;
-  }
-
-  .podcast__ep-info h3 {
-    color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 0.15rem;
-  }
-
-  .podcast__ep-info p {
-    color: rgba(255,255,255,0.4);
-    font-size: 0.85rem;
-  }
-
-  .podcast__ep-play {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--coral);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--med) var(--ease-bounce);
-    flex-shrink: 0;
-  }
-
+  .podcast__list { display: flex; flex-direction: column; gap: 2px; border-radius: var(--r-lg); overflow: hidden; }
+  .podcast__ep { display: grid; grid-template-columns: 80px 1fr 56px; gap: var(--sp-md); align-items: center; padding: var(--sp-md) var(--sp-lg); background: rgba(255,255,255,0.03); transition: all var(--fast) var(--ease); text-decoration: none; color: inherit; }
+  .podcast__ep:hover { background: rgba(255,255,255,0.06); }
+  .podcast__ep:hover .podcast__ep-play { transform: scale(1.15); box-shadow: 0 8px 24px rgba(255,94,53,0.4); }
+  .podcast__ep-num { font-family: var(--font-display); font-weight: 900; font-size: 2rem; color: rgba(255,255,255,0.08); text-align: center; }
+  .podcast__ep-info h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.15rem; }
+  .podcast__ep-info p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+  .podcast__ep-play { width: 48px; height: 48px; border-radius: 50%; background: var(--coral); color: #fff; display: flex; align-items: center; justify-content: center; transition: all var(--med) var(--ease-bounce); flex-shrink: 0; }
   .podcast__ep-play svg { margin-left: 3px; }
+  .podcast__ctas { display: flex; gap: var(--sp-sm); justify-content: center; flex-wrap: wrap; }
 
-  .podcast__ctas {
-    display: flex;
-    gap: var(--sp-sm);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: 768px) {
-    .podcast__ep { grid-template-columns: 1fr 48px; }
-    .podcast__ep-num { display: none; }
-  }
+  @media (max-width: 768px) { .podcast__ep { grid-template-columns: 1fr 48px; } .podcast__ep-num { display: none; } }
 
   /* ═══ TESTIMONIALS ═══ */
-  .quotes__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-md);
-  }
-
-  .quotes__card {
-    background: var(--surface);
-    border-radius: var(--r-xl);
-    padding: var(--sp-xl) var(--sp-lg);
-    border: 2px solid var(--border);
-    position: relative;
-    transition: all var(--med) var(--ease);
-  }
-
-  .quotes__card:hover {
-    transform: translateY(-6px) rotate(0.5deg);
-    box-shadow: 0 20px 50px rgba(10, 15, 28, 0.1);
-    border-color: var(--teal);
-  }
-
-  .quotes__card--accent {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: rgba(255,255,255,0.85);
-  }
-
+  .quotes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
+  .quotes__card { background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-xl) var(--sp-lg); border: 2px solid var(--border); position: relative; transition: all var(--med) var(--ease); }
+  .quotes__card:hover { transform: translateY(-6px) rotate(0.5deg); box-shadow: 0 20px 50px rgba(10,15,28,0.1); border-color: var(--teal); }
+  .quotes__card--accent { background: var(--ink); border-color: var(--ink); color: rgba(255,255,255,0.85); }
   .quotes__card--accent .quotes__mark { color: var(--coral); }
   .quotes__card--accent p { color: #fff; }
   .quotes__card--accent cite { color: rgba(255,255,255,0.4); }
+  .quotes__card--accent:hover { border-color: var(--coral); transform: translateY(-6px) rotate(-0.5deg); }
+  .quotes__mark { font-family: var(--font-serif); font-size: 5rem; color: var(--teal); opacity: 0.3; line-height: 0.6; margin-bottom: 0.5rem; display: block; }
+  .quotes__card p { font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: var(--sp-sm); line-height: 1.5; }
+  .quotes__card cite { font-style: normal; font-size: 0.8rem; color: var(--mist); font-weight: 600; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; }
 
-  .quotes__card--accent:hover {
-    border-color: var(--coral);
-    transform: translateY(-6px) rotate(-0.5deg);
-  }
+  @media (max-width: 768px) { .quotes__grid { grid-template-columns: 1fr; } }
 
-  .quotes__mark {
-    font-family: var(--font-serif);
-    font-size: 5rem;
-    color: var(--teal);
-    opacity: 0.3;
-    line-height: 0.6;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
+  /* ═══ SPONSORS ═══ */
+  .sponsor-tease { position: relative; overflow: hidden; }
+  .sponsor-tease__deco { position: absolute; font-size: 20rem; opacity: 0.08; top: -3rem; right: -2rem; pointer-events: none; animation: spin-slow 60s linear infinite; }
 
-  .quotes__card p {
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: var(--sp-sm);
-    line-height: 1.5;
-  }
+  /* ═══ ABOUT ═══ */
+  .about__layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--sp-2xl); align-items: center; }
+  .about__card { background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-xl); text-align: center; border: 2px solid var(--border); }
+  .about__avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--coral)); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--sp-md); }
+  .about__initials { font-family: var(--font-display); font-weight: 900; font-size: 1.8rem; color: #fff; }
+  .about__role { color: var(--mist); font-size: 0.85rem; margin-bottom: 0.15rem; }
+  .about__bio { color: var(--text-muted); font-size: 0.9rem; margin-top: var(--sp-sm); }
 
-  .quotes__card cite {
-    font-style: normal;
-    font-size: 0.8rem;
-    color: var(--mist);
-    font-weight: 600;
-    font-family: var(--font-display);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
+  @media (max-width: 768px) { .about__layout { grid-template-columns: 1fr; } }
 
-  @media (max-width: 768px) {
-    .quotes__grid { grid-template-columns: 1fr; }
-  }
+  /* ═══ CONTACT ═══ */
+  .contact__layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--sp-2xl); align-items: start; }
+  .contact__links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .contact__link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: var(--r-pill); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); font-weight: 500; font-size: 0.85rem; transition: all var(--fast) var(--ease); }
+  .contact__link:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  .contact__form { display: flex; flex-direction: column; gap: var(--sp-md); }
+  .contact__form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-md); }
+  .contact__field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .contact__field label { font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 0.02em; }
+  .contact__field input, .contact__field select, .contact__field textarea { font-family: var(--font-body); font-size: 0.9rem; padding: 0.7rem 1rem; border: 2px solid rgba(255,255,255,0.1); border-radius: var(--r-md); background: rgba(255,255,255,0.04); color: #fff; transition: all var(--fast) var(--ease); outline: none; }
+  .contact__field input:focus, .contact__field select:focus, .contact__field textarea:focus { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(255,94,53,0.15); }
+  .contact__field input::placeholder, .contact__field textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .contact__field textarea { resize: vertical; min-height: 100px; }
+  .contact__field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; color: rgba(255,255,255,0.6); }
+  .contact__field option { background: var(--ink); color: #fff; }
 
-  /* ═══ SPONSORS TEASER ═══ */
-  .sponsor-tease {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .sponsor-tease__deco {
-    position: absolute;
-    font-size: 20rem;
-    opacity: 0.08;
-    top: -3rem;
-    right: -2rem;
-    pointer-events: none;
-    animation: spin-slow 60s linear infinite;
-  }
-
-  /* ═══ FINAL CTA ═══ */
-  .cta-final {
-    padding: var(--sp-3xl) 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-final::before {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 94, 53, 0.06), transparent 70%);
-    top: -200px;
-    right: -100px;
-    pointer-events: none;
-  }
+  @media (max-width: 768px) { .contact__layout { grid-template-columns: 1fr; } .contact__form-row { grid-template-columns: 1fr; } }
 </style>

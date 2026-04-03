@@ -1,7 +1,8 @@
 /* ===== CX Mixer — Design System v2 ===== */
 
-/* Typography: Syne (bold geometric display) + Outfit (warm readable body) */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=Instrument+Serif&display=swap');
+/* Typography: Satoshi (clean geometric display) + Outfit (warm readable body) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Instrument+Serif&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
 
 /* Reset */
 *, *::before, *::after {
@@ -41,7 +42,7 @@
   --border: rgba(10, 15, 28, 0.08);
 
   /* Typography */
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Satoshi', sans-serif;
   --font-body: 'Outfit', sans-serif;
   --font-serif: 'Instrument Serif', serif;
 
