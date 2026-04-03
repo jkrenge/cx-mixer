@@ -41,7 +41,7 @@ const values = [
       <div class="hero-shape hero-shape--2"></div>
     </div>
     <div class="container page-hero-content">
-      <span class="badge badge--orange reveal">Sponsors</span>
+      <span class="badge badge--coral reveal">Sponsors</span>
       <h1 class="reveal reveal-delay-1">Support the rooms people actually want to be in</h1>
       <p class="page-hero-subtitle reveal reveal-delay-2">
         CX Mixer partners with select sponsors who want meaningful visibility with e-commerce brands through events, media, and community.
@@ -94,14 +94,14 @@ const values = [
     <div class="container">
       <div class="fit-grid">
         <div class="reveal">
-          <span class="section-label" style="color: var(--orange);">Best Fit</span>
+          <span class="section-label" style="color: var(--coral);">Best Fit</span>
           <h2>Who we love working with</h2>
           <p style="color: rgba(255,255,255,0.7);">We work best with sponsors who value relationships, community, and long-term credibility over short-term noise.</p>
         </div>
         <div class="fit-list">
           {values.map((v, i) => (
             <div class={`fit-item reveal reveal-delay-${Math.min(i + 1, 4)}`}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>{v}</span>
             </div>
           ))}
@@ -115,7 +115,7 @@ const values = [
     <div class="container text-center">
       <div class="reveal">
         <h2 class="mb-md text-balance">Let's build something people remember</h2>
-        <p style="max-width: 50ch; margin: 0 auto var(--space-lg);">From conference-side activations to podcast support to creative custom collabs — we build sponsor opportunities that feel aligned with the CX Mixer experience.</p>
+        <p style="max-width: 50ch; margin: 0 auto var(--sp-lg);">From conference-side activations to podcast support to creative custom collabs — we build sponsor opportunities that feel aligned with the CX Mixer experience.</p>
         <a href={`${base}contact/`} class="btn btn--white">Inquire About Sponsorship</a>
       </div>
     </div>
@@ -126,7 +126,7 @@ const values = [
 <style>
   .page-hero {
     position: relative;
-    padding: calc(72px + var(--space-3xl)) 0 var(--space-3xl);
+    padding: calc(72px + var(--sp-3xl)) 0 var(--sp-3xl);
     overflow: hidden;
   }
 
@@ -165,25 +165,25 @@ const values = [
 
   .page-hero-content h1 {
     color: #fff;
-    margin: var(--space-md) 0;
+    margin: var(--sp-md) 0;
   }
 
   .page-hero-subtitle {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.15rem;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--sp-lg);
   }
 
   /* SPONSOR CARDS */
   .sponsor-card {
-    background: var(--cream);
+    background: var(--warm-white);
     border: 2px solid rgba(0, 0, 0, 0.06);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl) var(--space-lg);
+    border-radius: var(--r-lg);
+    padding: var(--sp-xl) var(--sp-lg);
     display: flex;
     flex-direction: column;
     text-align: center;
-    transition: all var(--duration-normal) var(--ease-out);
+    transition: all var(--med) var(--ease);
   }
 
   .sponsor-card:hover {
@@ -192,7 +192,7 @@ const values = [
   }
 
   .sponsor-card--featured {
-    border-color: var(--orange);
+    border-color: var(--coral);
     background: #fff;
     position: relative;
   }
@@ -203,37 +203,37 @@ const values = [
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--orange);
+    background: var(--coral);
     color: #fff;
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-weight: 600;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.3rem 1rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--r-pill);
   }
 
   .sponsor-icon {
     font-size: 2.5rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--sp-sm);
   }
 
   .sponsor-card h3 {
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--sp-xs);
   }
 
   .sponsor-desc {
     font-size: 0.9rem;
     color: rgba(42, 47, 54, 0.7);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--sp-md);
   }
 
   .sponsor-features {
     list-style: none;
     text-align: left;
     margin-bottom: auto;
-    padding-bottom: var(--space-lg);
+    padding-bottom: var(--sp-lg);
   }
 
   .sponsor-features li {
@@ -242,34 +242,34 @@ const values = [
     gap: 0.5rem;
     font-size: 0.9rem;
     padding: 0.4rem 0;
-    color: var(--charcoal);
+    color: var(--text);
   }
 
   /* FIT SECTION */
   .fit-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    gap: var(--sp-2xl);
     align-items: start;
   }
 
   .fit-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--sp-sm);
   }
 
   .fit-item {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: var(--sp-sm);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
+    border-radius: var(--r-lg);
     padding: 1rem 1.25rem;
     color: #fff;
     font-weight: 500;
-    transition: all var(--duration-fast) var(--ease-out);
+    transition: all var(--fast) var(--ease);
   }
 
   .fit-item:hover {

@@ -46,7 +46,7 @@ const expectations = [
       <div class="hero-shape hero-shape--2"></div>
     </div>
     <div class="container page-hero-content">
-      <span class="badge badge--orange reveal">Events</span>
+      <span class="badge badge--coral reveal">Events</span>
       <h1 class="reveal reveal-delay-1">No pitches.<br/>Just brands.</h1>
       <p class="page-hero-subtitle reveal reveal-delay-2">
         CX Mixer events are built to help e-commerce people connect in real life through curated gatherings tied to the industry's biggest moments.
@@ -83,13 +83,13 @@ const expectations = [
   <section class="section section--dark" id="upcoming">
     <div class="container">
       <div class="reveal mb-xl">
-        <span class="section-label" style="color: var(--orange);">Upcoming</span>
+        <span class="section-label" style="color: var(--coral);">Upcoming</span>
         <h2>Upcoming Mixers</h2>
       </div>
       <div class="grid-3">
         {upcomingEvents.map((event, i) => (
           <div class={`event-detail-card ${event.featured ? 'event-detail-card--featured' : ''} reveal reveal-delay-${i + 1}`}>
-            <span class="badge badge--orange">{event.type}</span>
+            <span class="badge badge--coral">{event.type}</span>
             <h3>{event.name}</h3>
             <p class="event-detail-desc">{event.description}</p>
             <div class="event-detail-meta">
@@ -126,7 +126,7 @@ const expectations = [
     <div class="container text-center">
       <div class="reveal">
         <h2 class="mb-md">Don't miss the next one</h2>
-        <p style="max-width: 50ch; margin: 0 auto var(--space-lg);">Get updates on upcoming events, city drops, and the occasional reason to leave the booth and go do something more fun.</p>
+        <p style="max-width: 50ch; margin: 0 auto var(--sp-lg);">Get updates on upcoming events, city drops, and the occasional reason to leave the booth and go do something more fun.</p>
         <a href={`${base}contact/`} class="btn btn--white">Get Event Updates</a>
       </div>
     </div>
@@ -137,7 +137,7 @@ const expectations = [
 <style>
   .page-hero {
     position: relative;
-    padding: calc(72px + var(--space-3xl)) 0 var(--space-3xl);
+    padding: calc(72px + var(--sp-3xl)) 0 var(--sp-3xl);
     overflow: hidden;
   }
 
@@ -176,39 +176,39 @@ const expectations = [
 
   .page-hero-content h1 {
     color: #fff;
-    margin: var(--space-md) 0;
+    margin: var(--sp-md) 0;
   }
 
   .page-hero-subtitle {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.15rem;
     line-height: 1.7;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--sp-lg);
     max-width: 50ch;
   }
 
   .expect-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    gap: var(--sp-2xl);
     align-items: start;
   }
 
   .expect-cards {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--sp-sm);
   }
 
   .expect-card {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-sm);
+    gap: var(--sp-sm);
     background: #fff;
-    border-radius: var(--radius-lg);
-    padding: var(--space-md);
+    border-radius: var(--r-lg);
+    padding: var(--sp-md);
     border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: all var(--duration-normal) var(--ease-out);
+    transition: all var(--med) var(--ease);
   }
 
   .expect-card:hover {
@@ -228,12 +228,12 @@ const expectations = [
   .event-detail-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    border-radius: var(--r-lg);
+    padding: var(--sp-lg);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
-    transition: all var(--duration-normal) var(--ease-out);
+    gap: var(--sp-xs);
+    transition: all var(--med) var(--ease);
   }
 
   .event-detail-card:hover {
@@ -242,7 +242,7 @@ const expectations = [
   }
 
   .event-detail-card--featured {
-    border-color: var(--orange);
+    border-color: var(--coral);
     background: rgba(249, 115, 58, 0.08);
   }
 
@@ -254,14 +254,14 @@ const expectations = [
   .event-detail-desc {
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--sp-sm);
   }
 
   .event-detail-meta {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--sp-sm);
   }
 
   .event-meta-item {

@@ -89,9 +89,9 @@ const principles = [
     <div class="container">
       <div class="founder-grid">
         <div class="reveal">
-          <span class="section-label" style="color: var(--orange);">The Host</span>
+          <span class="section-label" style="color: var(--coral);">The Host</span>
           <h2>Meet Larry Thoma</h2>
-          <p style="color: rgba(255,255,255,0.7); margin-bottom: var(--space-md);">
+          <p style="color: rgba(255,255,255,0.7); margin-bottom: var(--sp-md);">
             Larry Thoma is the host and creator of CX Mixer, and a Post-Purchase Experience Expert at parcelLab. Working directly with some of the most creative and fast-growing DTC brands in e-commerce, Larry saw a gap — smart people attending the same conferences, having the same challenges, but never connecting in a way that felt real.
           </p>
           <p style="color: rgba(255,255,255,0.7);">
@@ -121,7 +121,7 @@ const principles = [
       <div class="reveal" style="max-width: 600px; margin: 0 auto;">
         <h2 class="mb-md text-balance">Want in?</h2>
         <p class="mb-lg">Whether you're looking for your next event, your next great conversation, or your next industry connection — CX Mixer is built to help you find it.</p>
-        <div style="display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;">
+        <div style="display: flex; gap: var(--sp-sm); justify-content: center; flex-wrap: wrap;">
           <a href={`${base}collective/`} class="btn btn--primary">Join the Collective</a>
           <a href={`${base}events/`} class="btn btn--secondary">See Upcoming Events</a>
         </div>
@@ -134,7 +134,7 @@ const principles = [
 <style>
   .page-hero {
     position: relative;
-    padding: calc(72px + var(--space-3xl)) 0 var(--space-3xl);
+    padding: calc(72px + var(--sp-3xl)) 0 var(--sp-3xl);
     overflow: hidden;
   }
 
@@ -173,37 +173,37 @@ const principles = [
 
   .page-hero-content h1 {
     color: #fff;
-    margin: var(--space-md) 0;
+    margin: var(--sp-md) 0;
   }
 
   .page-hero-subtitle {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.15rem;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--sp-lg);
   }
 
   /* ORIGIN */
   .origin-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    gap: var(--sp-2xl);
     align-items: center;
   }
 
   .origin-quote-card {
     background: #fff;
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    border-left: 4px solid var(--orange);
+    border-radius: var(--r-lg);
+    padding: var(--sp-xl);
+    border-left: 4px solid var(--coral);
     box-shadow: 0 12px 30px rgba(19, 35, 60, 0.08);
   }
 
   .origin-quote-card p {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: 1.3rem;
     font-weight: 600;
-    color: var(--navy);
-    margin-bottom: var(--space-sm);
+    color: var(--ink);
+    margin-bottom: var(--sp-sm);
     line-height: 1.4;
   }
 
@@ -217,25 +217,25 @@ const principles = [
   .principles-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    gap: var(--sp-2xl);
     align-items: start;
   }
 
   .principles-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--sp-sm);
   }
 
   .principle-item {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: var(--sp-sm);
     background: #fff;
-    border-radius: var(--radius-lg);
+    border-radius: var(--r-lg);
     padding: 1rem 1.25rem;
     border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: all var(--duration-fast) var(--ease-out);
+    transition: all var(--fast) var(--ease);
   }
 
   .principle-item:hover {
@@ -250,14 +250,14 @@ const principles = [
 
   .principle-text {
     font-weight: 500;
-    color: var(--navy);
+    color: var(--ink);
   }
 
   /* FOUNDER */
   .founder-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    gap: var(--sp-2xl);
     align-items: center;
   }
 
@@ -265,23 +265,23 @@ const principles = [
     text-align: center;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
+    border-radius: var(--r-lg);
+    padding: var(--sp-xl);
   }
 
   .founder-avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal), var(--orange));
+    background: linear-gradient(135deg, var(--teal), var(--coral));
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto var(--space-md);
+    margin: 0 auto var(--sp-md);
   }
 
   .founder-initials {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 2rem;
     color: #fff;
@@ -294,16 +294,16 @@ const principles = [
   }
 
   .founder-socials {
-    margin-top: var(--space-md);
+    margin-top: var(--sp-md);
   }
 
   .founder-socials a {
     color: rgba(255, 255, 255, 0.5);
-    transition: color var(--duration-fast);
+    transition: color var(--fast);
   }
 
   .founder-socials a:hover {
-    color: var(--orange);
+    color: var(--coral);
   }
 
   @media (max-width: 768px) {

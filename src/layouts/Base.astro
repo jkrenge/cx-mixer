@@ -25,28 +25,29 @@ const base = import.meta.env.BASE_URL;
   <meta property="og:type" content="website" />
 </head>
 <body>
-  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <header class="site-header" id="site-header">
-    <nav class="site-nav container" aria-label="Main navigation">
-      <a href={`${base}`} class="site-logo" aria-label="CX Mixer Home">
-        <span class="logo-text">CX<span class="logo-accent">Mixer</span></span>
+  <header class="hdr" id="hdr">
+    <nav class="hdr__nav container" aria-label="Main navigation">
+      <a href={`${base}`} class="hdr__logo" aria-label="CX Mixer Home">
+        <span class="logo">
+          <span class="logo__cx">CX</span><span class="logo__mixer">Mixer</span>
+          <span class="logo__dot" aria-hidden="true"></span>
+        </span>
       </a>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="hdr__toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">
+        <span></span><span></span><span></span>
       </button>
 
-      <ul class="nav-links" id="nav-links">
+      <ul class="hdr__links" id="nav-links">
         <li><a href={`${base}`}>Home</a></li>
         <li><a href={`${base}events/`}>Events</a></li>
-        <li><a href={`${base}collective/`}>The CX Collective</a></li>
+        <li><a href={`${base}collective/`}>Collective</a></li>
         <li><a href={`${base}podcast/`}>Podcast</a></li>
         <li><a href={`${base}sponsors/`}>Sponsors</a></li>
         <li><a href={`${base}about/`}>About</a></li>
-        <li><a href={`${base}contact/`} class="btn btn--primary btn--nav">Let's Connect</a></li>
+        <li><a href={`${base}contact/`} class="btn btn--primary hdr__cta">Let's Connect</a></li>
       </ul>
     </nav>
   </header>
@@ -55,301 +56,301 @@ const base = import.meta.env.BASE_URL;
     <slot />
   </main>
 
-  <footer class="site-footer section--dark">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="logo-text logo-text--footer">CX<span class="logo-accent">Mixer</span></span>
-          <p class="footer-tagline">Where e-commerce brands connect beyond the pitch.</p>
-          <div class="footer-socials">
-            <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" aria-label="YouTube">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
-            </a>
-            <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" aria-label="Spotify">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/company/cxmixer" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/cxmixer" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4C1.3 2.6.9 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.2.5 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.5C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c1.3-.1 2.2-.2 2.9-.5.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.2-.5-2.9-.3-.8-.7-1.5-1.4-2.2-.7-.7-1.4-1.1-2.2-1.4C19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.8-10.4a1.4 1.4 0 1 0-2.8 0 1.4 1.4 0 0 0 2.8 0z"/></svg>
-            </a>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="ft">
+    <!-- Gradient line -->
+    <div class="divider" style="height:4px;" aria-hidden="true"></div>
+    <div class="ft__inner">
+      <div class="container">
+        <div class="ft__top">
+          <div class="ft__brand">
+            <span class="logo logo--lg">
+              <span class="logo__cx">CX</span><span class="logo__mixer">Mixer</span>
+              <span class="logo__dot" aria-hidden="true"></span>
+            </span>
+            <p class="ft__tagline">Where e-commerce brands connect <em class="serif">beyond the pitch.</em></p>
+            <div class="ft__socials">
+              <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+              </a>
+              <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" aria-label="Spotify">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/company/cxmixer" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/cxmixer" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 5.8.1 4.9.3 4.1.6c-.8.3-1.5.7-2.2 1.4C1.3 2.6.9 3.3.6 4.1.3 4.9.1 5.8.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.1 1.3.2 2.2.5 2.9.3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.6.5 2.9.5C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c1.3-.1 2.2-.2 2.9-.5.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.6.5-2.9.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.3-.2-2.2-.5-2.9-.3-.8-.7-1.5-1.4-2.2-.7-.7-1.4-1.1-2.2-1.4C19.1.3 18.2.1 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.8-10.4a1.4 1.4 0 1 0-2.8 0 1.4 1.4 0 0 0 2.8 0z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="ft__col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href={`${base}events/`}>Upcoming Events</a></li>
+              <li><a href={`${base}podcast/`}>Podcast Episodes</a></li>
+              <li><a href={`${base}collective/`}>Join the Collective</a></li>
+              <li><a href={`${base}about/`}>About CX Mixer</a></li>
+            </ul>
+          </div>
+
+          <div class="ft__col">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href={`${base}sponsors/`}>Sponsor Opportunities</a></li>
+              <li><a href={`${base}contact/`}>Contact Us</a></li>
+              <li><a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener">YouTube</a></li>
+              <li><a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener">Spotify</a></li>
+            </ul>
+          </div>
+
+          <div class="ft__col">
+            <h4>Listen</h4>
+            <ul>
+              <li><a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener">Spotify</a></li>
+              <li><a href="https://podcasts.apple.com/us/podcast/the-cx-mixer" target="_blank" rel="noopener">Apple Podcasts</a></li>
+              <li><a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener">YouTube</a></li>
+            </ul>
           </div>
         </div>
 
-        <div class="footer-links-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href={`${base}events/`}>Upcoming Events</a></li>
-            <li><a href={`${base}podcast/`}>Podcast Episodes</a></li>
-            <li><a href={`${base}collective/`}>Join the Collective</a></li>
-            <li><a href={`${base}about/`}>About CX Mixer</a></li>
-          </ul>
+        <div class="ft__bottom">
+          <p>&copy; {new Date().getFullYear()} CX Mixer. All rights reserved.</p>
+          <p>A <a href="https://parcellab.com" target="_blank" rel="noopener">parcelLab</a> production.</p>
         </div>
-
-        <div class="footer-links-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href={`${base}sponsors/`}>Sponsor Opportunities</a></li>
-            <li><a href={`${base}contact/`}>Contact Us</a></li>
-            <li><a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener">YouTube</a></li>
-            <li><a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener">Spotify</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links-col">
-          <h4>Listen</h4>
-          <ul>
-            <li><a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener">Spotify</a></li>
-            <li><a href="https://podcasts.apple.com/us/podcast/the-cx-mixer" target="_blank" rel="noopener">Apple Podcasts</a></li>
-            <li><a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener">YouTube</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} CX Mixer. All rights reserved.</p>
-        <p class="footer-credit">A <a href="https://parcellab.com" target="_blank" rel="noopener">parcelLab</a> production.</p>
       </div>
     </div>
   </footer>
 
   <style>
-    /* Header */
-    .site-header {
+    /* ═══ HEADER ═══ */
+    .hdr {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(247, 244, 238, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      transition: all var(--duration-normal) var(--ease-out);
+      background: rgba(255, 250, 245, 0.75);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      border-bottom: 1.5px solid rgba(10, 15, 28, 0.06);
+      transition: all var(--med) var(--ease);
     }
 
-    .site-header.scrolled {
-      box-shadow: 0 4px 20px rgba(19, 35, 60, 0.08);
+    .hdr.scrolled {
+      background: rgba(255, 250, 245, 0.92);
+      box-shadow: 0 4px 30px rgba(10, 15, 28, 0.08);
     }
 
-    .site-nav {
+    .hdr__nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: 76px;
     }
 
-    .site-logo {
-      text-decoration: none;
+    .hdr__logo { text-decoration: none; }
+
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      position: relative;
     }
 
-    .logo-text {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--navy);
-      letter-spacing: -0.03em;
+    .logo--lg { font-size: 2rem; }
+
+    .logo__cx { color: var(--ink); }
+    .logo__mixer { color: var(--coral); }
+
+    .logo__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: inline-block;
+      margin-left: 3px;
+      animation: pulse-glow 3s ease-in-out infinite;
     }
 
-    .logo-text--footer {
-      font-size: 1.8rem;
-    }
-
-    .logo-accent {
-      color: var(--orange);
-    }
-
-    .nav-links {
+    .hdr__links {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.15rem;
       list-style: none;
     }
 
-    .nav-links a {
-      font-family: var(--font-heading);
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: var(--navy);
-      padding: 0.5rem 0.85rem;
-      border-radius: var(--radius-full);
-      transition: all var(--duration-fast) var(--ease-out);
+    .hdr__links a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--ink);
+      padding: 0.5rem 0.9rem;
+      border-radius: var(--r-pill);
+      transition: all var(--fast) var(--ease);
+      letter-spacing: -0.01em;
     }
 
-    .nav-links a:hover {
-      background: rgba(19, 35, 60, 0.06);
-      color: var(--navy);
+    .hdr__links a:hover {
+      background: rgba(10, 15, 28, 0.05);
+      color: var(--coral);
     }
 
-    .btn--nav {
-      padding: 0.6rem 1.25rem !important;
-      font-size: 0.85rem !important;
+    .hdr__cta {
+      padding: 0.55rem 1.3rem !important;
+      font-size: 0.8rem !important;
+      margin-left: 0.5rem;
     }
 
-    .btn--nav:hover {
-      background: rgba(19, 35, 60, 0.06) !important;
-      color: #fff !important;
-    }
-
-    .nav-toggle {
+    .hdr__toggle {
       display: none;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
       background: none;
       border: none;
       cursor: pointer;
       padding: 0.5rem;
     }
 
-    .nav-toggle span {
+    .hdr__toggle span {
       display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--navy);
-      transition: all var(--duration-fast) var(--ease-out);
+      width: 26px;
+      height: 2.5px;
+      background: var(--ink);
       border-radius: 2px;
+      transition: all var(--fast) var(--ease);
     }
 
-    @media (max-width: 900px) {
-      .nav-toggle {
-        display: flex;
-      }
+    @media (max-width: 960px) {
+      .hdr__toggle { display: flex; }
 
-      .nav-links {
+      .hdr__links {
         position: fixed;
-        top: 72px;
+        top: 76px;
         left: 0;
         right: 0;
         bottom: 0;
         flex-direction: column;
-        background: var(--cream);
-        padding: var(--space-lg);
-        gap: var(--space-xs);
+        background: var(--bg);
+        padding: var(--sp-lg);
+        gap: var(--sp-xs);
         transform: translateX(100%);
-        transition: transform var(--duration-normal) var(--ease-out);
+        transition: transform var(--med) var(--ease);
       }
 
-      .nav-links.open {
-        transform: translateX(0);
-      }
+      .hdr__links.open { transform: translateX(0); }
 
-      .nav-links a {
-        font-size: 1.2rem;
-        padding: 0.75rem 1rem;
-      }
+      .hdr__links a { font-size: 1.3rem; padding: 0.75rem 1rem; }
 
-      .nav-toggle[aria-expanded="true"] span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      .nav-toggle[aria-expanded="true"] span:nth-child(2) {
-        opacity: 0;
-      }
-      .nav-toggle[aria-expanded="true"] span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
+      .hdr__toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+      .hdr__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+      .hdr__toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
     }
 
-    /* Footer */
-    .site-footer {
-      padding: var(--space-2xl) 0 var(--space-lg);
+    /* ═══ FOOTER ═══ */
+    .ft__inner {
+      background: var(--ink);
+      color: rgba(255,255,255,0.6);
+      padding: var(--sp-2xl) 0 var(--sp-lg);
     }
 
-    .footer-grid {
+    .ft__top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: var(--space-xl);
-      margin-bottom: var(--space-xl);
+      grid-template-columns: 2.2fr 1fr 1fr 1fr;
+      gap: var(--sp-xl);
+      margin-bottom: var(--sp-xl);
     }
 
-    .footer-tagline {
-      color: rgba(255, 255, 255, 0.6);
-      margin-top: var(--space-sm);
+    .ft__tagline {
+      color: rgba(255,255,255,0.5);
+      margin-top: var(--sp-sm);
       font-size: 0.95rem;
+      max-width: 30ch;
     }
 
-    .footer-socials {
+    .ft__tagline .serif {
+      color: var(--coral-light);
+    }
+
+    .ft__socials {
       display: flex;
-      gap: var(--space-sm);
-      margin-top: var(--space-md);
+      gap: var(--sp-sm);
+      margin-top: var(--sp-md);
     }
 
-    .footer-socials a {
-      color: rgba(255, 255, 255, 0.5);
-      transition: all var(--duration-fast) var(--ease-out);
+    .ft__socials a {
+      color: rgba(255,255,255,0.35);
+      transition: all var(--fast) var(--ease);
+      display: flex;
     }
 
-    .footer-socials a:hover {
-      color: var(--orange);
-      transform: translateY(-2px);
+    .ft__socials a:hover {
+      color: var(--coral);
+      transform: translateY(-3px);
     }
 
-    .footer-links-col h4 {
-      font-size: 0.85rem;
+    .ft__col h4 {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: var(--space-sm);
-      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.15em;
+      margin-bottom: var(--sp-sm);
+      color: rgba(255,255,255,0.3);
     }
 
-    .footer-links-col ul {
-      list-style: none;
-    }
+    .ft__col ul { list-style: none; }
 
-    .footer-links-col li {
-      margin-bottom: 0.5rem;
-    }
+    .ft__col li { margin-bottom: 0.6rem; }
 
-    .footer-links-col a {
-      color: rgba(255, 255, 255, 0.7);
+    .ft__col a {
+      color: rgba(255,255,255,0.6);
       font-size: 0.9rem;
-      transition: color var(--duration-fast);
+      font-weight: 400;
+      transition: all var(--fast);
     }
 
-    .footer-links-col a:hover {
-      color: var(--orange);
-    }
+    .ft__col a:hover { color: var(--coral); }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: var(--space-lg);
+    .ft__bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: var(--sp-lg);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
     }
 
-    .footer-credit a {
-      color: var(--teal);
-    }
+    .ft__bottom a { color: var(--teal); }
 
     @media (max-width: 768px) {
-      .footer-grid {
+      .ft__top {
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
+        gap: var(--sp-lg);
       }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-
-      .footer-bottom {
+      .ft__brand { grid-column: 1 / -1; }
+      .ft__bottom {
         flex-direction: column;
-        gap: var(--space-xs);
+        gap: var(--sp-xs);
         text-align: center;
       }
     }
   </style>
 
   <script>
-    // Header scroll effect
-    const header = document.getElementById('site-header');
+    // Header scroll
+    const hdr = document.getElementById('hdr');
     window.addEventListener('scroll', () => {
-      header?.classList.toggle('scrolled', window.scrollY > 20);
-    });
+      hdr?.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
 
-    // Mobile nav toggle
+    // Mobile nav
     const toggle = document.getElementById('nav-toggle');
     const links = document.getElementById('nav-links');
     toggle?.addEventListener('click', () => {
@@ -358,19 +359,19 @@ const base = import.meta.env.BASE_URL;
       links?.classList.toggle('open');
     });
 
-    // Scroll reveal
-    const observer = new IntersectionObserver(
+    // Scroll reveal with staggered timing
+    const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
     );
-
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
   </script>
 </body>
 </html>

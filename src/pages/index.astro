@@ -10,190 +10,186 @@ const brands = [
 ];
 
 const episodes = [
-  { title: 'How 8 CX Leaders Are Making AI Work — Right Now', guests: 'Glossier, Dr. Squatch, Caraway & more', tag: 'Bonus' },
-  { title: '0 to 100: Building CX From Day One', guests: 'Breanna Moreno & Dan Kaparski', tag: 'Season 2' },
-  { title: 'Quiet Luxury, Human CX', guests: 'Everlane & Vuori', tag: 'Season 2' },
+  { title: 'How 8 CX Leaders Are Making AI Work — Right Now', guests: 'Glossier, Dr. Squatch, Caraway & more', tag: 'Bonus', num: '01' },
+  { title: '0 to 100: Building CX From Day One', guests: 'Breanna Moreno & Dan Kaparski', tag: 'S2', num: '02' },
+  { title: 'Quiet Luxury, Human CX', guests: 'Everlane & Vuori', tag: 'S2', num: '03' },
+];
+
+const features = [
+  { icon: '&#x26A1;', title: 'Curated Events', desc: 'Intimate gatherings at the industry\'s biggest moments' },
+  { icon: '&#x1F399;', title: 'Real Conversations', desc: 'Operators sharing what actually works — no script' },
+  { icon: '&#x1F310;', title: 'Trusted Community', desc: 'A network that skips the pitch and shares the playbook' },
+  { icon: '&#x2728;', title: 'Zero Sales Energy', desc: 'Connection without the noise. Just great people, period.' },
 ];
 ---
 
 <Base title="CX Mixer | E-commerce Events, Community & Podcast">
-  <!-- HERO -->
+
+  <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-shape hero-shape--1"></div>
-      <div class="hero-shape hero-shape--2"></div>
-      <div class="hero-shape hero-shape--3"></div>
-      <div class="hero-grid-pattern"></div>
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="hero__orb hero__orb--3"></div>
+      <div class="hero__grid"></div>
+      <!-- Decorative floating elements -->
+      <div class="hero__deco hero__deco--star">&#x2726;</div>
+      <div class="hero__deco hero__deco--cross">+</div>
+      <div class="hero__deco hero__deco--ring"></div>
     </div>
-    <div class="container hero-content">
-      <div class="hero-badge reveal">
-        <span class="badge">Events &middot; Community &middot; Podcast</span>
+
+    <div class="container hero__content">
+      <div class="hero__eyebrow" style="animation: slide-up 0.6s var(--ease) both;">
+        <span class="badge badge--outline">Events &middot; Community &middot; Podcast</span>
       </div>
-      <h1 class="hero-title reveal">
-        Where e-commerce brands connect
-        <span class="hero-highlight">beyond the pitch</span>
+
+      <h1 class="hero__title" style="animation: slide-up 0.7s var(--ease) 0.1s both;">
+        Where e-commerce<br/>brands connect
+        <span class="hero__em"><em class="serif">beyond the pitch</em></span>
       </h1>
-      <p class="hero-subtitle reveal reveal-delay-1">
+
+      <p class="hero__sub" style="animation: slide-up 0.7s var(--ease) 0.2s both;">
         CX Mixer brings together brand leaders, operators, and industry friends through curated events, honest conversations, and content that makes the e-commerce world feel a little smaller and a lot more human.
       </p>
-      <div class="hero-ctas reveal reveal-delay-2">
+
+      <div class="hero__actions" style="animation: slide-up 0.7s var(--ease) 0.3s both;">
         <a href={`${base}collective/`} class="btn btn--primary">Join the Collective</a>
-        <a href={`${base}events/`} class="btn btn--secondary">See Upcoming Events</a>
+        <a href={`${base}events/`} class="btn btn--ghost">See Upcoming Events</a>
       </div>
-      <div class="hero-listen reveal reveal-delay-3">
-        <span class="hero-listen-label">Listen on</span>
-        <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class="hero-listen-link" aria-label="Spotify">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
+
+      <div class="hero__listen" style="animation: fade-in 1s var(--ease) 0.6s both;">
+        <span class="hero__listen-label">Listen on</span>
+        <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class="hero__listen-icon" aria-label="Spotify">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
         </a>
-        <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" class="hero-listen-link" aria-label="YouTube">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" class="hero__listen-icon" aria-label="YouTube">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
         </a>
-        <a href="https://podcasts.apple.com/us/podcast/the-cx-mixer" target="_blank" rel="noopener" class="hero-listen-link" aria-label="Apple Podcasts">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 3.6c4.6 0 8.4 3.8 8.4 8.4 0 2.4-1 4.5-2.6 6.1-.3-.9-.7-1.6-1.2-2.3 1-1.1 1.6-2.4 1.6-3.8 0-3.4-2.8-6.2-6.2-6.2S5.8 8.6 5.8 12c0 1.4.6 2.8 1.6 3.8-.5.6-.9 1.4-1.2 2.3C4.6 16.5 3.6 14.4 3.6 12c0-4.6 3.8-8.4 8.4-8.4zm0 4.8c-2 0-3.6 1.6-3.6 3.6 0 1.2.6 2.3 1.5 2.9-.2.5-.3 1-.4 1.5-.1.6 0 1.2.1 1.7l.8 3.6c.2.7.8 1.3 1.6 1.3s1.4-.5 1.6-1.3l.8-3.6c.2-.5.2-1.1.1-1.7-.1-.5-.2-1-.4-1.5.9-.7 1.5-1.7 1.5-2.9 0-2-1.6-3.6-3.6-3.6zm0 2.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
+        <a href="https://podcasts.apple.com/us/podcast/the-cx-mixer" target="_blank" rel="noopener" class="hero__listen-icon" aria-label="Apple Podcasts">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 3.6c4.6 0 8.4 3.8 8.4 8.4 0 2.4-1 4.5-2.6 6.1-.3-.9-.7-1.6-1.2-2.3 1-1.1 1.6-2.4 1.6-3.8 0-3.4-2.8-6.2-6.2-6.2S5.8 8.6 5.8 12c0 1.4.6 2.8 1.6 3.8-.5.6-.9 1.4-1.2 2.3C4.6 16.5 3.6 14.4 3.6 12c0-4.6 3.8-8.4 8.4-8.4zm0 4.8c-2 0-3.6 1.6-3.6 3.6 0 1.2.6 2.3 1.5 2.9-.2.5-.3 1-.4 1.5-.1.6 0 1.2.1 1.7l.8 3.6c.2.7.8 1.3 1.6 1.3s1.4-.5 1.6-1.3l.8-3.6c.2-.5.2-1.1.1-1.7-.1-.5-.2-1-.4-1.5.9-.7 1.5-1.7 1.5-2.9 0-2-1.6-3.6-3.6-3.6zm0 2.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>
         </a>
       </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true" style="animation: fade-in 1.2s var(--ease) 1s both;">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
     </div>
   </section>
 
-  <!-- INTRO -->
-  <section class="section" id="intro">
+  <!-- ═══ INTRO ═══ -->
+  <section class="section intro" id="intro">
     <div class="container">
-      <div class="intro-grid">
-        <div class="intro-text reveal">
+      <div class="intro__layout">
+        <div class="intro__text reveal">
           <span class="section-label">What is CX Mixer</span>
-          <h2 class="text-balance">Built for the people behind the brands</h2>
+          <h2 class="text-balance">Built for the people <em class="serif">behind</em> the brands</h2>
           <p class="mb-md">
             CX Mixer is where e-commerce leaders come to meet good people, share what's actually working, and build relationships that go beyond a badge scan. From curated conference-side events to podcast conversations and a growing community of operators — this is a space designed for connection without the noise.
           </p>
           <a href={`${base}collective/`} class="btn btn--teal">Explore the Community</a>
         </div>
-        <div class="intro-features">
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="intro__cards">
+          {features.map((f, i) => (
+            <div class={`intro__card reveal reveal-delay-${i + 1}`}>
+              <span class="intro__card-icon" set:html={f.icon} />
+              <div>
+                <h4>{f.title}</h4>
+                <p>{f.desc}</p>
+              </div>
             </div>
-            <h4>Curated Events</h4>
-            <p>Intimate gatherings at major e-commerce conferences</p>
-          </div>
-          <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon feature-icon--teal">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h4>Real Conversations</h4>
-            <p>Podcast episodes with operators who share what actually works</p>
-          </div>
-          <div class="feature-card reveal reveal-delay-3">
-            <div class="feature-icon feature-icon--orange">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h4>Trusted Community</h4>
-            <p>A network of smart people who skip the pitch and share the playbook</p>
-          </div>
-          <div class="feature-card reveal reveal-delay-4">
-            <div class="feature-icon feature-icon--navy">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
-            </div>
-            <h4>No Sales Pitches</h4>
-            <p>Connection without the noise — just great people doing great work</p>
-          </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EVENTS PREVIEW -->
-  <section class="section section--dark events-preview" id="events">
+  <!-- ═══ EVENTS ═══ -->
+  <section class="section section--dark events" id="events">
+    <!-- Decorative top border -->
+    <div class="divider" style="position:absolute;top:0;left:0;right:0;height:4px;" aria-hidden="true"></div>
     <div class="container">
-      <div class="events-header reveal">
-        <span class="section-label" style="color: var(--orange);">Events</span>
-        <h2>Meet up in real life</h2>
-        <p style="color: rgba(255,255,255,0.7); max-width: 55ch;">
-          From breakfast meetups to VIP lunches to late-night afterparties — CX Mixer events are designed to help e-commerce brands connect in a way that actually feels fun.
+      <div class="events__head reveal">
+        <span class="section-label" style="color: var(--teal);">Events</span>
+        <h2>Meet up in <em class="serif">real life</em></h2>
+        <p style="color: rgba(255,255,255,0.55); max-width: 50ch;">
+          From breakfast meetups to VIP dinners — CX Mixer events are designed to help e-commerce brands connect in a way that actually feels fun. No pitches. Just brands.
         </p>
       </div>
-      <div class="events-cards grid-3">
-        <div class="event-card reveal reveal-delay-1">
-          <div class="event-card-type">
-            <span class="badge badge--orange">Breakfast</span>
-          </div>
+      <div class="events__grid">
+        <div class="events__card reveal reveal-delay-1">
+          <div class="events__card-num" aria-hidden="true">01</div>
+          <span class="badge badge--coral">Breakfast</span>
           <h3>Morning Mixer</h3>
-          <p class="event-card-desc">Start the conference day right. Coffee, conversation, and the kind of intros that actually lead somewhere.</p>
-          <div class="event-card-meta">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <span>Coming Soon</span>
-          </div>
+          <p>Start the conference day right. Coffee, conversation, and the kind of intros that actually lead somewhere.</p>
+          <span class="events__card-tag">Coming Soon</span>
         </div>
-        <div class="event-card event-card--featured reveal reveal-delay-2">
-          <div class="event-card-type">
-            <span class="badge badge--orange">Happy Hour</span>
-          </div>
+        <div class="events__card events__card--featured reveal reveal-delay-2">
+          <div class="events__card-num" aria-hidden="true">02</div>
+          <span class="badge badge--coral">Happy Hour</span>
           <h3>The Hangover Hangout</h3>
-          <p class="event-card-desc">A casual mid-conference reset with great food, good people, and zero pressure. Meet fellow brand folks, recharge, and head back feeling slightly more human.</p>
-          <div class="event-card-meta">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <span>Coming Soon</span>
-          </div>
+          <p>A casual mid-conference reset with great food, good people, and zero pressure. Meet fellow brand folks and recharge.</p>
+          <span class="events__card-tag">Coming Soon</span>
         </div>
-        <div class="event-card reveal reveal-delay-3">
-          <div class="event-card-type">
-            <span class="badge badge--orange">VIP Dinner</span>
-          </div>
+        <div class="events__card reveal reveal-delay-3">
+          <div class="events__card-num" aria-hidden="true">03</div>
+          <span class="badge badge--coral">VIP Dinner</span>
           <h3>Late Night Conversations</h3>
-          <p class="event-card-desc">An intimate dinner for brand leaders who want to go deeper. Curated guest list. No agenda beyond great food and real talk.</p>
-          <div class="event-card-meta">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <span>Coming Soon</span>
-          </div>
+          <p>An intimate dinner for brand leaders. Curated guest list. No agenda beyond great food and real talk.</p>
+          <span class="events__card-tag">Coming Soon</span>
         </div>
       </div>
-      <div class="text-center reveal" style="margin-top: var(--space-xl);">
-        <a href={`${base}events/`} class="btn btn--outline-white">View All Events</a>
+      <div class="text-center reveal" style="margin-top: var(--sp-xl);">
+        <a href={`${base}events/`} class="btn btn--ghost">View All Events</a>
       </div>
     </div>
   </section>
 
-  <!-- BRAND MARQUEE -->
-  <section class="section brands-section">
+  <!-- ═══ BRAND MARQUEE ═══ -->
+  <section class="section brands">
     <div class="container text-center mb-lg reveal">
-      <span class="section-label" style="justify-content: center;">Featured Brands</span>
-      <h2>Good people. Great brands. Real conversations.</h2>
+      <h2>Good people. Great brands.<br/><em class="serif">Real conversations.</em></h2>
     </div>
     <div class="marquee-wrapper">
       <div class="marquee-track">
         {[...brands, ...brands].map((brand) => (
-          <span class="brand-item">{brand}</span>
+          <span class="brands__pill">{brand}</span>
+        ))}
+      </div>
+    </div>
+    <div class="marquee-wrapper" style="margin-top: 0.75rem;">
+      <div class="marquee-track" style="animation-direction: reverse; animation-duration: 35s;">
+        {[...brands, ...brands].reverse().map((brand) => (
+          <span class="brands__pill brands__pill--alt">{brand}</span>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- COMMUNITY PREVIEW -->
-  <section class="section community-preview">
+  <!-- ═══ COMMUNITY ═══ -->
+  <section class="section community">
     <div class="container">
-      <div class="community-grid">
-        <div class="community-visual reveal">
-          <div class="community-card-stack">
-            <div class="community-float-card community-float-card--1">
-              <span class="float-emoji">&#x1F91D;</span>
-              <span>New connection made</span>
-            </div>
-            <div class="community-float-card community-float-card--2">
-              <span class="float-emoji">&#x1F399;</span>
-              <span>New episode dropped</span>
-            </div>
-            <div class="community-float-card community-float-card--3">
-              <span class="float-emoji">&#x1F389;</span>
-              <span>Event invite sent</span>
-            </div>
+      <div class="community__layout">
+        <div class="community__visual reveal">
+          <div class="community__blob" aria-hidden="true"></div>
+          <div class="community__float community__float--1">
+            <span>&#x1F91D;</span> New connection made
+          </div>
+          <div class="community__float community__float--2">
+            <span>&#x1F399;</span> New episode dropped
+          </div>
+          <div class="community__float community__float--3">
+            <span>&#x1F389;</span> Event invite sent
           </div>
         </div>
-        <div class="community-text reveal reveal-delay-1">
+        <div class="community__text reveal reveal-delay-1">
           <span class="section-label">The CX Collective</span>
-          <h2 class="text-balance">A community that sticks after the event ends</h2>
+          <h2 class="text-balance">A community that sticks <em class="serif">after</em> the event ends</h2>
           <p class="mb-md">
             The CX Collective is the community side of CX Mixer. It's where brand leaders keep the conversations going, meet peers facing similar challenges, and tap into a trusted network of e-commerce operators who get it.
           </p>
-          <p class="mb-lg" style="font-style: italic; color: var(--teal);">
+          <p class="community__quote mb-lg">
             Think of it as your industry group chat — but with better people and fewer random pitches.
           </p>
           <a href={`${base}collective/`} class="btn btn--teal">Join the Collective</a>
@@ -202,36 +198,39 @@ const episodes = [
     </div>
   </section>
 
-  <!-- PODCAST PREVIEW -->
-  <section class="section section--dark podcast-preview">
+  <!-- ═══ PODCAST ═══ -->
+  <section class="section section--dark podcast">
+    <div class="divider" style="position:absolute;top:0;left:0;right:0;height:4px;" aria-hidden="true"></div>
     <div class="container">
-      <div class="podcast-header reveal">
-        <span class="section-label" style="color: var(--orange);">Podcast</span>
-        <h2>Listen in</h2>
-        <p style="color: rgba(255,255,255,0.7); max-width: 55ch;">
+      <div class="podcast__head reveal">
+        <span class="section-label" style="color: var(--teal);">Podcast</span>
+        <h2>Listen <em class="serif">in</em></h2>
+        <p style="color: rgba(255,255,255,0.55); max-width: 50ch;">
           Smart, practical conversations with the people building the customer experience from the inside. Never too polished. Always worth your time.
         </p>
       </div>
-      <div class="grid-3">
+      <div class="podcast__list">
         {episodes.map((ep, i) => (
-          <div class={`podcast-card reveal reveal-delay-${i + 1}`}>
-            <span class="badge">{ep.tag}</span>
-            <h3>{ep.title}</h3>
-            <p class="podcast-card-guests">{ep.guests}</p>
-            <a href={`${base}podcast/`} class="podcast-card-play">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Listen Now
-            </a>
-          </div>
+          <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class={`podcast__ep reveal reveal-delay-${i + 1}`}>
+            <span class="podcast__ep-num">{ep.num}</span>
+            <div class="podcast__ep-info">
+              <span class="badge badge--dark" style="margin-bottom:0.4rem;">{ep.tag}</span>
+              <h3>{ep.title}</h3>
+              <p>{ep.guests}</p>
+            </div>
+            <div class="podcast__ep-play">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </a>
         ))}
       </div>
-      <div class="text-center reveal" style="margin-top: var(--space-xl);">
-        <div class="podcast-cta-row">
+      <div class="text-center reveal" style="margin-top: var(--sp-xl);">
+        <div class="podcast__ctas">
           <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class="btn btn--white">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
             Spotify
           </a>
-          <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" class="btn btn--outline-white">
+          <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" class="btn btn--ghost">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
             YouTube
           </a>
@@ -240,32 +239,36 @@ const episodes = [
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials-section">
-    <div class="container text-center">
-      <div class="testimonials-grid reveal">
-        <blockquote class="testimonial-card">
-          <p>"CX Mixer feels like the part of the conference you actually remember."</p>
-          <cite>— Brand CX Leader</cite>
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="section quotes">
+    <div class="container">
+      <div class="quotes__grid reveal">
+        <blockquote class="quotes__card">
+          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
+          <p>CX Mixer feels like the part of the conference you actually remember.</p>
+          <cite>Brand CX Leader</cite>
         </blockquote>
-        <blockquote class="testimonial-card">
-          <p>"Real conversations, real relationships, zero forced networking."</p>
-          <cite>— E-commerce Operator</cite>
+        <blockquote class="quotes__card quotes__card--accent">
+          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
+          <p>Real conversations, real relationships, zero forced networking.</p>
+          <cite>E-commerce Operator</cite>
         </blockquote>
-        <blockquote class="testimonial-card">
-          <p>"Finally, a community that feels smart, welcoming, and actually enjoyable."</p>
-          <cite>— DTC Brand Founder</cite>
+        <blockquote class="quotes__card">
+          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
+          <p>Finally, a community that feels smart, welcoming, and actually enjoyable.</p>
+          <cite>DTC Brand Founder</cite>
         </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- SPONSORS TEASER -->
-  <section class="section section--teal sponsors-teaser">
+  <!-- ═══ SPONSORS TEASER ═══ -->
+  <section class="section section--coral sponsor-tease">
+    <div class="sponsor-tease__deco" aria-hidden="true">&#x2726;</div>
     <div class="container text-center">
-      <div class="reveal">
-        <h2 class="mb-md">Partner with the community brands want to be part of</h2>
-        <p style="max-width: 55ch; margin: 0 auto var(--space-lg);">
+      <div class="reveal" style="max-width: 600px; margin: 0 auto;">
+        <h2 class="mb-md">Partner with the community brands <em class="serif">want</em> to be part of</h2>
+        <p style="max-width: 50ch; margin: 0 auto var(--sp-lg); opacity: 0.85;">
           CX Mixer works with select sponsors who want to show up in the right rooms, support authentic connection, and build real visibility with e-commerce decision-makers.
         </p>
         <a href={`${base}sponsors/`} class="btn btn--white">Become a Sponsor</a>
@@ -273,517 +276,606 @@ const episodes = [
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="section final-cta">
+  <!-- ═══ FINAL CTA ═══ -->
+  <section class="section cta-final">
     <div class="container text-center">
-      <div class="reveal">
-        <h2 class="mb-md text-balance">Come hang with the good side of e-commerce</h2>
-        <p style="max-width: 50ch; margin: 0 auto var(--space-lg); font-size: 1.1rem;">
+      <div class="reveal" style="max-width: 650px; margin: 0 auto;">
+        <h2 class="mb-md text-balance">Come hang with the <em class="serif">good side</em> of e-commerce</h2>
+        <p style="max-width: 45ch; margin: 0 auto var(--sp-lg); font-size: 1.1rem; color: var(--text-muted);">
           Come for the event. Stay for the people.
         </p>
-        <div class="hero-ctas" style="justify-content: center;">
+        <div style="display: flex; gap: var(--sp-sm); justify-content: center; flex-wrap: wrap;">
           <a href={`${base}collective/`} class="btn btn--primary">Join the Collective</a>
           <a href={`${base}events/`} class="btn btn--secondary">Get Event Updates</a>
         </div>
       </div>
     </div>
   </section>
+
 </Base>
 
 <style>
-  /* ===== HERO ===== */
+  /* ═══════════════════════════════════
+     HERO — full-screen, dramatic
+     ═══════════════════════════════════ */
   .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
-    padding-top: 72px;
+    padding-top: 76px;
     overflow: hidden;
-    background: var(--navy);
+    background: var(--ink);
   }
 
-  .hero-bg {
+  .hero__bg {
     position: absolute;
     inset: 0;
     overflow: hidden;
   }
 
-  .hero-shape {
+  .hero__orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
+    filter: blur(100px);
+    will-change: transform;
   }
 
-  .hero-shape--1 {
-    width: 600px;
-    height: 600px;
-    background: rgba(31, 166, 160, 0.2);
-    top: -200px;
-    right: -100px;
-    animation: float-slow 20s ease-in-out infinite;
+  .hero__orb--1 {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(255, 94, 53, 0.3), transparent 70%);
+    top: -250px; right: -150px;
+    animation: float 20s ease-in-out infinite;
   }
 
-  .hero-shape--2 {
-    width: 400px;
-    height: 400px;
-    background: rgba(249, 115, 58, 0.15);
-    bottom: -100px;
-    left: -50px;
-    animation: float-slow 25s ease-in-out infinite reverse;
+  .hero__orb--2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0, 212, 170, 0.2), transparent 70%);
+    bottom: -150px; left: -100px;
+    animation: float 25s ease-in-out infinite reverse;
   }
 
-  .hero-shape--3 {
-    width: 300px;
-    height: 300px;
-    background: rgba(74, 125, 255, 0.1);
-    top: 40%;
-    left: 50%;
-    animation: float-slow 18s ease-in-out infinite 5s;
+  .hero__orb--3 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent 70%);
+    top: 45%; left: 55%;
+    animation: float 18s ease-in-out infinite 3s;
   }
 
-  .hero-grid-pattern {
+  .hero__grid {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%);
   }
 
-  @keyframes float-slow {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -20px) scale(1.05); }
-    66% { transform: translate(-20px, 20px) scale(0.95); }
+  /* Decorative floating symbols */
+  .hero__deco {
+    position: absolute;
+    pointer-events: none;
+    animation: spin-slow 30s linear infinite;
   }
 
-  .hero-content {
+  .hero__deco--star {
+    font-size: 3rem;
+    color: var(--coral);
+    opacity: 0.25;
+    top: 18%;
+    right: 12%;
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .hero__deco--cross {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--teal);
+    opacity: 0.12;
+    bottom: 25%;
+    right: 22%;
+    animation: spin-slow 40s linear infinite reverse;
+  }
+
+  .hero__deco--ring {
+    width: 180px;
+    height: 180px;
+    border: 3px solid var(--electric);
+    border-radius: 50%;
+    opacity: 0.08;
+    top: 30%;
+    right: 5%;
+    animation: spin-slow 50s linear infinite;
+  }
+
+  .hero__content {
     position: relative;
     z-index: 1;
-    padding: var(--space-3xl) 0;
-    max-width: 800px;
+    padding: var(--sp-3xl) 0;
+    max-width: 780px;
   }
 
-  .hero-badge {
-    margin-bottom: var(--space-md);
-  }
+  .hero__eyebrow { margin-bottom: var(--sp-md); }
 
-  .hero-badge .badge {
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.7rem;
-  }
-
-  .hero-title {
+  .hero__title {
     color: #fff;
-    margin-bottom: var(--space-md);
-    line-height: 1.1;
+    margin-bottom: var(--sp-md);
+    line-height: 1.0;
   }
 
-  .hero-highlight {
+  .hero__em {
     display: block;
-    background: linear-gradient(135deg, var(--orange), var(--teal));
+    background: linear-gradient(135deg, var(--coral) 0%, var(--lemon) 50%, var(--teal) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    padding-top: 0.1em;
   }
 
-  .hero-subtitle {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.15rem;
-    line-height: 1.7;
-    margin-bottom: var(--space-lg);
-    max-width: 55ch;
+  .hero__em .serif {
+    font-size: 1.1em;
   }
 
-  .hero-ctas {
+  .hero__sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 1.1rem;
+    line-height: 1.75;
+    margin-bottom: var(--sp-lg);
+    max-width: 52ch;
+  }
+
+  .hero__actions {
     display: flex;
-    gap: var(--space-sm);
+    gap: var(--sp-sm);
     flex-wrap: wrap;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--sp-xl);
   }
 
-  .hero-ctas .btn--secondary {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-
-  .hero-ctas .btn--secondary:hover {
-    background: #fff;
-    color: var(--navy);
-  }
-
-  .hero-listen {
+  .hero__listen {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: var(--sp-sm);
   }
 
-  .hero-listen-label {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.85rem;
+  .hero__listen-label {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.8rem;
     font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: var(--font-display);
   }
 
-  .hero-listen-link {
-    color: rgba(255, 255, 255, 0.4);
-    transition: all var(--duration-fast) var(--ease-out);
+  .hero__listen-icon {
+    color: rgba(255,255,255,0.3);
+    transition: all var(--fast) var(--ease-bounce);
     display: flex;
   }
 
-  .hero-listen-link:hover {
-    color: var(--orange);
-    transform: scale(1.15);
+  .hero__listen-icon:hover {
+    color: var(--coral);
+    transform: scale(1.2) translateY(-2px);
   }
 
-  /* ===== INTRO ===== */
-  .intro-grid {
+  /* Scroll indicator */
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.25);
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .hero__scroll-line {
+    width: 1.5px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--coral), transparent);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* ═══ INTRO ═══ */
+  .intro__layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--sp-2xl);
     align-items: start;
   }
 
-  .intro-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-sm);
-  }
-
-  .feature-card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    padding: var(--space-md);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: all var(--duration-normal) var(--ease-out);
-  }
-
-  .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(19, 35, 60, 0.08);
-  }
-
-  .feature-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-md);
-    background: rgba(19, 35, 60, 0.06);
+  .intro__cards {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--space-sm);
-    color: var(--navy);
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .feature-icon--teal { background: rgba(31, 166, 160, 0.1); color: var(--teal); }
-  .feature-icon--orange { background: rgba(249, 115, 58, 0.1); color: var(--orange); }
-  .feature-icon--navy { background: rgba(19, 35, 60, 0.06); color: var(--navy); }
-
-  .feature-card h4 {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+  .intro__card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-md);
+    padding: var(--sp-md) var(--sp-lg);
+    background: var(--surface);
+    border-radius: var(--r-lg);
+    border: 2px solid var(--border);
+    transition: all var(--med) var(--ease);
+    cursor: default;
   }
 
-  .feature-card p {
-    font-size: 0.85rem;
-    color: rgba(42, 47, 54, 0.7);
-    line-height: 1.5;
+  .intro__card:hover {
+    border-color: var(--coral);
+    transform: translateX(6px);
+    box-shadow: -6px 6px 0 var(--coral);
+  }
+
+  .intro__card-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .intro__card h4 { margin-bottom: 0.1rem; font-size: 1.05rem; }
+  .intro__card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+
+  @media (max-width: 768px) {
+    .intro__layout { grid-template-columns: 1fr; gap: var(--sp-xl); }
+  }
+
+  /* ═══ EVENTS ═══ */
+  .events__head { margin-bottom: var(--sp-xl); }
+
+  .events__head .section-label::before { background: var(--teal); }
+
+  .events__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-md);
+  }
+
+  .events__card {
+    background: rgba(255,255,255,0.03);
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-xl);
+    padding: var(--sp-lg);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--med) var(--ease);
+  }
+
+  .events__card:hover {
+    border-color: var(--coral);
+    transform: translateY(-6px) rotate(-0.5deg);
+    box-shadow: 0 20px 50px rgba(255, 94, 53, 0.12);
+  }
+
+  .events__card--featured {
+    border-color: var(--coral);
+    background: rgba(255, 94, 53, 0.06);
+  }
+
+  .events__card-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 5rem;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    top: -0.5rem;
+    right: 1rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .events__card h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0.6rem 0 0.4rem;
+  }
+
+  .events__card p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    margin-bottom: var(--sp-md);
+  }
+
+  .events__card-tag {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   @media (max-width: 768px) {
-    .intro-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-xl);
-    }
+    .events__grid { grid-template-columns: 1fr; }
   }
 
-  /* ===== EVENTS PREVIEW ===== */
-  .events-header {
-    margin-bottom: var(--space-xl);
-  }
+  /* ═══ BRANDS ═══ */
+  .brands { padding-bottom: var(--sp-xl); overflow: hidden; }
 
-  .events-header .section-label::before {
-    background: var(--orange);
-  }
-
-  .event-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    transition: all var(--duration-normal) var(--ease-out);
-  }
-
-  .event-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-4px);
-    border-color: rgba(249, 115, 58, 0.3);
-  }
-
-  .event-card--featured {
-    border-color: var(--orange);
-    background: rgba(249, 115, 58, 0.08);
-  }
-
-  .event-card-type {
-    margin-bottom: var(--space-sm);
-  }
-
-  .event-card h3 {
-    color: #fff;
-    font-size: 1.25rem;
-    margin-bottom: var(--space-xs);
-  }
-
-  .event-card-desc {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-md);
-  }
-
-  .event-card-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--teal);
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-
-  /* ===== BRANDS ===== */
-  .brands-section {
-    padding-bottom: var(--space-xl);
-  }
-
-  .brand-item {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--navy);
-    padding: 0.5rem 1.5rem;
-    margin: 0 0.5rem;
-    background: #fff;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--light-gray);
+  .brands__pill {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--ink);
+    padding: 0.55rem 1.4rem;
+    margin: 0 0.35rem;
+    background: var(--surface);
+    border-radius: var(--r-pill);
+    border: 2px solid var(--border);
     white-space: nowrap;
-    transition: all var(--duration-fast) var(--ease-out);
+    transition: all var(--fast) var(--ease);
+    letter-spacing: -0.01em;
   }
 
-  .brand-item:hover {
+  .brands__pill:hover {
+    border-color: var(--coral);
+    color: var(--coral);
+    transform: scale(1.05);
+  }
+
+  .brands__pill--alt {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .brands__pill--alt:hover {
     border-color: var(--teal);
     color: var(--teal);
   }
 
-  /* ===== COMMUNITY PREVIEW ===== */
-  .community-grid {
+  /* ═══ COMMUNITY ═══ */
+  .community__layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--sp-2xl);
     align-items: center;
   }
 
-  .community-visual {
+  .community__visual {
     position: relative;
-    height: 350px;
+    height: 380px;
   }
 
-  .community-card-stack {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .community-float-card {
+  .community__blob {
     position: absolute;
-    background: #fff;
-    border-radius: var(--radius-lg);
-    padding: 1rem 1.25rem;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.15), rgba(124, 58, 237, 0.1));
+    filter: blur(60px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .community__float {
+    position: absolute;
+    background: var(--surface);
+    border-radius: var(--r-lg);
+    padding: 0.85rem 1.2rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-weight: 500;
-    font-size: 0.9rem;
-    box-shadow: 0 8px 30px rgba(19, 35, 60, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    animation: float-card 6s ease-in-out infinite;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: 0 12px 40px rgba(10, 15, 28, 0.12);
+    border: 2px solid var(--border);
+    animation: float 6s ease-in-out infinite;
   }
 
-  .community-float-card--1 {
-    top: 20%;
-    left: 5%;
-    animation-delay: 0s;
-  }
+  .community__float span:first-child { font-size: 1.4rem; }
 
-  .community-float-card--2 {
-    top: 45%;
-    right: 5%;
-    animation-delay: 2s;
-  }
+  .community__float--1 { top: 15%; left: 5%; }
+  .community__float--2 { top: 45%; right: 0%; animation-delay: 2s; }
+  .community__float--3 { bottom: 10%; left: 12%; animation-delay: 4s; }
 
-  .community-float-card--3 {
-    bottom: 10%;
-    left: 15%;
-    animation-delay: 4s;
-  }
-
-  .float-emoji {
-    font-size: 1.5rem;
-  }
-
-  @keyframes float-card {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+  .community__quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--coral);
+    border-left: 3px solid var(--coral);
+    padding-left: var(--sp-md);
   }
 
   @media (max-width: 768px) {
-    .community-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .community-visual {
-      height: 250px;
-    }
+    .community__layout { grid-template-columns: 1fr; }
+    .community__visual { height: 260px; }
   }
 
-  /* ===== PODCAST PREVIEW ===== */
-  .podcast-header {
-    margin-bottom: var(--space-xl);
-  }
+  /* ═══ PODCAST ═══ */
+  .podcast__head { margin-bottom: var(--sp-xl); }
+  .podcast__head .section-label::before { background: var(--teal); }
 
-  .podcast-header .section-label::before {
-    background: var(--orange);
-  }
-
-  .podcast-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    transition: all var(--duration-normal) var(--ease-out);
+  .podcast__list {
     display: flex;
     flex-direction: column;
+    gap: 2px;
+    border-radius: var(--r-lg);
+    overflow: hidden;
   }
 
-  .podcast-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-4px);
-  }
-
-  .podcast-card .badge {
-    width: fit-content;
-    margin-bottom: var(--space-sm);
-  }
-
-  .podcast-card h3 {
-    color: #fff;
-    font-size: 1.15rem;
-    margin-bottom: var(--space-xs);
-  }
-
-  .podcast-card-guests {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
-    margin-bottom: auto;
-    padding-bottom: var(--space-md);
-  }
-
-  .podcast-card-play {
-    display: inline-flex;
+  .podcast__ep {
+    display: grid;
+    grid-template-columns: 80px 1fr 56px;
+    gap: var(--sp-md);
     align-items: center;
-    gap: 0.5rem;
-    color: var(--orange);
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all var(--duration-fast) var(--ease-out);
+    padding: var(--sp-md) var(--sp-lg);
+    background: rgba(255,255,255,0.03);
+    transition: all var(--fast) var(--ease);
+    text-decoration: none;
+    color: inherit;
   }
 
-  .podcast-card-play:hover {
+  .podcast__ep:hover {
+    background: rgba(255,255,255,0.06);
+  }
+
+  .podcast__ep:hover .podcast__ep-play {
+    transform: scale(1.15);
+    box-shadow: 0 8px 24px rgba(255, 94, 53, 0.4);
+  }
+
+  .podcast__ep-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2rem;
+    color: rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .podcast__ep-info h3 {
     color: #fff;
-    gap: 0.75rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.15rem;
   }
 
-  .podcast-cta-row {
+  .podcast__ep-info p {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+  }
+
+  .podcast__ep-play {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
     display: flex;
-    gap: var(--space-sm);
+    align-items: center;
+    justify-content: center;
+    transition: all var(--med) var(--ease-bounce);
+    flex-shrink: 0;
+  }
+
+  .podcast__ep-play svg { margin-left: 3px; }
+
+  .podcast__ctas {
+    display: flex;
+    gap: var(--sp-sm);
     justify-content: center;
     flex-wrap: wrap;
   }
 
-  /* ===== TESTIMONIALS ===== */
-  .testimonials-grid {
+  @media (max-width: 768px) {
+    .podcast__ep { grid-template-columns: 1fr 48px; }
+    .podcast__ep-num { display: none; }
+  }
+
+  /* ═══ TESTIMONIALS ═══ */
+  .quotes__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
+    gap: var(--sp-md);
   }
 
-  .testimonial-card {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+  .quotes__card {
+    background: var(--surface);
+    border-radius: var(--r-xl);
+    padding: var(--sp-xl) var(--sp-lg);
+    border: 2px solid var(--border);
     position: relative;
-    transition: all var(--duration-normal) var(--ease-out);
+    transition: all var(--med) var(--ease);
   }
 
-  .testimonial-card::before {
-    content: '\201C';
-    font-family: var(--font-heading);
-    font-size: 4rem;
+  .quotes__card:hover {
+    transform: translateY(-6px) rotate(0.5deg);
+    box-shadow: 0 20px 50px rgba(10, 15, 28, 0.1);
+    border-color: var(--teal);
+  }
+
+  .quotes__card--accent {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: rgba(255,255,255,0.85);
+  }
+
+  .quotes__card--accent .quotes__mark { color: var(--coral); }
+  .quotes__card--accent p { color: #fff; }
+  .quotes__card--accent cite { color: rgba(255,255,255,0.4); }
+
+  .quotes__card--accent:hover {
+    border-color: var(--coral);
+    transform: translateY(-6px) rotate(-0.5deg);
+  }
+
+  .quotes__mark {
+    font-family: var(--font-serif);
+    font-size: 5rem;
     color: var(--teal);
-    opacity: 0.2;
-    position: absolute;
-    top: 0.5rem;
-    left: 1rem;
-    line-height: 1;
+    opacity: 0.3;
+    line-height: 0.6;
+    margin-bottom: 0.5rem;
+    display: block;
   }
 
-  .testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(19, 35, 60, 0.08);
-  }
-
-  .testimonial-card p {
+  .quotes__card p {
     font-size: 1.05rem;
-    font-style: italic;
-    color: var(--navy);
-    margin-bottom: var(--space-sm);
-    position: relative;
-    z-index: 1;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: var(--sp-sm);
+    line-height: 1.5;
   }
 
-  .testimonial-card cite {
+  .quotes__card cite {
     font-style: normal;
-    font-size: 0.85rem;
-    color: rgba(42, 47, 54, 0.5);
-    font-weight: 500;
+    font-size: 0.8rem;
+    color: var(--mist);
+    font-weight: 600;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   @media (max-width: 768px) {
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-    }
+    .quotes__grid { grid-template-columns: 1fr; }
   }
 
-  /* ===== SPONSORS TEASER ===== */
-  .sponsors-teaser {
+  /* ═══ SPONSORS TEASER ═══ */
+  .sponsor-tease {
     position: relative;
     overflow: hidden;
   }
 
-  .sponsors-teaser::before {
-    content: '';
+  .sponsor-tease__deco {
     position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
+    font-size: 20rem;
+    opacity: 0.08;
+    top: -3rem;
+    right: -2rem;
     pointer-events: none;
+    animation: spin-slow 60s linear infinite;
   }
 
-  /* ===== FINAL CTA ===== */
-  .final-cta {
-    padding: var(--space-3xl) 0;
-    background: linear-gradient(180deg, var(--cream) 0%, #fff 100%);
+  /* ═══ FINAL CTA ═══ */
+  .cta-final {
+    padding: var(--sp-3xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 94, 53, 0.06), transparent 70%);
+    top: -200px;
+    right: -100px;
+    pointer-events: none;
   }
 </style>
