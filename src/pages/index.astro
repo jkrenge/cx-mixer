@@ -393,27 +393,27 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     align-items: center;
     padding-top: 68px;
     overflow: hidden;
-    background: var(--ink);
+    background: linear-gradient(135deg, #1A0A2E 0%, #2D0845 50%, #1A0A2E 100%);
   }
 
   .hero__bg { position: absolute; inset: 0; overflow: hidden; }
 
   .hero__orb { position: absolute; border-radius: 50%; filter: blur(100px); will-change: transform; }
-  .hero__orb--1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(255,94,53,0.3), transparent 70%); top: -250px; right: -150px; animation: float 20s ease-in-out infinite; }
-  .hero__orb--2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,212,170,0.2), transparent 70%); bottom: -150px; left: -100px; animation: float 25s ease-in-out infinite reverse; }
-  .hero__orb--3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%); top: 45%; left: 55%; animation: float 18s ease-in-out infinite 3s; }
+  .hero__orb--1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(233,30,140,0.35), transparent 70%); top: -250px; right: -150px; animation: float 20s ease-in-out infinite; }
+  .hero__orb--2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(78,238,221,0.2), transparent 70%); bottom: -150px; left: -100px; animation: float 25s ease-in-out infinite reverse; }
+  .hero__orb--3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(139,49,199,0.25), transparent 70%); top: 45%; left: 55%; animation: float 18s ease-in-out infinite 3s; }
 
   .hero__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%); }
 
   .hero__deco { position: absolute; pointer-events: none; }
-  .hero__deco--star { font-size: 3rem; color: var(--coral); opacity: 0.25; top: 18%; right: 12%; animation: pulse-glow 4s ease-in-out infinite; }
-  .hero__deco--cross { font-family: var(--font-display); font-size: 4rem; font-weight: 900; color: var(--teal); opacity: 0.12; bottom: 25%; right: 22%; animation: spin-slow 40s linear infinite reverse; }
-  .hero__deco--ring { width: 180px; height: 180px; border: 3px solid var(--electric); border-radius: 50%; opacity: 0.08; top: 30%; right: 5%; animation: spin-slow 50s linear infinite; }
+  .hero__deco--star { font-size: 3rem; color: var(--magenta); opacity: 0.35; top: 18%; right: 12%; animation: pulse-glow 4s ease-in-out infinite; }
+  .hero__deco--cross { font-family: var(--font-display); font-size: 4rem; font-weight: 900; color: var(--neon); opacity: 0.15; bottom: 25%; right: 22%; animation: spin-slow 40s linear infinite reverse; }
+  .hero__deco--ring { width: 180px; height: 180px; border: 3px solid var(--cyan); border-radius: 50%; opacity: 0.12; top: 30%; right: 5%; animation: spin-slow 50s linear infinite; }
 
   .hero__content { position: relative; z-index: 1; padding: var(--sp-3xl) 0; max-width: 780px; }
   .hero__eyebrow { margin-bottom: var(--sp-md); }
   .hero__title { color: #fff; margin-bottom: var(--sp-md); line-height: 1.0; }
-  .hero__em { display: block; background: linear-gradient(135deg, var(--coral) 0%, var(--lemon) 50%, var(--teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-top: 0.1em; }
+  .hero__em { display: block; background: linear-gradient(135deg, var(--magenta) 0%, var(--neon) 50%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-top: 0.1em; }
   .hero__em .serif { font-size: 1.1em; }
   .hero__sub { color: rgba(255,255,255,0.55); font-size: 1.1rem; line-height: 1.75; margin-bottom: var(--sp-lg); max-width: 52ch; }
   .hero__actions { display: flex; gap: var(--sp-sm); flex-wrap: wrap; margin-bottom: var(--sp-xl); }
@@ -423,7 +423,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .hero__listen-icon:hover { color: var(--coral); transform: scale(1.2) translateY(-2px); }
 
   .hero__scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.25); font-family: var(--font-display); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; }
-  .hero__scroll-line { width: 1.5px; height: 40px; background: linear-gradient(to bottom, var(--coral), transparent); animation: pulse-glow 2s ease-in-out infinite; }
+  .hero__scroll-line { width: 1.5px; height: 40px; background: linear-gradient(to bottom, var(--magenta), transparent); animation: pulse-glow 2s ease-in-out infinite; }
 
   /* ═══ INTRO ═══ */
   .intro__layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--sp-2xl); align-items: start; }
@@ -468,7 +468,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .community__float--3 { bottom: 10%; left: 12%; animation-delay: 4s; }
   .community__quote { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--coral); border-left: 3px solid var(--coral); padding-left: var(--sp-md); }
   .community__values { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--sp-lg); }
-  .community__value { display: flex; align-items: center; gap: 0.5rem; background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.15); border-radius: var(--r-pill); padding: 0.45rem 1rem; font-size: 0.85rem; font-weight: 500; }
+  .community__value { display: flex; align-items: center; gap: 0.5rem; background: rgba(233,30,140,0.06); border: 1px solid rgba(233,30,140,0.15); border-radius: var(--r-pill); padding: 0.45rem 1rem; font-size: 0.85rem; font-weight: 500; }
 
   @media (max-width: 768px) { .community__layout { grid-template-columns: 1fr; } .community__visual { height: 260px; } }
 

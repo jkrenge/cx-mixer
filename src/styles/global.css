@@ -12,25 +12,29 @@
 }
 
 :root {
-  /* ── Palette ── */
-  --ink: #0A0F1C;
-  --navy: #0D1B2A;
-  --charcoal: #1B2433;
-  --slate: #3A4557;
-  --mist: #8B95A5;
-  --ash: #C4CBD6;
-  --cream: #FFF5EB;
-  --warm-white: #FFFAF5;
-  --paper: #FDF8F2;
+  /* ── Palette: Pop-art 90s ── */
+  --ink: #1A0A2E;
+  --navy: #1E0F35;
+  --charcoal: #2D1B4E;
+  --slate: #5A4478;
+  --mist: #9B8AB8;
+  --ash: #D0C5E0;
+  --cream: #FFF5FB;
+  --warm-white: #FFFAFD;
+  --paper: #FDF5FA;
 
-  /* Accents */
-  --coral: #FF5E35;
-  --coral-light: #FF8A6A;
-  --teal: #00D4AA;
-  --teal-dim: #00B494;
-  --electric: #7C3AED;
-  --electric-dim: #5B21B6;
-  --lemon: #FFD43B;
+  /* Accents — from the logo */
+  --coral: #E91E8C;
+  --coral-light: #FF4DA6;
+  --teal: #4EEEDD;
+  --teal-dim: #3AD4C8;
+  --electric: #8B31C7;
+  --electric-dim: #6B1FA8;
+  --lemon: #7FFF00;
+  --magenta: #E91E8C;
+  --purple: #8B31C7;
+  --cyan: #4EEEDD;
+  --neon: #7FFF00;
 
   /* Semantic */
   --text: var(--charcoal);
@@ -39,7 +43,7 @@
   --bg: var(--warm-white);
   --bg-alt: var(--cream);
   --surface: #fff;
-  --border: rgba(10, 15, 28, 0.08);
+  --border: rgba(26, 10, 46, 0.08);
 
   /* Typography */
   --font-display: 'Satoshi', sans-serif;
@@ -422,7 +426,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ── Decorative line / divider ── */
 .divider {
   height: 3px;
-  background: linear-gradient(90deg, var(--coral), var(--teal), var(--electric));
+  background: linear-gradient(90deg, var(--magenta), var(--purple), var(--cyan), var(--neon));
   border: none;
   border-radius: 2px;
 }
@@ -451,7 +455,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 ::selection {
-  background: var(--coral);
+  background: var(--magenta);
   color: #fff;
 }
 

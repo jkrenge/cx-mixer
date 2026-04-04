@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#13233C"/>
-  <text x="8" y="42" font-family="system-ui, sans-serif" font-weight="800" font-size="28" fill="#FFFFFF">CX</text>
-  <text x="8" y="56" font-family="system-ui, sans-serif" font-weight="800" font-size="16" fill="#F9733A">MIXER</text>
-  <circle cx="54" cy="14" r="5" fill="#1FA6A0"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E91E8C"/>
+      <stop offset="100%" stop-color="#8B31C7"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <text x="8" y="40" font-family="system-ui, sans-serif" font-weight="900" font-size="26" fill="#7FFF00">CX</text>
+  <text x="8" y="56" font-family="system-ui, sans-serif" font-weight="900" font-size="16" fill="#FFFFFF">MIXER</text>
+  <circle cx="54" cy="14" r="5" fill="#4EEEDD"/>
 </svg>
