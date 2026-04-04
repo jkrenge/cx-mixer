@@ -512,12 +512,12 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .hero__content { max-width: 700px; }
 
   .hero__video { flex-shrink: 0; }
-  .hero__video-el { width: 220px; height: auto; border-radius: var(--r-xl); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(233,30,140,0.15); border: 2px solid rgba(255,255,255,0.1); }
+  .hero__video-el { width: 280px; height: auto; border-radius: var(--r-xl); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(233,30,140,0.15); border: 2px solid rgba(255,255,255,0.1); }
 
   @media (max-width: 960px) {
     .hero__layout { grid-template-columns: 1fr; }
     .hero__video { justify-self: center; }
-    .hero__video-el { width: 180px; }
+    .hero__video-el { width: 240px; }
   }
   .hero__eyebrow { margin-bottom: var(--sp-md); }
   .hero__title { color: #fff; margin-bottom: var(--sp-md); line-height: 1.0; }
@@ -662,16 +662,20 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .quotes__grid .quotes__card:nth-child(5) { grid-column: 2 / 4; }
   .quotes__card { background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-xl) var(--sp-lg); border: 2px solid var(--border); position: relative; transition: all var(--med) var(--ease); }
   .quotes__card:hover { transform: translateY(-8px) rotate(1deg); box-shadow: 0 20px 50px rgba(10,15,28,0.1), 0 0 40px rgba(83,198,214,0.1); border-color: var(--cyan); }
-  .quotes__card--accent { background: var(--ink); border-color: var(--ink); color: rgba(255,255,255,0.85); }
-  .quotes__card--accent .quotes__mark { color: var(--coral); }
-  .quotes__card--accent p { color: #fff; }
-  .quotes__card--accent cite { color: rgba(255,255,255,0.4); }
+  .quotes__card--accent { background: var(--ink); border-color: rgba(233,30,140,0.2); }
+  .quotes__card--accent .quotes__mark { color: var(--magenta); opacity: 0.5; }
+  .quotes__card--accent p { color: #fff !important; }
+  .quotes__card--accent cite { color: var(--cyan) !important; }
   .quotes__card--accent:hover { border-color: var(--magenta); transform: translateY(-8px) rotate(-1deg); box-shadow: 0 20px 50px rgba(233,30,140,0.2); }
   .quotes__mark { font-family: var(--font-serif); font-size: 5rem; color: var(--teal); opacity: 0.3; line-height: 0.6; margin-bottom: 0.5rem; display: block; }
   .quotes__card p { font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: var(--sp-sm); line-height: 1.5; }
-  .quotes__card cite { font-style: normal; font-size: 0.8rem; color: var(--mist); font-weight: 600; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; }
+  .quotes__card cite { font-style: normal; font-size: 0.8rem; color: var(--slate); font-weight: 600; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; }
 
-  @media (max-width: 768px) { .quotes__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) {
+    .quotes__grid { grid-template-columns: 1fr; }
+    .quotes__grid .quotes__card:nth-child(4),
+    .quotes__grid .quotes__card:nth-child(5) { grid-column: auto; }
+  }
 
   /* ═══ SPONSORS ═══ */
   .sponsor-tease { position: relative; overflow: hidden; }
