@@ -20,8 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# raw uncompressed photos
+# raw uncompressed media
 public/raw_photos/
+public/raw_videos/
 
 # jetbrains setting folder
 .idea/

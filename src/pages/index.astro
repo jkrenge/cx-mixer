@@ -60,33 +60,42 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
       <img src={`${import.meta.env.BASE_URL}cxmixer_splash.svg`} alt="" class="hero__deco hero__deco--logo" aria-hidden="true" />
     </div>
 
-    <div class="container hero__content">
-      <div class="hero__eyebrow" style="animation: slide-up 0.6s var(--ease) both;">
-        <span class="badge badge--outline">Events &middot; Community &middot; Podcast</span>
-      </div>
+    <div class="container hero__layout">
+      <div class="hero__content">
+        <div class="hero__eyebrow" style="animation: slide-up 0.6s var(--ease) both;">
+          <span class="badge badge--outline">Events &middot; Community &middot; Podcast</span>
+        </div>
 
-      <h1 class="hero__title" style="animation: slide-up 0.7s var(--ease) 0.1s both;">
-        Where e&#8209;commerce brands connect
-        <span class="hero__em"><em class="serif">beyond the pitch</em></span>
-      </h1>
+        <h1 class="hero__title" style="animation: slide-up 0.7s var(--ease) 0.1s both;">
+          Where e&#8209;commerce brands connect
+          <span class="hero__em"><em class="serif">beyond the pitch</em></span>
+        </h1>
 
-      <p class="hero__sub" style="animation: slide-up 0.7s var(--ease) 0.2s both;">
-        CX Mixer brings together brand leaders, operators, and industry friends through curated events, honest conversations, and content that makes the e-commerce world feel a little smaller and a lot more human.
-      </p>
+        <p class="hero__sub" style="animation: slide-up 0.7s var(--ease) 0.2s both;">
+          CX Mixer brings together brand leaders, operators, and industry friends through curated events, honest conversations, and content that makes the e-commerce world feel a little smaller and a lot more human.
+        </p>
 
-      <div class="hero__actions" style="animation: slide-up 0.7s var(--ease) 0.3s both;">
-        <a href="#collective" class="btn btn--primary">Join the Collective</a>
-        <a href="#events" class="btn btn--ghost">See Upcoming Events</a>
-      </div>
+        <div class="hero__actions" style="animation: slide-up 0.7s var(--ease) 0.3s both;">
+          <a href="#collective" class="btn btn--primary">Join the Collective</a>
+          <a href="#events" class="btn btn--ghost">See Upcoming Events</a>
+        </div>
 
-      <div class="hero__listen" style="animation: fade-in 1s var(--ease) 0.6s both;">
-        <span class="hero__listen-label">Listen on</span>
+        <div class="hero__listen" style="animation: fade-in 1s var(--ease) 0.6s both;">
+          <span class="hero__listen-label">Listen on</span>
         <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class="hero__listen-icon" aria-label="Spotify">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
         </a>
         <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" class="hero__listen-icon" aria-label="YouTube">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.4-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
         </a>
+        </div>
+      </div>
+
+      <!-- Hero Video -->
+      <div class="hero__video" style="animation: scale-in 0.8s var(--ease) 0.4s both;">
+        <video autoplay muted loop playsinline class="hero__video-el">
+          <source src={`${import.meta.env.BASE_URL}videos/hypevideo.mp4`} type="video/mp4" />
+        </video>
       </div>
     </div>
 
@@ -346,13 +355,20 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   <!-- ═══ SPONSORS ═══ -->
   <section class="section section--coral sponsor-tease" id="sponsors">
     <div class="sponsor-tease__deco" aria-hidden="true">&#x2726;</div>
-    <div class="container text-center">
-      <div class="reveal" style="max-width: 600px; margin: 0 auto;">
-        <h2 class="mb-md">Partner with the community brands <em class="serif">want</em> to be part of</h2>
-        <p style="max-width: 50ch; margin: 0 auto var(--sp-lg); opacity: 0.85;">
-          CX Mixer works with select sponsors who want to show up in the right rooms, support authentic connection, and build real visibility with e-commerce decision-makers.
-        </p>
-        <a href="#contact" class="btn btn--white">Become a Sponsor</a>
+    <div class="container">
+      <div class="sponsor__layout reveal">
+        <div class="sponsor__text">
+          <h2 class="mb-md">Partner with the community brands <em class="serif">want</em> to be part of</h2>
+          <p style="opacity: 0.85; margin-bottom: var(--sp-lg);">
+            CX Mixer works with select sponsors who want to show up in the right rooms, support authentic connection, and build real visibility with e-commerce decision-makers.
+          </p>
+          <a href="#contact" class="btn btn--white">Become a Sponsor</a>
+        </div>
+        <div class="sponsor__video">
+          <video controls playsinline preload="metadata" class="sponsor__video-el" poster={`${import.meta.env.BASE_URL}photos/DSCF0643.webp`}>
+            <source src={`${import.meta.env.BASE_URL}videos/sponsorvideo.mp4`} type="video/mp4" />
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -373,7 +389,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
         </div>
         <div class="about__card reveal reveal-delay-1">
           <div class="about__avatar">
-            <span class="about__initials">LT</span>
+            <img src={`${import.meta.env.BASE_URL}photos/larrythoma.webp`} alt="Larry Thoma" class="about__headshot" />
           </div>
           <h3>Larry Thoma</h3>
           <p class="about__role">Host & Creator, CX Mixer</p>
@@ -482,7 +498,16 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .hero__deco--ring { width: 180px; height: 180px; border: 3px solid var(--cyan); border-radius: 50%; opacity: 0.12; top: 30%; right: 5%; animation: spin-slow 50s linear infinite; }
   .hero__deco--logo { width: 320px; height: auto; opacity: 0.06; top: 50%; right: -40px; transform: translateY(-50%) rotate(-8deg); animation: float 15s ease-in-out infinite; filter: blur(1px); }
 
-  .hero__content { position: relative; z-index: 1; padding-top: var(--sp-3xl); padding-bottom: var(--sp-3xl); max-width: 780px; }
+  .hero__layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: var(--sp-xl); align-items: center; padding-top: var(--sp-3xl); padding-bottom: var(--sp-3xl); }
+  .hero__content { max-width: 700px; }
+
+  .hero__video { flex-shrink: 0; }
+  .hero__video-el { width: 220px; height: auto; border-radius: var(--r-xl); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(233,30,140,0.15); border: 2px solid rgba(255,255,255,0.1); }
+
+  @media (max-width: 960px) {
+    .hero__layout { grid-template-columns: 1fr; }
+    .hero__video { display: none; }
+  }
   .hero__eyebrow { margin-bottom: var(--sp-md); }
   .hero__title { color: #fff; margin-bottom: var(--sp-md); line-height: 1.0; }
   .hero__em { display: block; background: linear-gradient(135deg, var(--magenta) 0%, var(--neon) 50%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-top: 0.1em; }
@@ -639,11 +664,18 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .sponsor-tease { position: relative; overflow: hidden; }
   .sponsor-tease__deco { position: absolute; font-size: 20rem; opacity: 0.08; top: -3rem; right: -2rem; pointer-events: none; animation: spin-slow 60s linear infinite; }
 
+  .sponsor__layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2xl); align-items: center; }
+  .sponsor__video-el { width: 100%; border-radius: var(--r-lg); box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.15); }
+
+  @media (max-width: 768px) {
+    .sponsor__layout { grid-template-columns: 1fr; }
+  }
+
   /* ═══ ABOUT ═══ */
   .about__layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--sp-2xl); align-items: center; }
   .about__card { background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-xl); text-align: center; border: 2px solid var(--border); }
-  .about__avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--magenta), var(--purple)); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--sp-md); box-shadow: 0 0 30px rgba(233,30,140,0.3); }
-  .about__initials { font-family: var(--font-display); font-weight: 900; font-size: 1.8rem; color: #fff; }
+  .about__avatar { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--magenta), var(--purple)); padding: 3px; margin: 0 auto var(--sp-md); box-shadow: 0 0 30px rgba(233,30,140,0.3); overflow: hidden; }
+  .about__headshot { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
   .about__role { color: var(--mist); font-size: 0.85rem; margin-bottom: 0.15rem; }
   .about__bio { color: var(--text-muted); font-size: 0.9rem; margin-top: var(--sp-sm); }
 
