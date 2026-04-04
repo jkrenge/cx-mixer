@@ -122,7 +122,7 @@ const base = import.meta.env.BASE_URL;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 1000;
+      z-index: 10000;
       background: rgba(26, 10, 46, 0.95);
       backdrop-filter: blur(16px) saturate(1.5);
       -webkit-backdrop-filter: blur(16px) saturate(1.5);
@@ -207,13 +207,15 @@ const base = import.meta.env.BASE_URL;
         top: 68px;
         left: 0;
         right: 0;
-        bottom: 0;
+        height: calc(100dvh - 68px);
         flex-direction: column;
-        background: var(--ink);
-        padding: var(--sp-lg);
-        gap: var(--sp-xs);
+        background: #110620 !important;
+        padding: var(--sp-xl) var(--sp-lg);
+        gap: var(--sp-sm);
         transform: translateX(100%);
         transition: transform var(--med) var(--ease);
+        z-index: 9999;
+        overflow-y: auto;
       }
 
       .hdr__links.open { transform: translateX(0); }
