@@ -18,6 +18,7 @@ const base = import.meta.env.BASE_URL;
   <meta name="description" content={description} />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+  <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <meta property="og:title" content={title} />
@@ -30,7 +31,7 @@ const base = import.meta.env.BASE_URL;
   <header class="hdr" id="hdr">
     <nav class="hdr__nav container" aria-label="Main navigation">
       <a href={`${base}`} class="hdr__logo" aria-label="CX Mixer Home">
-        <img src={`${base}cxmixer-splash.png`} alt="CX Mixer" class="hdr__logo-img" />
+        <img src={`${base}cxmixer_wordmark.svg`} alt="CX Mixer" class="hdr__logo-img" />
       </a>
 
       <button class="hdr__toggle" aria-label="Toggle navigation" aria-expanded="false" id="nav-toggle">
@@ -59,7 +60,7 @@ const base = import.meta.env.BASE_URL;
       <div class="container">
         <div class="ft__top">
           <div class="ft__brand">
-            <img src={`${base}cxmixer-splash.png`} alt="CX Mixer" class="ft__logo-img" />
+            <img src={`${base}cxmixer_splash.svg`} alt="CX Mixer" class="ft__logo-img" />
             <p class="ft__tagline">Where e-commerce brands connect <em class="serif">beyond the pitch.</em></p>
             <div class="ft__socials">
               <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" aria-label="YouTube">

@@ -47,6 +47,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
       <div class="hero__deco hero__deco--star">&#x2726;</div>
       <div class="hero__deco hero__deco--cross">+</div>
       <div class="hero__deco hero__deco--ring"></div>
+      <img src={`${import.meta.env.BASE_URL}cxmixer_splash.svg`} alt="" class="hero__deco hero__deco--logo" aria-hidden="true" />
     </div>
 
     <div class="container hero__content">
@@ -400,7 +401,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
 
   .hero__orb { position: absolute; border-radius: 50%; filter: blur(100px); will-change: transform; }
   .hero__orb--1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(233,30,140,0.35), transparent 70%); top: -250px; right: -150px; animation: float 20s ease-in-out infinite; }
-  .hero__orb--2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(78,238,221,0.2), transparent 70%); bottom: -150px; left: -100px; animation: float 25s ease-in-out infinite reverse; }
+  .hero__orb--2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(83,198,214,0.25), transparent 70%); bottom: -150px; left: -100px; animation: float 25s ease-in-out infinite reverse; }
   .hero__orb--3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(139,49,199,0.25), transparent 70%); top: 45%; left: 55%; animation: float 18s ease-in-out infinite 3s; }
 
   .hero__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 30% 50%, black 30%, transparent 75%); }
@@ -409,6 +410,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .hero__deco--star { font-size: 3rem; color: var(--magenta); opacity: 0.35; top: 18%; right: 12%; animation: pulse-glow 4s ease-in-out infinite; }
   .hero__deco--cross { font-family: var(--font-display); font-size: 4rem; font-weight: 900; color: var(--neon); opacity: 0.15; bottom: 25%; right: 22%; animation: spin-slow 40s linear infinite reverse; }
   .hero__deco--ring { width: 180px; height: 180px; border: 3px solid var(--cyan); border-radius: 50%; opacity: 0.12; top: 30%; right: 5%; animation: spin-slow 50s linear infinite; }
+  .hero__deco--logo { width: 320px; height: auto; opacity: 0.06; top: 50%; right: -40px; transform: translateY(-50%) rotate(-8deg); animation: float 15s ease-in-out infinite; filter: blur(1px); }
 
   .hero__content { position: relative; z-index: 1; padding: var(--sp-3xl) 0; max-width: 780px; }
   .hero__eyebrow { margin-bottom: var(--sp-md); }
@@ -429,7 +431,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .intro__layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--sp-2xl); align-items: start; }
   .intro__cards { display: flex; flex-direction: column; gap: 0.75rem; }
   .intro__card { display: flex; align-items: flex-start; gap: var(--sp-md); padding: var(--sp-md) var(--sp-lg); background: var(--surface); border-radius: var(--r-lg); border: 2px solid var(--border); transition: all var(--med) var(--ease); cursor: default; }
-  .intro__card:hover { border-color: var(--coral); transform: translateX(6px); box-shadow: -6px 6px 0 var(--coral); }
+  .intro__card:hover { border-color: var(--magenta); transform: translateX(8px) rotate(-0.5deg); box-shadow: -8px 8px 0 var(--magenta), 0 0 30px rgba(233,30,140,0.15); }
   .intro__card-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
   .intro__card h4 { margin-bottom: 0.1rem; font-size: 1.05rem; }
   .intro__card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
@@ -441,7 +443,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .events__head .section-label::before { background: var(--teal); }
   .events__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
   .events__card { background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); border-radius: var(--r-xl); padding: var(--sp-lg); position: relative; overflow: hidden; transition: all var(--med) var(--ease); }
-  .events__card:hover { border-color: var(--coral); transform: translateY(-6px) rotate(-0.5deg); box-shadow: 0 20px 50px rgba(255,94,53,0.12); }
+  .events__card:hover { border-color: var(--magenta); transform: translateY(-8px) rotate(-1deg); box-shadow: 0 20px 50px rgba(233,30,140,0.2), 0 0 60px rgba(233,30,140,0.08); }
   .events__card--featured { border-color: var(--coral); background: rgba(255,94,53,0.06); }
   .events__card-num { font-family: var(--font-display); font-weight: 900; font-size: 5rem; color: rgba(255,255,255,0.04); position: absolute; top: -0.5rem; right: 1rem; line-height: 1; pointer-events: none; }
   .events__card h3 { color: #fff; font-size: 1.3rem; margin: 0.6rem 0 0.4rem; }
@@ -478,11 +480,11 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .podcast__list { display: flex; flex-direction: column; gap: 2px; border-radius: var(--r-lg); overflow: hidden; }
   .podcast__ep { display: grid; grid-template-columns: 80px 1fr 56px; gap: var(--sp-md); align-items: center; padding: var(--sp-md) var(--sp-lg); background: rgba(255,255,255,0.03); transition: all var(--fast) var(--ease); text-decoration: none; color: inherit; }
   .podcast__ep:hover { background: rgba(255,255,255,0.06); }
-  .podcast__ep:hover .podcast__ep-play { transform: scale(1.15); box-shadow: 0 8px 24px rgba(255,94,53,0.4); }
+  .podcast__ep:hover .podcast__ep-play { transform: scale(1.2); box-shadow: 0 8px 30px rgba(233,30,140,0.5), 0 0 60px rgba(233,30,140,0.2); }
   .podcast__ep-num { font-family: var(--font-display); font-weight: 900; font-size: 2rem; color: rgba(255,255,255,0.08); text-align: center; }
   .podcast__ep-info h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.15rem; }
   .podcast__ep-info p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
-  .podcast__ep-play { width: 48px; height: 48px; border-radius: 50%; background: var(--coral); color: #fff; display: flex; align-items: center; justify-content: center; transition: all var(--med) var(--ease-bounce); flex-shrink: 0; }
+  .podcast__ep-play { width: 48px; height: 48px; border-radius: 50%; background: var(--magenta); color: #fff; display: flex; align-items: center; justify-content: center; transition: all var(--med) var(--ease-bounce); flex-shrink: 0; box-shadow: 0 0 20px rgba(233,30,140,0.3); }
   .podcast__ep-play svg { margin-left: 3px; }
   .podcast__ctas { display: flex; gap: var(--sp-sm); justify-content: center; flex-wrap: wrap; }
 
@@ -491,12 +493,12 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   /* ═══ TESTIMONIALS ═══ */
   .quotes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
   .quotes__card { background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-xl) var(--sp-lg); border: 2px solid var(--border); position: relative; transition: all var(--med) var(--ease); }
-  .quotes__card:hover { transform: translateY(-6px) rotate(0.5deg); box-shadow: 0 20px 50px rgba(10,15,28,0.1); border-color: var(--teal); }
+  .quotes__card:hover { transform: translateY(-8px) rotate(1deg); box-shadow: 0 20px 50px rgba(10,15,28,0.1), 0 0 40px rgba(83,198,214,0.1); border-color: var(--cyan); }
   .quotes__card--accent { background: var(--ink); border-color: var(--ink); color: rgba(255,255,255,0.85); }
   .quotes__card--accent .quotes__mark { color: var(--coral); }
   .quotes__card--accent p { color: #fff; }
   .quotes__card--accent cite { color: rgba(255,255,255,0.4); }
-  .quotes__card--accent:hover { border-color: var(--coral); transform: translateY(-6px) rotate(-0.5deg); }
+  .quotes__card--accent:hover { border-color: var(--magenta); transform: translateY(-8px) rotate(-1deg); box-shadow: 0 20px 50px rgba(233,30,140,0.2); }
   .quotes__mark { font-family: var(--font-serif); font-size: 5rem; color: var(--teal); opacity: 0.3; line-height: 0.6; margin-bottom: 0.5rem; display: block; }
   .quotes__card p { font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: var(--sp-sm); line-height: 1.5; }
   .quotes__card cite { font-style: normal; font-size: 0.8rem; color: var(--mist); font-weight: 600; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; }
@@ -510,7 +512,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   /* ═══ ABOUT ═══ */
   .about__layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--sp-2xl); align-items: center; }
   .about__card { background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-xl); text-align: center; border: 2px solid var(--border); }
-  .about__avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--coral)); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--sp-md); }
+  .about__avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--magenta), var(--purple)); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--sp-md); box-shadow: 0 0 30px rgba(233,30,140,0.3); }
   .about__initials { font-family: var(--font-display); font-weight: 900; font-size: 1.8rem; color: #fff; }
   .about__role { color: var(--mist); font-size: 0.85rem; margin-bottom: 0.15rem; }
   .about__bio { color: var(--text-muted); font-size: 0.9rem; margin-top: var(--sp-sm); }
@@ -527,7 +529,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .contact__field { display: flex; flex-direction: column; gap: 0.35rem; }
   .contact__field label { font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 0.02em; }
   .contact__field input, .contact__field select, .contact__field textarea { font-family: var(--font-body); font-size: 0.9rem; padding: 0.7rem 1rem; border: 2px solid rgba(255,255,255,0.1); border-radius: var(--r-md); background: rgba(255,255,255,0.04); color: #fff; transition: all var(--fast) var(--ease); outline: none; }
-  .contact__field input:focus, .contact__field select:focus, .contact__field textarea:focus { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(255,94,53,0.15); }
+  .contact__field input:focus, .contact__field select:focus, .contact__field textarea:focus { border-color: var(--magenta); box-shadow: 0 0 0 3px rgba(233,30,140,0.2), 0 0 20px rgba(233,30,140,0.08); }
   .contact__field input::placeholder, .contact__field textarea::placeholder { color: rgba(255,255,255,0.25); }
   .contact__field textarea { resize: vertical; min-height: 100px; }
   .contact__field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; color: rgba(255,255,255,0.6); }

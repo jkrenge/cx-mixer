@@ -25,15 +25,15 @@
 
   /* Accents — from the logo */
   --coral: #E91E8C;
-  --coral-light: #FF4DA6;
-  --teal: #4EEEDD;
-  --teal-dim: #3AD4C8;
+  --coral-light: #F032C8;
+  --teal: #53C6D6;
+  --teal-dim: #43A8B8;
   --electric: #8B31C7;
   --electric-dim: #6B1FA8;
   --lemon: #7FFF00;
   --magenta: #E91E8C;
   --purple: #8B31C7;
-  --cyan: #4EEEDD;
+  --cyan: #53C6D6;
   --neon: #7FFF00;
 
   /* Semantic */
@@ -191,7 +191,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .btn--primary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(255, 94, 53, 0.45), 0 0 0 3px rgba(255, 94, 53, 0.15);
+  box-shadow: 0 12px 30px rgba(233, 30, 140, 0.45), 0 0 0 3px rgba(233, 30, 140, 0.15), 0 0 60px rgba(233, 30, 140, 0.12);
   color: #fff;
 }
 .btn--primary:active {
@@ -305,7 +305,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   inset: -2px;
   border-radius: inherit;
-  background: linear-gradient(135deg, var(--coral), var(--teal));
+  background: linear-gradient(135deg, var(--magenta), var(--cyan));
   opacity: 0;
   z-index: -1;
   transition: opacity var(--med) var(--ease);
