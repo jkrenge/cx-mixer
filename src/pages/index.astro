@@ -335,18 +335,28 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
       <div class="quotes__grid reveal">
         <blockquote class="quotes__card">
           <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>CX Mixer feels like the part of the conference you actually remember.</p>
-          <cite>Brand CX Leader</cite>
+          <p>Larry has a real gift for bringing people together. He's made a huge difference for me, and I know I'm not the only one.</p>
+          <cite>Taylor Johnson &middot; Director of CX</cite>
         </blockquote>
         <blockquote class="quotes__card quotes__card--accent">
           <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>Real conversations, real relationships, zero forced networking.</p>
-          <cite>E-commerce Operator</cite>
+          <p>It's rare to find content that offers genuine insights into what's happening now in the CX world. For all my CX buddies — you gotta check out The CX Mixer podcast.</p>
+          <cite>Connor McKeown &middot; Ecommerce Strategist</cite>
         </blockquote>
         <blockquote class="quotes__card">
           <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>Finally, a community that feels smart, welcoming, and actually enjoyable.</p>
-          <cite>DTC Brand Founder</cite>
+          <p>The CX Mixer ALWAYS coming through with the best events (and podcast guests)!</p>
+          <cite>Lisa Yarrow &middot; CX at Everlane</cite>
+        </blockquote>
+        <blockquote class="quotes__card">
+          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
+          <p>Stay tuned for the full episode of The CX Mixer this Friday. I consider it a "must listen."</p>
+          <cite>Katy Eriks &middot; Director of CX</cite>
+        </blockquote>
+        <blockquote class="quotes__card quotes__card--accent">
+          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
+          <p>Larry, thanks for building spaces where our industry can actually connect. You've made a huge difference.</p>
+          <cite>Taylor Johnson &middot; Director of CX</cite>
         </blockquote>
       </div>
     </div>
@@ -420,7 +430,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
               Spotify
             </a>
-            <a href="https://www.linkedin.com/company/cxmixer" target="_blank" rel="noopener" class="contact__link">
+            <a href="https://www.linkedin.com/company/the-cx-mixer/" target="_blank" rel="noopener" class="contact__link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg>
               LinkedIn
             </a>
@@ -431,7 +441,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
           </div>
         </div>
         <div class="contact__form-wrap reveal reveal-delay-1">
-          <form class="contact__form" name="contact" method="POST" data-netlify="true">
+          <form class="contact__form" name="contact" method="POST" action="https://formspree.io/f/xyzgobwj">
             <div class="contact__form-row">
               <div class="contact__field">
                 <label for="name">Name</label>
@@ -506,7 +516,8 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
 
   @media (max-width: 960px) {
     .hero__layout { grid-template-columns: 1fr; }
-    .hero__video { display: none; }
+    .hero__video { justify-self: center; }
+    .hero__video-el { width: 180px; }
   }
   .hero__eyebrow { margin-bottom: var(--sp-md); }
   .hero__title { color: #fff; margin-bottom: var(--sp-md); line-height: 1.0; }
@@ -647,6 +658,8 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
 
   /* ═══ TESTIMONIALS ═══ */
   .quotes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
+  .quotes__grid .quotes__card:nth-child(4) { grid-column: 1 / 2; }
+  .quotes__grid .quotes__card:nth-child(5) { grid-column: 2 / 4; }
   .quotes__card { background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-xl) var(--sp-lg); border: 2px solid var(--border); position: relative; transition: all var(--med) var(--ease); }
   .quotes__card:hover { transform: translateY(-8px) rotate(1deg); box-shadow: 0 20px 50px rgba(10,15,28,0.1), 0 0 40px rgba(83,198,214,0.1); border-color: var(--cyan); }
   .quotes__card--accent { background: var(--ink); border-color: var(--ink); color: rgba(255,255,255,0.85); }

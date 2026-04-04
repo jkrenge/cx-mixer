@@ -23,6 +23,7 @@ pnpm-debug.log*
 # raw uncompressed media
 public/raw_photos/
 public/raw_videos/
+public/quote_input/
 
 # jetbrains setting folder
 .idea/
