@@ -1,0 +1,310 @@
+# ═══════════════════════════════════════════════
+# CX Mixer — Site Content
+# ═══════════════════════════════════════════════
+# Edit this file to update all text on the site.
+# Markdown is supported in body text fields.
+# After editing, rebuild with `npm run build`.
+# ═══════════════════════════════════════════════
+
+meta:
+  title: "CX Mixer | E-commerce Events, Community & Podcast"
+  description: "CX Mixer connects e-commerce brands through curated events, community, and podcast conversations built around real relationships and customer experience."
+
+links:
+  spotify: "https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ"
+  youtube: "https://www.youtube.com/@CXMixer"
+  linkedin: "https://www.linkedin.com/company/the-cx-mixer/"
+  instagram: "https://www.instagram.com/cxmixer"
+  sponsor_video: "https://www.youtube.com/embed/u8sic_KOgOc"
+
+# ─── HERO ───
+hero:
+  badge: "Events · Community · Podcast"
+  title: "Where e‑commerce brands connect"
+  title_em: "beyond the pitch"
+  subtitle: >
+    CX Mixer brings together brand leaders, operators, and industry friends
+    through curated events, honest conversations, and content that makes the
+    e-commerce world feel a little smaller and a lot more human.
+  cta_primary: "Join the Collective"
+  cta_secondary: "See Upcoming Events"
+  listen_label: "Listen on"
+  video_cta: "Tap to play with sound"
+  video_badge: "Sound off"
+
+# ─── INTRO ───
+intro:
+  label: "What is CX Mixer"
+  title: "Built for the people *behind* the brands"
+  body: >
+    CX Mixer is where e-commerce leaders come to meet good people, share
+    what's actually working, and build relationships that go beyond a badge
+    scan. From curated conference-side events to podcast conversations and
+    a growing community of operators — this is a space designed for
+    connection without the noise.
+  cta: "Explore the Community"
+  features:
+    - icon: "⚡"
+      title: "Curated Events"
+      desc: "Intimate gatherings at the industry's biggest moments"
+    - icon: "🎙"
+      title: "Real Conversations"
+      desc: "Operators sharing what actually works — no script"
+    - icon: "🌐"
+      title: "Trusted Community"
+      desc: "A network that skips the pitch and shares the playbook"
+    - icon: "✨"
+      title: "Zero Sales Energy"
+      desc: "Connection without the noise. Just great people, period."
+
+# ─── EVENTS ───
+events:
+  label: "Events"
+  title: "Meet up in *real life*"
+  subtitle: >
+    From breakfast meetups to VIP dinners — CX Mixer events are designed
+    to help e-commerce brands connect in a way that actually feels fun.
+    No pitches. Just brands.
+  cards:
+    - type: "Breakfast"
+      name: "Morning Mixer"
+      desc: "Start the conference day right. Coffee, conversation, and the kind of intros that actually lead somewhere."
+      status: "Coming Soon"
+    - type: "Happy Hour"
+      name: "The Hangover Hangout"
+      desc: "A casual mid-conference reset with great food, good people, and zero pressure. Meet fellow brand folks and recharge."
+      status: "Coming Soon"
+      featured: true
+    - type: "VIP Dinner"
+      name: "Late Night Conversations"
+      desc: "An intimate dinner for brand leaders. Curated guest list. No agenda beyond great food and real talk."
+      status: "Coming Soon"
+
+# ─── BRANDS ───
+brands:
+  title: "Good people. Great brands. *Real conversations.*"
+  names:
+    - Glossier
+    - True Classic
+    - Everlane
+    - Vuori
+    - Tommy John
+    - Dr. Squatch
+    - Caraway
+    - BaubleBar
+    - 32 Degrees
+    - Wyze
+    - Jaxxon
+    - Olly
+    - Simple Modern
+    - Suit Shop
+    - Taylor Stitch
+    - Fanatics Live
+    - Nathan James
+    - Carpe
+
+# ─── PHOTO GALLERY ───
+gallery:
+  label: "The Vibe"
+  title: "What happens when the *right people* end up in the same room"
+  featured: "DSC02113"
+  # Photos are loaded from public/photos/*.webp
+  photos:
+    - DSCF0329
+    - DSCF0460
+    - DSCF0353
+    - DSCF0832
+    - DSCF0438
+    - DSCF1079
+    - DSCF0504
+    - DSCF0369
+    - DSC02157
+    - DSCF0643
+    - DSC02113
+    - DSCF0559
+    - DSCF0780
+    - DSCF0468
+    - DSCF1153
+    - DSCF1323
+    - DSC02163
+    - DSC02188
+    - DSCF0479
+    - DSCF1207
+    - DSCF0657
+    - DSCF1335
+
+# ─── COLLECTIVE / COMMUNITY ───
+collective:
+  label: "The CX Collective"
+  title: "A community that sticks *after* the event ends"
+  body: >
+    The CX Collective is the community side of CX Mixer. It's where brand
+    leaders keep the conversations going, meet peers facing similar
+    challenges, and tap into a trusted network of e-commerce operators
+    who get it.
+  quote: "Think of it as your industry group chat — but with better people and fewer random pitches."
+  notifications:
+    - "🤝 New connection made"
+    - "🎙 New episode dropped"
+    - "🎉 Event invite sent"
+  values:
+    - icon: "💚"
+      text: "Be generous"
+    - icon: "🎯"
+      text: "Keep it real"
+    - icon: "💡"
+      text: "Share what's useful"
+    - icon: "🙏"
+      text: "Respect the room"
+    - icon: "🤝"
+      text: "Build relationships, not transactions"
+
+# ─── PODCAST ───
+podcast:
+  label: "Podcast"
+  title: "Watch & Listen *in*"
+  subtitle: >
+    Smart, practical conversations with the people building the customer
+    experience from the inside. Never too polished. Always worth your time.
+  season1:
+    - id: "aq8Hb2MnP4I"
+      title: "The Customer ISN'T Always Right"
+      guests: "Tommy John & True Classic"
+      ep: "Ep 1"
+    - id: "TuKgoOwyAuw"
+      title: "The Impact A Small CX Team Can Have On A Brand"
+      guests: "Carpe & Caraway Home"
+      ep: "Ep 2"
+    - id: "crH4nntwK4c"
+      title: "From Cart to Community: How Brands Build CX That Connects"
+      guests: "Glossier & BaubleBar"
+      ep: "Ep 3"
+    - id: "L9cUukPj3vM"
+      title: "Everywhere All at Once: Mastering CX Across Channels"
+      guests: "Wyze & Olly"
+      ep: "Ep 4"
+    - id: "9BSsYgxozNc"
+      title: "Gold Chains and Soap Bars: Female CX Bosses Revolutionizing Men's Brands"
+      guests: "Jaxxon & Dr. Squatch"
+      ep: "Ep 5"
+  season2:
+    - id: "s2wmJtTex5Y"
+      title: "From Cart to Closet to Cup Holder: CX For Modern Essentials"
+      guests: "Simple Modern & 32 Degrees"
+      ep: "Ep 6"
+    - id: "5wGqugOohGE"
+      title: "The Fine Print: Fighting Fraud Without Losing Customers"
+      guests: "Fanatics Live & Nathan James"
+      ep: "Ep 7"
+    - id: "D-l60gX69Ss"
+      title: "The Modern Man's Journey: From Rugged to Refined"
+      guests: "Suit Shop & Taylor Stitch"
+      ep: "Ep 8"
+    - id: "YqDJSbTcUyw"
+      title: "Quiet Luxury, Human CX: Premium Experiences Without the Snob Factor"
+      guests: "Everlane & Vuori"
+      ep: "Ep 9"
+    - id: "OWO2pbKlBDI"
+      title: "0 to 100: Building CX From Day One"
+      guests: "Breanna Moreno & Dan Kaparski"
+      ep: "Ep 10"
+    - id: "kd8OWquqcE4"
+      title: "How 8 CX Leaders Are Making AI Work — Right Now"
+      guests: "Glossier, Dr. Squatch, Caraway & more"
+      ep: "Bonus"
+
+# ─── TESTIMONIALS ───
+quotes:
+  - text: "Larry has a real gift for bringing people together. He's made a huge difference for me, and I know I'm not the only one."
+    name: "Taylor Johnson"
+    role: "Director of CX"
+    photo: "Taylor_Johnson"
+    url: "https://www.linkedin.com/posts/taylorj23_cxmixer-ecommerce-community-activity-7376273324777136128-O_qj"
+    accent: false
+  - text: "It's rare to find content that offers genuine insights into what's happening now in the CX world. For all my CX buddies — you gotta check out The CX Mixer podcast."
+    name: "Connor McKeown"
+    role: "Ecommerce Strategist"
+    photo: "Connor_McKeown"
+    url: "https://www.linkedin.com/posts/connor-mckeown_the-impact-a-small-cx-team-can-have-on-a-activity-7339314220515115008-9luz"
+    accent: true
+  - text: "The CX Mixer ALWAYS coming through with the best events (and podcast guests)!"
+    name: "Lisa Yarrow"
+    role: "CX at Everlane"
+    photo: "Lisa_Yarrow"
+    url: "https://www.linkedin.com/posts/lisayarrow_shoptalk-vip-lunch-recap-as-my-photographer-activity-7445239354878418945-DuPZ"
+    accent: false
+  - text: 'Stay tuned for the full episode of The CX Mixer this Friday. I consider it a "must listen."'
+    name: "Katy Eriks"
+    role: "Director of CX"
+    photo: "Katy_Eriks"
+    url: "https://www.linkedin.com/posts/keriks_ecommerce-cx-postpurchase-activity-7391516902994452481-MYs5"
+    accent: true
+  - text: "Two things I love... In-N-Out Burger and The CX Mixer."
+    name: "Hannah Wendt"
+    role: "Sr. Director, GTM Strategy"
+    photo: "Hannah_Wendt"
+    url: "https://www.linkedin.com/posts/hannahwendt_two-things-i-love-in-n-out-burger-and-share-7437948983731417088-pyRc"
+    accent: false
+  - text: "My first time being a guest on a podcast (eeeek!) and I had the best time chatting with Larry Thoma on The CX Mixer."
+    name: "Jennifer Villalba"
+    role: "Dir. of CX, 32 Degrees"
+    photo: "Jennifer_Villalba"
+    url: "https://www.linkedin.com/posts/jennifer-villalba-34999469_wait-is-this-a-scam-honestly-that-ugcPost-7387235154144014336-uGuG"
+    accent: false
+  - text: "Come join us at The CX Mixer — I promise this will be the best lunch you have."
+    name: "Nancy Gurd"
+    role: "CX Director, Caraway Home"
+    photo: "Nancy_Gurd"
+    url: "https://www.linkedin.com/posts/nancy-gurd-17b67a209_cx-mixer-lunch-palm-springs-partiful-activity-7430019821708353536-Ppw-"
+    accent: true
+
+# ─── SPONSORS ───
+sponsors:
+  title: "Partner with the community brands *want* to be part of"
+  body: >
+    CX Mixer works with select sponsors who want to show up in the right
+    rooms, support authentic connection, and build real visibility with
+    e-commerce decision-makers.
+  cta: "Become a Sponsor"
+
+# ─── ABOUT ───
+about:
+  label: "About"
+  title: "It started with a *simple idea*"
+  body_1: >
+    CX Mixer started from a belief that the best part of this industry is
+    the people in it. Conferences are full of smart brands and great
+    conversations, but too often the real connection gets buried under
+    schedules, badges, and back-to-back pitches.
+  body_2: >
+    CX Mixer was built to create the kind of space where those real
+    conversations could actually happen — no forced networking, no agenda
+    beyond genuine connection.
+  team:
+    - name: "Larry Thoma"
+      role: "Host & Creator"
+      bio: "Larry brings the energy, the guest list, and the belief that the industry is better when good people know each other."
+      photo: "larrythoma"
+      linkedin: "https://www.linkedin.com/in/larrythoma/"
+    - name: "Adam Raftshol"
+      role: "Operations & Sponsorships"
+      bio: "Adam keeps the machine running — from event logistics to sponsor relationships, he makes sure every detail lands."
+      photo: "adam_raftshol"
+      linkedin: "https://www.linkedin.com/in/adamraftshol/"
+
+# ─── CONTACT ───
+contact:
+  label: "Get in Touch"
+  title: "Let's *connect*"
+  subtitle: "Whether you want to attend, partner, sponsor, or just say hey — we'd love to hear from you."
+  form_action: "https://formspree.io/f/Larry@CXMixer.com"
+  inquiry_types:
+    - "General Inquiry"
+    - "Event Questions"
+    - "Sponsor Inquiry"
+    - "Podcast Guest"
+    - "Join the Collective"
+
+# ─── FOOTER ───
+footer:
+  tagline: "Where e-commerce brands connect *beyond the pitch.*"

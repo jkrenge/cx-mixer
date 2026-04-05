@@ -1,51 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
+import yaml from 'js-yaml';
 
-const brands = [
-  'Glossier', 'True Classic', 'Everlane', 'Vuori', 'Tommy John',
-  'Dr. Squatch', 'Caraway', 'BaubleBar', '32 Degrees', 'Wyze',
-  'Jaxxon', 'Olly', 'Simple Modern', 'Suit Shop', 'Taylor Stitch',
-  'Fanatics Live', 'Nathan James', 'Carpe'
-];
+// Load all content from YAML (Vite raw import)
+import rawYaml from '../content/site.yaml?raw';
+const site = yaml.load(rawYaml) as any;
 
-// Season 1 (oldest → newest)
-const season1 = [
-  { id: 'aq8Hb2MnP4I', title: 'The Customer ISN\'T Always Right', guests: 'Tommy John & True Classic', ep: 'Ep 1' },
-  { id: 'TuKgoOwyAuw', title: 'The Impact A Small CX Team Can Have On A Brand', guests: 'Carpe & Caraway Home', ep: 'Ep 2' },
-  { id: 'crH4nntwK4c', title: 'From Cart to Community: How Brands Build CX That Connects', guests: 'Glossier & BaubleBar', ep: 'Ep 3' },
-  { id: 'L9cUukPj3vM', title: 'Everywhere All at Once: Mastering CX Across Channels', guests: 'Wyze & Olly', ep: 'Ep 4' },
-  { id: '9BSsYgxozNc', title: 'Gold Chains and Soap Bars: Female CX Bosses Revolutionizing Men\'s Brands', guests: 'Jaxxon & Dr. Squatch', ep: 'Ep 5' },
-];
-
-// Season 2 + Bonus (oldest → newest)
-const season2 = [
-  { id: 's2wmJtTex5Y', title: 'From Cart to Closet to Cup Holder: CX For Modern Essentials', guests: 'Simple Modern & 32 Degrees', ep: 'Ep 6' },
-  { id: '5wGqugOohGE', title: 'The Fine Print: Fighting Fraud Without Losing Customers', guests: 'Fanatics Live & Nathan James', ep: 'Ep 7' },
-  { id: 'D-l60gX69Ss', title: 'The Modern Man\'s Journey: From Rugged to Refined', guests: 'Suit Shop & Taylor Stitch', ep: 'Ep 8' },
-  { id: 'YqDJSbTcUyw', title: 'Quiet Luxury, Human CX: Premium Experiences Without the Snob Factor', guests: 'Everlane & Vuori', ep: 'Ep 9' },
-  { id: 'OWO2pbKlBDI', title: '0 to 100: Building CX From Day One', guests: 'Breanna Moreno & Dan Kaparski', ep: 'Ep 10' },
-  { id: 'kd8OWquqcE4', title: 'How 8 CX Leaders Are Making AI Work — Right Now', guests: 'Glossier, Dr. Squatch, Caraway & more', ep: 'Bonus' },
-];
-
-const features = [
-  { icon: '&#x26A1;', title: 'Curated Events', desc: 'Intimate gatherings at the industry\'s biggest moments' },
-  { icon: '&#x1F399;', title: 'Real Conversations', desc: 'Operators sharing what actually works — no script' },
-  { icon: '&#x1F310;', title: 'Trusted Community', desc: 'A network that skips the pitch and shares the playbook' },
-  { icon: '&#x2728;', title: 'Zero Sales Energy', desc: 'Connection without the noise. Just great people, period.' },
-];
-
-const values = [
-  { icon: '&#x1F49A;', text: 'Be generous' },
-  { icon: '&#x1F3AF;', text: 'Keep it real' },
-  { icon: '&#x1F4A1;', text: 'Share what\'s useful' },
-  { icon: '&#x1F64F;', text: 'Respect the room' },
-  { icon: '&#x1F91D;', text: 'Build relationships, not transactions' },
-];
-
-const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', 'Podcast Guest', 'Join the Collective'];
+// Destructure for template use
+const { hero, intro, events: eventsData, brands: brandsData, gallery, collective, podcast, quotes, sponsors, about, contact, links } = site;
+const season1 = podcast.season1;
+const season2 = podcast.season2;
 ---
 
-<Base title="CX Mixer | E-commerce Events, Community & Podcast">
+<Base title={site.meta.title} description={site.meta.description}>
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
@@ -63,25 +30,25 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     <div class="container hero__layout">
       <div class="hero__content">
         <div class="hero__eyebrow" style="animation: slide-up 0.6s var(--ease) both;">
-          <span class="badge badge--outline">Events &middot; Community &middot; Podcast</span>
+          <span class="badge badge--outline">{hero.badge}</span>
         </div>
 
         <h1 class="hero__title" style="animation: slide-up 0.7s var(--ease) 0.1s both;">
-          Where e&#8209;commerce brands connect
-          <span class="hero__em"><em class="serif">beyond the pitch</em></span>
+          {hero.title}
+          <span class="hero__em"><em class="serif">{hero.title_em}</em></span>
         </h1>
 
         <p class="hero__sub" style="animation: slide-up 0.7s var(--ease) 0.2s both;">
-          CX Mixer brings together brand leaders, operators, and industry friends through curated events, honest conversations, and content that makes the e-commerce world feel a little smaller and a lot more human.
+          {hero.subtitle}
         </p>
 
         <div class="hero__actions" style="animation: slide-up 0.7s var(--ease) 0.3s both;">
-          <a href="#collective" class="btn btn--primary">Join the Collective</a>
-          <a href="#events" class="btn btn--ghost">See Upcoming Events</a>
+          <a href="#collective" class="btn btn--primary">{hero.cta_primary}</a>
+          <a href="#events" class="btn btn--ghost">{hero.cta_secondary}</a>
         </div>
 
         <div class="hero__listen" style="animation: fade-in 1s var(--ease) 0.6s both;">
-          <span class="hero__listen-label">Listen on</span>
+          <span class="hero__listen-label">{hero.listen_label}</span>
         <a href="https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ" target="_blank" rel="noopener" class="hero__listen-icon" aria-label="Spotify">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.7-6.1-2-10.1-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.4-1 8.1-.6 11.2 1.3.3.2.4.7.3 1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.8-2.5-11.5-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.2-1.3 9.4-.7 13 1.5.3.2.5.7.2 1.2zm.1-3.4c-3.7-2.2-9.9-2.4-13.4-1.3-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.1-1.2 10.8-1 15 1.5.5.3.7.9.4 1.4-.3.5-.9.6-1.4.4z"/></svg>
         </a>
@@ -101,7 +68,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
             <div class="hero__video-play-btn">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </div>
-            <span class="hero__video-cta">Tap to play with sound</span>
+            <span class="hero__video-cta">{hero.video_cta}</span>
           </div>
           <div class="hero__video-muted-badge" id="hero-muted-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
@@ -122,17 +89,15 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     <div class="container">
       <div class="intro__layout">
         <div class="intro__text reveal">
-          <span class="section-label">What is CX Mixer</span>
-          <h2 class="text-balance">Built for the people <em class="serif">behind</em> the brands</h2>
-          <p class="mb-md">
-            CX Mixer is where e-commerce leaders come to meet good people, share what's actually working, and build relationships that go beyond a badge scan. From curated conference-side events to podcast conversations and a growing community of operators — this is a space designed for connection without the noise.
-          </p>
-          <a href="#collective" class="btn btn--teal">Explore the Community</a>
+          <span class="section-label">{intro.label}</span>
+          <h2 class="text-balance" set:html={intro.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
+          <p class="mb-md">{intro.body}</p>
+          <a href="#collective" class="btn btn--teal">{intro.cta}</a>
         </div>
         <div class="intro__cards">
-          {features.map((f, i) => (
+          {intro.features.map((f: any, i: number) => (
             <div class={`intro__card reveal reveal-delay-${i + 1}`}>
-              <span class="intro__card-icon" set:html={f.icon} />
+              <span class="intro__card-icon">{f.icon}</span>
               <div>
                 <h4>{f.title}</h4>
                 <p>{f.desc}</p>
@@ -149,34 +114,20 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     <div class="divider" style="position:absolute;top:0;left:0;right:0;height:4px;" aria-hidden="true"></div>
     <div class="container">
       <div class="events__head reveal">
-        <span class="section-label" style="color: var(--teal);">Events</span>
-        <h2>Meet up in <em class="serif">real life</em></h2>
-        <p style="color: rgba(255,255,255,0.55); max-width: 50ch;">
-          From breakfast meetups to VIP dinners — CX Mixer events are designed to help e-commerce brands connect in a way that actually feels fun. No pitches. Just brands.
-        </p>
+        <span class="section-label" style="color: var(--teal);">{eventsData.label}</span>
+        <h2 set:html={eventsData.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
+        <p style="color: rgba(255,255,255,0.55); max-width: 50ch;">{eventsData.subtitle}</p>
       </div>
       <div class="events__grid">
-        <div class="events__card reveal reveal-delay-1">
-          <div class="events__card-num" aria-hidden="true">01</div>
-          <span class="badge badge--coral">Breakfast</span>
-          <h3>Morning Mixer</h3>
-          <p>Start the conference day right. Coffee, conversation, and the kind of intros that actually lead somewhere.</p>
-          <span class="events__card-tag">Coming Soon</span>
-        </div>
-        <div class="events__card events__card--featured reveal reveal-delay-2">
-          <div class="events__card-num" aria-hidden="true">02</div>
-          <span class="badge badge--coral">Happy Hour</span>
-          <h3>The Hangover Hangout</h3>
-          <p>A casual mid-conference reset with great food, good people, and zero pressure. Meet fellow brand folks and recharge.</p>
-          <span class="events__card-tag">Coming Soon</span>
-        </div>
-        <div class="events__card reveal reveal-delay-3">
-          <div class="events__card-num" aria-hidden="true">03</div>
-          <span class="badge badge--coral">VIP Dinner</span>
-          <h3>Late Night Conversations</h3>
-          <p>An intimate dinner for brand leaders. Curated guest list. No agenda beyond great food and real talk.</p>
-          <span class="events__card-tag">Coming Soon</span>
-        </div>
+        {eventsData.cards.map((card: any, i: number) => (
+          <div class={`events__card ${card.featured ? 'events__card--featured' : ''} reveal reveal-delay-${i + 1}`}>
+            <div class="events__card-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+            <span class="badge badge--coral">{card.type}</span>
+            <h3>{card.name}</h3>
+            <p>{card.desc}</p>
+            <span class="events__card-tag">{card.status}</span>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -184,18 +135,18 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   <!-- ═══ BRAND MARQUEE ═══ -->
   <section class="section brands">
     <div class="container text-center mb-lg reveal">
-      <h2>Good people. Great brands.<br/><em class="serif">Real conversations.</em></h2>
+      <h2 set:html={brandsData.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
     </div>
     <div class="marquee-wrapper">
       <div class="marquee-track">
-        {[...brands, ...brands].map((brand) => (
+        {[...brandsData.names, ...brandsData.names].map((brand: string) => (
           <span class="brands__pill">{brand}</span>
         ))}
       </div>
     </div>
     <div class="marquee-wrapper" style="margin-top: 0.75rem;">
       <div class="marquee-track" style="animation-direction: reverse; animation-duration: 35s;">
-        {[...brands, ...brands].reverse().map((brand) => (
+        {[...brandsData.names, ...brandsData.names].reverse().map((brand: string) => (
           <span class="brands__pill brands__pill--alt">{brand}</span>
         ))}
       </div>
@@ -205,33 +156,19 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   <!-- ═══ PHOTO MASONRY ═══ -->
   <section class="section masonry-section">
     <div class="container text-center mb-lg reveal">
-      <span class="section-label" style="justify-content: center;">The Vibe</span>
-      <h2>What happens when the <em class="serif">right people</em> end up in the same room</h2>
+      <span class="section-label" style="justify-content: center;">{gallery.label}</span>
+      <h2 set:html={gallery.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
     </div>
     <div class="container">
       <div class="masonry reveal">
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0329.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0460.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0353.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0832.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0438.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF1079.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0504.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0369.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSC02157.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0643.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSC02113.webp`} alt="CX Mixer event — featured" loading="lazy" class="masonry__featured" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0559.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0780.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0468.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF1153.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF1323.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSC02163.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSC02188.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0479.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF1207.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF0657.webp`} alt="CX Mixer event" loading="lazy" />
-        <img src={`${import.meta.env.BASE_URL}photos/DSCF1335.webp`} alt="CX Mixer event" loading="lazy" />
+        {gallery.photos.map((photo: string) => (
+          <img
+            src={`${import.meta.env.BASE_URL}photos/${photo}.webp`}
+            alt="CX Mixer event"
+            loading="lazy"
+            class={photo === gallery.featured ? 'masonry__featured' : ''}
+          />
+        ))}
       </div>
     </div>
   </section>
@@ -253,18 +190,14 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
           </div>
         </div>
         <div class="community__text reveal reveal-delay-1">
-          <span class="section-label">The CX Collective</span>
-          <h2 class="text-balance">A community that sticks <em class="serif">after</em> the event ends</h2>
-          <p class="mb-md">
-            The CX Collective is the community side of CX Mixer. It's where brand leaders keep the conversations going, meet peers facing similar challenges, and tap into a trusted network of e-commerce operators who get it.
-          </p>
-          <p class="community__quote mb-lg">
-            Think of it as your industry group chat — but with better people and fewer random pitches.
-          </p>
+          <span class="section-label">{collective.label}</span>
+          <h2 class="text-balance" set:html={collective.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
+          <p class="mb-md">{collective.body}</p>
+          <p class="community__quote mb-lg">{collective.quote}</p>
           <div class="community__values">
-            {values.map((v) => (
+            {collective.values.map((v: any) => (
               <div class="community__value">
-                <span set:html={v.icon} />
+                <span>{v.icon}</span>
                 <span>{v.text}</span>
               </div>
             ))}
@@ -279,11 +212,9 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     <div class="divider" style="position:absolute;top:0;left:0;right:0;height:4px;" aria-hidden="true"></div>
     <div class="container">
       <div class="podcast__head reveal">
-        <span class="section-label" style="color: var(--teal);">Podcast</span>
-        <h2>Watch & Listen <em class="serif">in</em></h2>
-        <p style="color: rgba(255,255,255,0.55); max-width: 50ch;">
-          Smart, practical conversations with the people building the customer experience from the inside. Never too polished. Always worth your time.
-        </p>
+        <span class="section-label" style="color: var(--teal);">{podcast.label}</span>
+        <h2 set:html={podcast.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
+        <p style="color: rgba(255,255,255,0.55); max-width: 50ch;">{podcast.subtitle}</p>
       </div>
 
       <!-- Season 1 -->
@@ -345,62 +276,16 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   <section class="section quotes">
     <div class="container">
       <div class="quotes__grid reveal">
-        <a href="https://www.linkedin.com/posts/taylorj23_cxmixer-ecommerce-community-activity-7376273324777136128-O_qj" target="_blank" rel="noopener" class="quotes__card">
-          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>Larry has a real gift for bringing people together. He's made a huge difference for me, and I know I'm not the only one.</p>
-          <div class="quotes__author">
-            <img src={`${import.meta.env.BASE_URL}quotes/Taylor_Johnson.webp`} alt="Taylor Johnson" class="quotes__avatar" />
-            <cite>Taylor Johnson<span>Director of CX</span></cite>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/connor-mckeown_the-impact-a-small-cx-team-can-have-on-a-activity-7339314220515115008-9luz" target="_blank" rel="noopener" class="quotes__card quotes__card--accent">
-          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>It's rare to find content that offers genuine insights into what's happening now in the CX world. For all my CX buddies — you gotta check out The CX Mixer podcast.</p>
-          <div class="quotes__author">
-            <img src={`${import.meta.env.BASE_URL}quotes/Connor_McKeown.webp`} alt="Connor McKeown" class="quotes__avatar" />
-            <cite>Connor McKeown<span>Ecommerce Strategist</span></cite>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/lisayarrow_shoptalk-vip-lunch-recap-as-my-photographer-activity-7445239354878418945-DuPZ" target="_blank" rel="noopener" class="quotes__card">
-          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>The CX Mixer ALWAYS coming through with the best events (and podcast guests)!</p>
-          <div class="quotes__author">
-            <img src={`${import.meta.env.BASE_URL}quotes/Lisa_Yarrow.webp`} alt="Lisa Yarrow" class="quotes__avatar" />
-            <cite>Lisa Yarrow<span>CX at Everlane</span></cite>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/keriks_ecommerce-cx-postpurchase-activity-7391516902994452481-MYs5" target="_blank" rel="noopener" class="quotes__card quotes__card--accent">
-          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>Stay tuned for the full episode of The CX Mixer this Friday. I consider it a "must listen."</p>
-          <div class="quotes__author">
-            <img src={`${import.meta.env.BASE_URL}quotes/Katy_Eriks.webp`} alt="Katy Eriks" class="quotes__avatar" />
-            <cite>Katy Eriks<span>Director of CX</span></cite>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/hannahwendt_two-things-i-love-in-n-out-burger-and-share-7437948983731417088-pyRc" target="_blank" rel="noopener" class="quotes__card">
-          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>Two things I love... In-N-Out Burger and The CX Mixer.</p>
-          <div class="quotes__author">
-            <img src={`${import.meta.env.BASE_URL}quotes/Hannah_Wendt.webp`} alt="Hannah Wendt" class="quotes__avatar" />
-            <cite>Hannah Wendt<span>Sr. Director, GTM Strategy</span></cite>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/jennifer-villalba-34999469_wait-is-this-a-scam-honestly-that-ugcPost-7387235154144014336-uGuG" target="_blank" rel="noopener" class="quotes__card">
-          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>My first time being a guest on a podcast (eeeek!) and I had the best time chatting with Larry Thoma on The CX Mixer.</p>
-          <div class="quotes__author">
-            <img src={`${import.meta.env.BASE_URL}quotes/Jennifer_Villalba.webp`} alt="Jennifer Villalba" class="quotes__avatar" />
-            <cite>Jennifer Villalba<span>Dir. of CX, 32 Degrees</span></cite>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/posts/nancy-gurd-17b67a209_cx-mixer-lunch-palm-springs-partiful-activity-7430019821708353536-Ppw-" target="_blank" rel="noopener" class="quotes__card quotes__card--accent">
-          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>Come join us at The CX Mixer — I promise this will be the best lunch you have.</p>
-          <div class="quotes__author">
-            <img src={`${import.meta.env.BASE_URL}quotes/Nancy_Gurd.webp`} alt="Nancy Gurd" class="quotes__avatar" />
-            <cite>Nancy Gurd<span>CX Director, Caraway Home</span></cite>
-          </div>
-        </a>
+        {quotes.map((q: any) => (
+          <a href={q.url} target="_blank" rel="noopener" class={`quotes__card ${q.accent ? 'quotes__card--accent' : ''}`}>
+            <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
+            <p>{q.text}</p>
+            <div class="quotes__author">
+              <img src={`${import.meta.env.BASE_URL}quotes/${q.photo}.webp`} alt={q.name} class="quotes__avatar" />
+              <cite>{q.name}<span>{q.role}</span></cite>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -411,14 +296,12 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     <div class="container">
       <div class="sponsor__layout reveal">
         <div class="sponsor__text">
-          <h2 class="mb-md">Partner with the community brands <em class="serif">want</em> to be part of</h2>
-          <p style="opacity: 0.85; margin-bottom: var(--sp-lg);">
-            CX Mixer works with select sponsors who want to show up in the right rooms, support authentic connection, and build real visibility with e-commerce decision-makers.
-          </p>
-          <a href="#contact" class="btn btn--white">Become a Sponsor</a>
+          <h2 class="mb-md" set:html={sponsors.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
+          <p style="opacity: 0.85; margin-bottom: var(--sp-lg);">{sponsors.body}</p>
+          <a href="#contact" class="btn btn--white">{sponsors.cta}</a>
         </div>
         <div class="sponsor__video">
-          <iframe src="https://www.youtube.com/embed/u8sic_KOgOc" title="CX Mixer Sponsor Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="sponsor__video-el"></iframe>
+          <iframe src={links.sponsor_video} title="CX Mixer Sponsor Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="sponsor__video-el"></iframe>
         </div>
       </div>
     </div>
@@ -429,34 +312,23 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     <div class="container">
       <div class="about__layout">
         <div class="reveal">
-          <span class="section-label">About</span>
-          <h2 class="text-balance">It started with a <em class="serif">simple idea</em></h2>
-          <p class="mb-md">
-            CX Mixer started from a belief that the best part of this industry is the people in it. Conferences are full of smart brands and great conversations, but too often the real connection gets buried under schedules, badges, and back-to-back pitches.
-          </p>
-          <p>
-            CX Mixer was built to create the kind of space where those real conversations could actually happen — no forced networking, no agenda beyond genuine connection.
-          </p>
+          <span class="section-label">{about.label}</span>
+          <h2 class="text-balance" set:html={about.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
+          <p class="mb-md">{about.body_1}</p>
+          <p>{about.body_2}</p>
         </div>
         <div class="about__people">
-          <a href="https://www.linkedin.com/in/larrythoma/" target="_blank" rel="noopener" class="about__card reveal reveal-delay-1">
-            <div class="about__avatar">
-              <img src={`${import.meta.env.BASE_URL}photos/larrythoma.webp`} alt="Larry Thoma" class="about__headshot" />
-            </div>
-            <h3>Larry Thoma</h3>
-            <p class="about__role">Host & Creator</p>
-            <p class="about__bio">Larry brings the energy, the guest list, and the belief that the industry is better when good people know each other.</p>
-            <span class="about__linkedin">View on LinkedIn</span>
-          </a>
-          <a href="https://www.linkedin.com/in/adamraftshol/" target="_blank" rel="noopener" class="about__card reveal reveal-delay-2">
-            <div class="about__avatar">
-              <img src={`${import.meta.env.BASE_URL}photos/adam_raftshol.webp`} alt="Adam Raftshol" class="about__headshot" />
-            </div>
-            <h3>Adam Raftshol</h3>
-            <p class="about__role">Operations & Sponsorships</p>
-            <p class="about__bio">Adam keeps the machine running — from event logistics to sponsor relationships, he makes sure every detail lands.</p>
-            <span class="about__linkedin">View on LinkedIn</span>
-          </a>
+          {about.team.map((person: any, i: number) => (
+            <a href={person.linkedin} target="_blank" rel="noopener" class={`about__card reveal reveal-delay-${i + 1}`}>
+              <div class="about__avatar">
+                <img src={`${import.meta.env.BASE_URL}photos/${person.photo}.webp`} alt={person.name} class="about__headshot" />
+              </div>
+              <h3>{person.name}</h3>
+              <p class="about__role">{person.role}</p>
+              <p class="about__bio">{person.bio}</p>
+              <span class="about__linkedin">View on LinkedIn</span>
+            </a>
+          ))}
         </div>
       </div>
     </div>
@@ -468,10 +340,10 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     <div class="container">
       <div class="contact__layout">
         <div class="contact__info reveal">
-          <span class="section-label" style="color: var(--teal);">Get in Touch</span>
-          <h2>Let's <em class="serif">connect</em></h2>
+          <span class="section-label" style="color: var(--teal);">{contact.label}</span>
+          <h2 set:html={contact.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
           <p style="color: rgba(255,255,255,0.55); margin-bottom: var(--sp-lg);">
-            Whether you want to attend, partner, sponsor, or just say hey — we'd love to hear from you.
+            {contact.subtitle}
           </p>
           <div class="contact__links">
             <a href="https://www.youtube.com/@CXMixer" target="_blank" rel="noopener" class="contact__link">
@@ -493,7 +365,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
           </div>
         </div>
         <div class="contact__form-wrap reveal reveal-delay-1">
-          <form class="contact__form" name="contact" method="POST" action="https://formspree.io/f/Larry@CXMixer.com" id="contact-form">
+          <form class="contact__form" name="contact" method="POST" action={contact.form_action} id="contact-form">
             <!-- Honeypot field — hidden from humans, traps bots -->
             <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off" />
             <input type="hidden" name="_subject" value="New CX Mixer inquiry" />
@@ -516,7 +388,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
                 <label for="type">Inquiry Type</label>
                 <select id="type" name="inquiry_type" required>
                   <option value="" disabled selected>Pick the lane that fits</option>
-                  {inquiryTypes.map((t) => (
+                  {contact.inquiry_types.map((t: string) => (
                     <option value={t}>{t}</option>
                   ))}
                 </select>
