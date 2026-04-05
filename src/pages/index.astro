@@ -599,8 +599,8 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .hero__video-wrap:hover .hero__video-play-btn { transform: scale(1.1); }
   .hero__video-cta { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
 
-  .hero__video-muted-badge { position: absolute; top: 0.75rem; right: 0.75rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); border-radius: var(--r-pill); padding: 0.3rem 0.6rem; display: flex; align-items: center; gap: 0.35rem; color: rgba(255,255,255,0.7); font-family: var(--font-display); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; animation: pulse-glow 3s ease-in-out infinite; }
-  .hero__video-wrap.playing .hero__video-muted-badge { opacity: 0; pointer-events: none; transition: opacity var(--fast); }
+  .hero__video-muted-badge { position: absolute; top: 0.75rem; right: 0.75rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); border-radius: var(--r-pill); padding: 0.3rem 0.6rem; display: flex; align-items: center; gap: 0.35rem; color: rgba(255,255,255,0.7); font-family: var(--font-display); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; animation: pulse-glow 3s ease-in-out infinite; transition: opacity var(--fast), visibility var(--fast); }
+  .hero__video-wrap.playing .hero__video-muted-badge { opacity: 0 !important; visibility: hidden; pointer-events: none; animation: none; }
 
   @media (max-width: 960px) {
     .hero__layout { grid-template-columns: 1fr; }
