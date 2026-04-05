@@ -217,7 +217,7 @@ podcast:
 quotes:
   - text: "Larry has a real gift for bringing people together. He's made a huge difference for me, and I know I'm not the only one."
     name: "Taylor Johnson"
-    role: "Director of CX"
+    role: "Director of CX, Nathan James"
     photo: "Taylor_Johnson"
     url: "https://www.linkedin.com/posts/taylorj23_cxmixer-ecommerce-community-activity-7376273324777136128-O_qj"
     accent: false
@@ -235,13 +235,13 @@ quotes:
     accent: false
   - text: 'Stay tuned for the full episode of The CX Mixer this Friday. I consider it a "must listen."'
     name: "Katy Eriks"
-    role: "Director of CX"
+    role: "Director of CX, SuitShop"
     photo: "Katy_Eriks"
     url: "https://www.linkedin.com/posts/keriks_ecommerce-cx-postpurchase-activity-7391516902994452481-MYs5"
     accent: true
   - text: "Two things I love... In-N-Out Burger and The CX Mixer."
     name: "Hannah Wendt"
-    role: "Sr. Director, GTM Strategy"
+    role: "Sr. Director, Wyllo"
     photo: "Hannah_Wendt"
     url: "https://www.linkedin.com/posts/hannahwendt_two-things-i-love-in-n-out-burger-and-share-7437948983731417088-pyRc"
     accent: false
