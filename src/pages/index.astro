@@ -333,31 +333,62 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   <section class="section quotes">
     <div class="container">
       <div class="quotes__grid reveal">
-        <blockquote class="quotes__card">
+        <a href="https://www.linkedin.com/posts/taylorj23_cxmixer-ecommerce-community-activity-7376273324777136128-O_qj" target="_blank" rel="noopener" class="quotes__card">
           <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
           <p>Larry has a real gift for bringing people together. He's made a huge difference for me, and I know I'm not the only one.</p>
-          <cite>Taylor Johnson &middot; Director of CX</cite>
-        </blockquote>
-        <blockquote class="quotes__card quotes__card--accent">
+          <div class="quotes__author">
+            <img src={`${import.meta.env.BASE_URL}quotes/Taylor_Johnson.webp`} alt="Taylor Johnson" class="quotes__avatar" />
+            <cite>Taylor Johnson<span>Director of CX</span></cite>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/connor-mckeown_the-impact-a-small-cx-team-can-have-on-a-activity-7339314220515115008-9luz" target="_blank" rel="noopener" class="quotes__card quotes__card--accent">
           <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
           <p>It's rare to find content that offers genuine insights into what's happening now in the CX world. For all my CX buddies — you gotta check out The CX Mixer podcast.</p>
-          <cite>Connor McKeown &middot; Ecommerce Strategist</cite>
-        </blockquote>
-        <blockquote class="quotes__card">
+          <div class="quotes__author">
+            <img src={`${import.meta.env.BASE_URL}quotes/Connor_McKeown.webp`} alt="Connor McKeown" class="quotes__avatar" />
+            <cite>Connor McKeown<span>Ecommerce Strategist</span></cite>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/lisayarrow_shoptalk-vip-lunch-recap-as-my-photographer-activity-7445239354878418945-DuPZ" target="_blank" rel="noopener" class="quotes__card">
           <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
           <p>The CX Mixer ALWAYS coming through with the best events (and podcast guests)!</p>
-          <cite>Lisa Yarrow &middot; CX at Everlane</cite>
-        </blockquote>
-        <blockquote class="quotes__card">
+          <div class="quotes__author">
+            <img src={`${import.meta.env.BASE_URL}quotes/Lisa_Yarrow.webp`} alt="Lisa Yarrow" class="quotes__avatar" />
+            <cite>Lisa Yarrow<span>CX at Everlane</span></cite>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/keriks_ecommerce-cx-postpurchase-activity-7391516902994452481-MYs5" target="_blank" rel="noopener" class="quotes__card quotes__card--accent">
           <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
           <p>Stay tuned for the full episode of The CX Mixer this Friday. I consider it a "must listen."</p>
-          <cite>Katy Eriks &middot; Director of CX</cite>
-        </blockquote>
-        <blockquote class="quotes__card quotes__card--accent">
+          <div class="quotes__author">
+            <img src={`${import.meta.env.BASE_URL}quotes/Katy_Eriks.webp`} alt="Katy Eriks" class="quotes__avatar" />
+            <cite>Katy Eriks<span>Director of CX</span></cite>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/hannahwendt_two-things-i-love-in-n-out-burger-and-share-7437948983731417088-pyRc" target="_blank" rel="noopener" class="quotes__card">
           <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
-          <p>Larry, thanks for building spaces where our industry can actually connect. You've made a huge difference.</p>
-          <cite>Taylor Johnson &middot; Director of CX</cite>
-        </blockquote>
+          <p>Two things I love... In-N-Out Burger and The CX Mixer.</p>
+          <div class="quotes__author">
+            <img src={`${import.meta.env.BASE_URL}quotes/Hannah_Wendt.webp`} alt="Hannah Wendt" class="quotes__avatar" />
+            <cite>Hannah Wendt<span>Sr. Director, GTM Strategy</span></cite>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/jennifer-villalba-34999469_wait-is-this-a-scam-honestly-that-ugcPost-7387235154144014336-uGuG" target="_blank" rel="noopener" class="quotes__card">
+          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
+          <p>My first time being a guest on a podcast (eeeek!) and I had the best time chatting with Larry Thoma on The CX Mixer.</p>
+          <div class="quotes__author">
+            <img src={`${import.meta.env.BASE_URL}quotes/Jennifer_Villalba.webp`} alt="Jennifer Villalba" class="quotes__avatar" />
+            <cite>Jennifer Villalba<span>Dir. of CX, 32 Degrees</span></cite>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/posts/nancy-gurd-17b67a209_cx-mixer-lunch-palm-springs-partiful-activity-7430019821708353536-Ppw-" target="_blank" rel="noopener" class="quotes__card quotes__card--accent">
+          <div class="quotes__mark" aria-hidden="true">&ldquo;</div>
+          <p>Come join us at The CX Mixer — I promise this will be the best lunch you have.</p>
+          <div class="quotes__author">
+            <img src={`${import.meta.env.BASE_URL}quotes/Nancy_Gurd.webp`} alt="Nancy Gurd" class="quotes__avatar" />
+            <cite>Nancy Gurd<span>CX Director, Caraway Home</span></cite>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -478,9 +509,29 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     </div>
   </section>
 
+  <!-- Lightbox modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <img class="lightbox__img" id="lightbox-img" alt="" />
+  </div>
+
 </Base>
 
 <style>
+  /* ═══ LIGHTBOX ═══ */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 99999;
+    background: rgba(10, 6, 20, 0.92); backdrop-filter: blur(20px);
+    display: flex; align-items: center; justify-content: center;
+    padding: var(--sp-lg);
+    opacity: 0; pointer-events: none;
+    transition: opacity var(--med) var(--ease);
+  }
+  .lightbox.open { opacity: 1; pointer-events: auto; }
+  .lightbox__img { max-width: 90vw; max-height: 85vh; border-radius: var(--r-lg); object-fit: contain; transform: scale(0.9); transition: transform var(--med) var(--ease-bounce); }
+  .lightbox.open .lightbox__img { transform: scale(1); }
+  .lightbox__close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background var(--fast); }
+  .lightbox__close:hover { background: rgba(255,255,255,0.1); }
   /* ═══ HERO ═══ */
   .hero {
     position: relative;
@@ -521,7 +572,7 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   }
   .hero__eyebrow { margin-bottom: var(--sp-md); }
   .hero__title { color: #fff; margin-bottom: var(--sp-md); line-height: 1.0; }
-  .hero__em { display: block; background: linear-gradient(135deg, var(--magenta) 0%, var(--neon) 50%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-top: 0.1em; }
+  .hero__em { display: block; background: linear-gradient(135deg, var(--magenta) 0%, var(--neon) 50%, var(--cyan) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-top: 0.1em; padding-bottom: 0.15em; line-height: 1.2; }
   .hero__em .serif { font-size: 1.1em; }
   .hero__sub { color: rgba(255,255,255,0.55); font-size: 1.1rem; line-height: 1.75; margin-bottom: var(--sp-lg); max-width: 52ch; }
   .hero__actions { display: flex; gap: var(--sp-sm); flex-wrap: wrap; margin-bottom: var(--sp-xl); }
@@ -657,24 +708,27 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   @media (min-width: 769px) and (max-width: 1024px) { .podcast__grid { grid-template-columns: repeat(2, 1fr); } }
 
   /* ═══ TESTIMONIALS ═══ */
-  .quotes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
-  .quotes__grid .quotes__card:nth-child(4) { grid-column: 1 / 2; }
-  .quotes__grid .quotes__card:nth-child(5) { grid-column: 2 / 4; }
-  .quotes__card { background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-xl) var(--sp-lg); border: 2px solid var(--border); position: relative; transition: all var(--med) var(--ease); }
-  .quotes__card:hover { transform: translateY(-8px) rotate(1deg); box-shadow: 0 20px 50px rgba(10,15,28,0.1), 0 0 40px rgba(83,198,214,0.1); border-color: var(--cyan); }
+  .quotes__grid { columns: 3; column-gap: var(--sp-md); }
+  .quotes__card { display: block; break-inside: avoid; margin-bottom: var(--sp-md); background: var(--surface); border-radius: var(--r-xl); padding: var(--sp-lg); border: 2px solid var(--border); position: relative; transition: all var(--med) var(--ease); text-decoration: none; color: inherit; }
+  .quotes__card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(10,15,28,0.1), 0 0 40px rgba(83,198,214,0.1); border-color: var(--cyan); }
   .quotes__card--accent { background: var(--ink); border-color: rgba(233,30,140,0.2); }
   .quotes__card--accent .quotes__mark { color: var(--magenta); opacity: 0.5; }
   .quotes__card--accent p { color: #fff !important; }
   .quotes__card--accent cite { color: var(--cyan) !important; }
-  .quotes__card--accent:hover { border-color: var(--magenta); transform: translateY(-8px) rotate(-1deg); box-shadow: 0 20px 50px rgba(233,30,140,0.2); }
-  .quotes__mark { font-family: var(--font-serif); font-size: 5rem; color: var(--teal); opacity: 0.3; line-height: 0.6; margin-bottom: 0.5rem; display: block; }
-  .quotes__card p { font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: var(--sp-sm); line-height: 1.5; }
-  .quotes__card cite { font-style: normal; font-size: 0.8rem; color: var(--slate); font-weight: 600; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; }
+  .quotes__card--accent cite span { color: rgba(255,255,255,0.4) !important; }
+  .quotes__card--accent:hover { border-color: var(--magenta); box-shadow: 0 20px 50px rgba(233,30,140,0.2); }
+  .quotes__mark { font-family: var(--font-serif); font-size: 4rem; color: var(--teal); opacity: 0.3; line-height: 0.6; margin-bottom: 0.5rem; display: block; }
+  .quotes__card p { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: var(--sp-md); line-height: 1.55; }
+  .quotes__author { display: flex; align-items: center; gap: 0.75rem; }
+  .quotes__avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .quotes__card cite { font-style: normal; font-size: 0.8rem; color: var(--ink); font-weight: 700; font-family: var(--font-display); display: flex; flex-direction: column; line-height: 1.3; }
+  .quotes__card cite span { font-weight: 500; font-size: 0.7rem; color: var(--slate); text-transform: uppercase; letter-spacing: 0.04em; }
 
   @media (max-width: 768px) {
-    .quotes__grid { grid-template-columns: 1fr; }
-    .quotes__grid .quotes__card:nth-child(4),
-    .quotes__grid .quotes__card:nth-child(5) { grid-column: auto; }
+    .quotes__grid { columns: 1; }
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .quotes__grid { columns: 2; }
   }
 
   /* ═══ SPONSORS ═══ */
@@ -682,7 +736,8 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .sponsor-tease__deco { position: absolute; font-size: 20rem; opacity: 0.08; top: -3rem; right: -2rem; pointer-events: none; animation: spin-slow 60s linear infinite; }
 
   .sponsor__layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2xl); align-items: center; }
-  .sponsor__video-el { width: 100%; border-radius: var(--r-lg); box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.15); }
+  .sponsor__video { border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.15); aspect-ratio: 16/9; background: #000; }
+  .sponsor__video-el { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   @media (max-width: 768px) {
     .sponsor__layout { grid-template-columns: 1fr; }
@@ -715,4 +770,59 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   .contact__field option { background: var(--ink); color: #fff; }
 
   @media (max-width: 768px) { .contact__layout { grid-template-columns: 1fr; } .contact__form-row { grid-template-columns: 1fr; } }
+
+  /* ═══ MOBILE SCROLL-SPY HOVER ═══ */
+  @media (max-width: 768px) {
+    .scroll-active {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 30px rgba(233, 30, 140, 0.15) !important;
+      border-color: var(--magenta) !important;
+    }
+  }
 </style>
+
+<script>
+  // ── Lightbox ──
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+
+  document.querySelectorAll('.masonry img').forEach(img => {
+    img.addEventListener('click', () => {
+      const src = (img as HTMLImageElement).src;
+      if (lightboxImg && lightbox) {
+        lightboxImg.src = src;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox?.classList.remove('open');
+    lightbox?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelector('.lightbox__close')?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ── Mobile scroll spy — activate cards near viewport center ──
+  if (window.innerWidth <= 768) {
+    const hoverTargets = document.querySelectorAll(
+      '.intro__card, .events__card, .yt-card, .quotes__card, .community__float'
+    );
+
+    const spyObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          entry.target.classList.toggle('scroll-active', entry.isIntersecting);
+        });
+      },
+      { rootMargin: '-35% 0px -35% 0px', threshold: 0.1 }
+    );
+
+    hoverTargets.forEach(el => spyObs.observe(el));
+  }
+</script>
