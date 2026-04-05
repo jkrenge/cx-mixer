@@ -829,6 +829,9 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
   const heroWrap = document.getElementById('hero-video-wrap');
   const heroVid = document.getElementById('hero-video') as HTMLVideoElement;
 
+  const heroOverlay = document.getElementById('hero-video-overlay');
+  const heroBadge = document.getElementById('hero-muted-badge');
+
   heroWrap?.addEventListener('click', () => {
     if (!heroVid) return;
     if (heroVid.muted) {
@@ -837,6 +840,9 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
       heroVid.currentTime = 0;
       heroVid.controls = true;
       heroWrap.classList.add('playing');
+      // Force-hide overlay and badge directly
+      if (heroOverlay) heroOverlay.style.display = 'none';
+      if (heroBadge) heroBadge.style.display = 'none';
     }
   });
 
@@ -846,6 +852,9 @@ const inquiryTypes = ['General Inquiry', 'Event Questions', 'Sponsor Inquiry', '
     heroVid.controls = false;
     heroVid.play();
     heroWrap?.classList.remove('playing');
+    // Restore overlay and badge
+    if (heroOverlay) heroOverlay.style.display = '';
+    if (heroBadge) heroBadge.style.display = '';
   });
 
   // ── Lightbox ──
