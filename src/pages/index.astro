@@ -179,15 +179,18 @@ const season2 = podcast.season2;
       <div class="community__layout">
         <div class="community__visual reveal">
           <div class="community__blob" aria-hidden="true"></div>
-          <div class="community__float community__float--1">
-            <span>&#x1F91D;</span> New connection made
-          </div>
-          <div class="community__float community__float--2">
-            <span>&#x1F399;</span> New episode dropped
-          </div>
-          <div class="community__float community__float--3">
-            <span>&#x1F389;</span> Event invite sent
-          </div>
+          {collective.notifications.map((note: string, i: number) => {
+            const count = collective.notifications.length;
+            // Distribute vertically with alternating left/right
+            const topPct = Math.round((i / (count - 1)) * 70 + 8);
+            const isRight = i % 2 === 1;
+            const style = `top:${topPct}%;${isRight ? 'right:0%' : 'left:5%'};animation-delay:${i * 1.2}s;`;
+            return (
+              <div class="community__float" style={style}>
+                {note}
+              </div>
+            );
+          })}
         </div>
         <div class="community__text reveal reveal-delay-1">
           <span class="section-label">{collective.label}</span>
@@ -574,13 +577,9 @@ const season2 = podcast.season2;
 
   /* ═══ COMMUNITY ═══ */
   .community__layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--sp-2xl); align-items: center; }
-  .community__visual { position: relative; height: 380px; }
+  .community__visual { position: relative; height: 440px; }
   .community__blob { position: absolute; width: 260px; height: 260px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,212,170,0.15), rgba(124,58,237,0.1)); filter: blur(60px); top: 50%; left: 50%; transform: translate(-50%, -50%); }
-  .community__float { position: absolute; background: var(--surface); border-radius: var(--r-lg); padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 0.75rem; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; box-shadow: 0 12px 40px rgba(10,15,28,0.12); border: 2px solid var(--border); animation: float 6s ease-in-out infinite; }
-  .community__float span:first-child { font-size: 1.4rem; }
-  .community__float--1 { top: 15%; left: 5%; }
-  .community__float--2 { top: 45%; right: 0%; animation-delay: 2s; }
-  .community__float--3 { bottom: 10%; left: 12%; animation-delay: 4s; }
+  .community__float { position: absolute; background: var(--surface); border-radius: var(--r-lg); padding: 0.75rem 1.1rem; display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; box-shadow: 0 12px 40px rgba(10,15,28,0.12); border: 2px solid var(--border); animation: float 6s ease-in-out infinite; white-space: nowrap; }
   .community__quote { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--coral); border-left: 3px solid var(--coral); padding-left: var(--sp-md); }
   .community__values { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--sp-lg); }
   .community__value { display: flex; align-items: center; gap: 0.5rem; background: rgba(233,30,140,0.06); border: 1px solid rgba(233,30,140,0.15); border-radius: var(--r-pill); padding: 0.45rem 1rem; font-size: 0.85rem; font-weight: 500; }
