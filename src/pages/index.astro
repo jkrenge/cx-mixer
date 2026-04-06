@@ -118,15 +118,15 @@ const season2 = podcast.season2;
         <h2 set:html={eventsData.title.replace(/\*([^*]+)\*/g, '<em class="serif">$1</em>')} />
         <p style="color: rgba(255,255,255,0.55); max-width: 50ch;">{eventsData.subtitle}</p>
       </div>
-      <div class="events__grid">
+      <div class={`events__grid events__grid--${Math.min(eventsData.cards.length, 3)}`}>
         {eventsData.cards.map((card: any, i: number) => (
-          <div class={`events__card ${card.featured ? 'events__card--featured' : ''} reveal reveal-delay-${i + 1}`}>
+          <a href={card.url || '#'} target={card.url ? '_blank' : undefined} rel={card.url ? 'noopener' : undefined} class={`events__card ${card.featured ? 'events__card--featured' : ''} reveal reveal-delay-${Math.min(i + 1, 4)}`}>
             <div class="events__card-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
             <span class="badge badge--coral">{card.type}</span>
             <h3>{card.name}</h3>
             <p>{card.desc}</p>
             <span class="events__card-tag">{card.status}</span>
-          </div>
+          </a>
         ))}
       </div>
     </div>
@@ -181,10 +181,13 @@ const season2 = podcast.season2;
           <div class="community__blob" aria-hidden="true"></div>
           {collective.notifications.map((note: string, i: number) => {
             const count = collective.notifications.length;
-            // Distribute vertically with alternating left/right
             const topPct = Math.round((i / (count - 1)) * 70 + 8);
             const isRight = i % 2 === 1;
-            const style = `top:${topPct}%;${isRight ? 'right:0%' : 'left:5%'};animation-delay:${i * 1.2}s;`;
+            // First and last items inset more
+            const isEdge = i === 0 || i === count - 1;
+            const leftPos = isEdge ? '15%' : '5%';
+            const rightPos = isEdge ? '10%' : '0%';
+            const style = `top:${topPct}%;${isRight ? `right:${rightPos}` : `left:${leftPos}`};animation-delay:${i * 1.2}s;`;
             return (
               <div class="community__float" style={style}>
                 {note}
@@ -510,8 +513,11 @@ const season2 = podcast.season2;
   /* ═══ EVENTS ═══ */
   .events__head { margin-bottom: var(--sp-xl); }
   .events__head .section-label::before { background: var(--teal); }
-  .events__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
-  .events__card { background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); border-radius: var(--r-xl); padding: var(--sp-lg); position: relative; overflow: hidden; transition: all var(--med) var(--ease); }
+  .events__grid { display: grid; gap: var(--sp-md); }
+  .events__grid--1 { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .events__grid--2 { grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto; }
+  .events__grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .events__card { display: block; text-decoration: none; color: inherit; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); border-radius: var(--r-xl); padding: var(--sp-lg); position: relative; overflow: hidden; transition: all var(--med) var(--ease); }
   .events__card:hover { border-color: var(--magenta); transform: translateY(-8px) rotate(-1deg); box-shadow: 0 20px 50px rgba(233,30,140,0.2), 0 0 60px rgba(233,30,140,0.08); }
   .events__card--featured { border-color: var(--coral); background: rgba(255,94,53,0.06); }
   .events__card-num { font-family: var(--font-display); font-weight: 900; font-size: 5rem; color: rgba(255,255,255,0.04); position: absolute; top: -0.5rem; right: 1rem; line-height: 1; pointer-events: none; }
