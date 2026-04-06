@@ -21,12 +21,12 @@ links:
 hero:
   badge: "Events · Community · Podcast"
   title: "Where e‑commerce brands connect"
-  title_em: "beyond the pitch"
+  title_em: "Real conversations. Real connections."
   subtitle: >
     CX Mixer brings together brand leaders, operators, and industry friends
     through curated events, honest conversations, and content that makes the
     e-commerce world feel a little smaller and a lot more human.
-  cta_primary: "Join the Collective"
+  cta_primary: "Join the Collaborative"
   cta_secondary: "See Upcoming Events"
   listen_label: "Listen on"
   video_cta: "Tap to play with sound"
@@ -62,29 +62,36 @@ events:
   label: "Events"
   title: "Meet up in *real life*"
   subtitle: >
-    From breakfast meetups to VIP dinners — CX Mixer events are designed
+    From breakfast meetups to VIP dinners — CX Mixer events are designed in a unique way 
     to help e-commerce brands connect in a way that actually feels fun.
     No pitches. Just brands.
   cards:
+    - type: "Karaoke"
+      name: "CX Sing-Off - New York"
+      desc: "The CX Sing-Off is where ecommerce operators trade dashboards for the mic and battle it out for karaoke glory. No pitches, no pressure—just great songs, questionable vocals, and a room full of people who actually get it."
+      status: "06/19/26 - 9pm-12pm"
     - type: "Breakfast"
-      name: "Morning Mixer"
-      desc: "Start the conference day right. Coffee, conversation, and the kind of intros that actually lead somewhere."
-      status: "Coming Soon"
-    - type: "Happy Hour"
-      name: "The Hangover Hangout"
-      desc: "A casual mid-conference reset with great food, good people, and zero pressure. Meet fellow brand folks and recharge."
-      status: "Coming Soon"
+      name: "Network & Nosh - New York"
+      desc: "Network & Nosh is back for year three—bringing ecommerce brands together at an iconic NYC spot for great food, coffee, and even better conversations. With a shuttle to the conference—no pitches, just real connections to start your day right."
+      status: "06/20/26 - 7:30am-10am"
       featured: true
     - type: "VIP Dinner"
-      name: "Late Night Conversations"
-      desc: "An intimate dinner for brand leaders. Curated guest list. No agenda beyond great food and real talk."
-      status: "Coming Soon"
+      name: "Inner Circle Dinner"
+      desc: "This is an invite-only experience at an exclusive NYC spot, bringing together a curated group of ecommerce leaders for a night of incredible food, flowing drinks, and real conversation. Back for year two, this is where relationships get built, ideas get shared, and no one leaves hungry."
+      status: "06/20/26 - 7pm"
 
 # ─── BRANDS ───
 brands:
   title: "Good people. Great brands. *Real conversations.*"
   names:
     - Glossier
+    - Skims
+    - Armani
+    - JD Sports
+    - YETI
+    - Travis Matthews
+    - Urban Outfitters
+    - Anthropology
     - True Classic
     - Everlane
     - Vuori
@@ -135,18 +142,21 @@ gallery:
 
 # ─── COLLECTIVE / COMMUNITY ───
 collective:
-  label: "The CX Collective"
+  label: "The Ecomm Collaborative"
   title: "A community that sticks *after* the event ends"
   body: >
-    The CX Collective is the community side of CX Mixer. It's where brand
+    The Ecomm Collaboraite is the community side of CX Mixer. It's where brand
     leaders keep the conversations going, meet peers facing similar
     challenges, and tap into a trusted network of e-commerce operators
     who get it.
   quote: "Think of it as your industry group chat — but with better people and fewer random pitches."
   notifications:
-    - "🤝 New connection made"
-    - "🎙 New episode dropped"
-    - "🎉 Event invite sent"
+    - "🤝 New Connection Made"
+    - "🧠 Insight Shared"
+    - "⭐ Tech Reviewed"
+    - "📣 Hot Take Dropped"
+    - "🎙 New Podcast Episode"
+    - "🎉 Event Invite Sent"
   values:
     - icon: "💚"
       text: "Be generous"
@@ -283,7 +293,7 @@ about:
   team:
     - name: "Larry Thoma"
       role: "Host & Creator"
-      bio: "Larry brings the energy, the guest list, and the belief that the industry is better when good people know each other."
+      bio: "Larry builds the rooms where ecommerce leaders actually connect—through curated events, conversations, and a community designed to turn relationships into real opportunities."
       photo: "larrythoma"
       linkedin: "https://www.linkedin.com/in/larrythoma/"
     - name: "Adam Raftshol"
