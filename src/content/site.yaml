@@ -21,7 +21,7 @@ links:
 hero:
   badge: "Events · Community · Podcast"
   title: "Where e‑commerce brands connect"
-  title_em: "Real conversations. Real connections."
+  title_em: "No Agenda Needed"
   subtitle: >
     CX Mixer brings together brand leaders, operators, and industry friends
     through curated events, honest conversations, and content that makes the
@@ -78,7 +78,7 @@ events:
     - type: "VIP Dinner"
       name: "Inner Circle Dinner"
       desc: "This is an invite-only experience at an exclusive NYC spot, bringing together a curated group of ecommerce leaders for a night of incredible food, flowing drinks, and real conversation. Back for year two, this is where relationships get built, ideas get shared, and no one leaves hungry."
-      status: "06/20/26 - 7pm"
+      status: "06/20/26 - 7pm-10pm"
 
 # ─── BRANDS ───
 brands:
@@ -293,7 +293,7 @@ about:
   team:
     - name: "Larry Thoma"
       role: "Host & Creator"
-      bio: "Larry builds the rooms where ecommerce leaders actually connect—through curated events, conversations, and a community designed to turn relationships into real opportunities."
+      bio: "Larry builds the rooms where ecommerce leaders actually connect—through curated events, conversations, and a community designed to foster relationships."
       photo: "larrythoma"
       linkedin: "https://www.linkedin.com/in/larrythoma/"
     - name: "Adam Raftshol"
