@@ -69,18 +69,18 @@ events:
     - type: "Karaoke"
       name: "CX Sing-Off - New York"
       desc: "The CX Sing-Off is where ecommerce operators trade dashboards for the mic and battle it out for karaoke glory. No pitches, no pressure—just great songs, questionable vocals, and a room full of people who actually get it."
-      status: "06/19/26 - 9pm-12pm"
+      status: "05/19/26 - 9pm-12pm"
       url: "https://parcellab.com/events/"
     - type: "Breakfast"
       name: "Network & Nosh - New York"
       desc: "Network & Nosh is back for year three—bringing ecommerce brands together at an iconic NYC spot for great food, coffee, and even better conversations. With a shuttle to the conference—no pitches, just real connections to start your day right."
-      status: "06/20/26 - 7:30am-10am"
+      status: "05/20/26 - 7:30am-10am"
       featured: true
       url: "https://parcellab.com/events/"
     - type: "VIP Dinner"
       name: "Inner Circle Dinner"
       desc: "This is an invite-only experience at an exclusive NYC spot, bringing together a curated group of ecommerce leaders for a night of incredible food, flowing drinks, and real conversation. Back for year two, this is where relationships get built, ideas get shared, and no one leaves hungry."
-      status: "06/20/26 - 7pm-10pm"
+      status: "05/20/26 - 7pm-10pm"
       url: "https://parcellab.com/events/"
 
 # ─── BRANDS ───
