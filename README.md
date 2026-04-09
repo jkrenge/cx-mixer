@@ -6,12 +6,13 @@ Single-page marketing site for **CX Mixer** — a podcast, event series, and com
 
 ## Stack
 
-- **Astro** (static site generator)
-- **GitHub Pages** (hosting, auto-deploys on push to `main`)
-- **Formspree** (contact form)
-- No frameworks, no JS libraries — pure Astro + vanilla CSS + vanilla JS
+- **Astro** — static site generator
+- **GitHub Pages** — hosting, auto-deploys on push to `main`
+- **Formspree** — contact form backend
+- **js-yaml** — YAML content loading at build time
+- No frameworks, no component libraries — pure Astro + vanilla CSS + vanilla JS
 
-## Development
+## Quick Start
 
 ```sh
 npm install
@@ -19,53 +20,90 @@ npm run dev        # http://localhost:4321/cx-mixer/
 npm run build      # outputs to ./dist/
 ```
 
-Note: the site uses `base: '/cx-mixer/'` in `astro.config.mjs` for GitHub Pages. During local dev, navigate to `http://localhost:4321/cx-mixer/`.
+The site uses `base: '/cx-mixer/'` in `astro.config.mjs` for GitHub Pages. During local dev, navigate to `http://localhost:4321/cx-mixer/`.
+
+## Editing Content
+
+**All site copy lives in [`src/content/site.yaml`](src/content/site.yaml).** You can edit it directly on GitHub (pencil icon) and commit — the site auto-rebuilds and deploys.
+
+The YAML file contains: hero text, event cards, brand names, podcast episodes (YouTube IDs), testimonial quotes, team bios, contact form config, and all external links. See the file for the full structure and comments.
+
+Titles support `*emphasis*` syntax which renders as italic Fraunces serif text.
 
 ## Deployment
 
-Push to `main` triggers the GitHub Actions workflow at `.github/workflows/deploy.yml`. It builds with Node 24 and deploys to GitHub Pages automatically.
+Push to `main` triggers `.github/workflows/deploy.yml` (Node 24 + GitHub Pages). Takes ~35 seconds.
 
 ## Project Structure
 
 ```
 src/
-  layouts/Base.astro     # Global layout: header, footer, nav, grain overlay
-  pages/index.astro      # Single-page site with all sections
-  styles/global.css      # Design system: tokens, typography, components
+  content/site.yaml        # ALL editable content
+  layouts/Base.astro       # Header, footer, nav, grain overlay
+  pages/index.astro        # Single-page template + styles + scripts
+  styles/global.css        # Design system tokens + components
 public/
-  cxmixer_wordmark.svg   # Header logo
-  cxmixer_splash.svg     # Footer / branding logo
-  favicon.svg / .ico     # Favicons
-  photos/                # Compressed webp event photos + headshots
-  videos/                # Compressed MP4 videos (hero hype video)
-  quotes/                # LinkedIn profile photos for testimonials
+  cxmixer_wordmark.svg     # Header logo
+  cxmixer_splash.svg       # Footer / hero branding logo
+  favicon.svg / .ico       # Favicons
+  photos/                  # Compressed webp event photos + headshots
+  videos/                  # Compressed mp4 (hero hype video)
+  quotes/                  # LinkedIn profile photo thumbnails
 ```
 
 ## Sections
 
-The site is a single page with anchor navigation (`#events`, `#collective`, `#podcast`, `#sponsors`, `#about`, `#contact`):
+Single page with anchor navigation (`#events`, `#collective`, `#podcast`, `#sponsors`, `#about`, `#contact`):
 
 1. **Hero** — headline, CTAs, hype video (click-to-play with sound)
-2. **Intro** — what CX Mixer is, 4 feature cards
-3. **Events** — 3 upcoming event cards
-4. **Brand Marquee** — scrolling brand name pills (18 brands)
-5. **Photo Masonry** — 22 compressed event photos, CSS columns, lightbox on click
+2. **Intro** — what CX Mixer is + 4 feature cards
+3. **Events** — dynamic event cards linked to Partiful/event pages
+4. **Brand Marquee** — dual-row scrolling brand pills
+5. **Photo Masonry** — CSS columns gallery with lightbox modal
 6. **The CX Collective** — community section with floating notification cards
-7. **Podcast** — YouTube thumbnail cards for all 11 episodes (Season 1 + Season 2)
-8. **Testimonials** — 7 LinkedIn quotes with profile photos, linked to original posts
+7. **Podcast** — YouTube thumbnail cards (Season 1 + Season 2)
+8. **Testimonials** — LinkedIn quotes with profile photos, linked to posts
 9. **Sponsors** — CTA + YouTube sponsor video embed
-10. **About** — origin story + Larry Thoma & Adam Raftshol cards with LinkedIn links
-11. **Contact** — form (Formspree) + social links
+10. **About** — origin story + team cards with LinkedIn links
+11. **Contact** — Formspree form + social links
+
+## Adding Content
+
+### New podcast episode
+Add to `podcast.season1` or `podcast.season2` in `site.yaml`:
+```yaml
+- id: "youtube_video_id"
+  title: "Episode Title"
+  guests: "Guest A & Guest B"
+  ep: "Ep N"
+```
+
+### New testimonial
+1. Save profile photo as `public/quotes/Name.jpg`, compress to 120px webp
+2. Add to `quotes` array in `site.yaml`
+
+### New event
+Add to `events.cards` in `site.yaml` with `url` for the event page link
+
+### New team member
+Add to `about.team` in `site.yaml` with photo in `public/photos/`
+
+### New event photos
+1. Drop in `public/raw_photos/`, compress with `sharp` to `public/photos/`
+2. Add filename to `gallery.photos` array in `site.yaml`
 
 ## Media Pipeline
 
-Raw photos and videos are kept in `public/raw_photos/` and `public/raw_videos/` (gitignored). Compressed versions go in `public/photos/` and `public/videos/`.
+Raw originals in `public/raw_photos/` and `public/raw_videos/` (gitignored).
 
 ```sh
-# Photos: compress to 600px webp
+# Photos → 600px webp
 node -e "require('sharp')('public/raw_photos/IMG.jpg').resize(600).webp({quality:72}).toFile('public/photos/IMG.webp')"
 
-# Videos: compress with ffmpeg
+# Quote avatars → 120px webp
+node -e "require('sharp')('public/quotes/Name.jpg').resize(120,120,{fit:'cover'}).webp({quality:80}).toFile('public/quotes/Name.webp')"
+
+# Videos → 720p mp4
 ffmpeg -i raw.mp4 -c:v libx264 -preset slow -crf 26 -vf "scale=1280:720" -c:a aac -b:a 128k -movflags +faststart output.mp4
 ```
 
@@ -73,14 +111,11 @@ ffmpeg -i raw.mp4 -c:v libx264 -preset slow -crf 26 -vf "scale=1280:720" -c:a aa
 
 - **Fonts:** Satoshi (display), Outfit (body), Fraunces (italic emphasis)
 - **Colors:** deep purple `#1A0A2E`, magenta `#E91E8C`, cyan `#53C6D6`, neon green `#7FFF00`, purple `#8B31C7`
-- **Features:** CSS scroll reveals, mobile scroll spy (single-card highlight), noise grain overlay, gradient dividers, bounce easing on hovers
+- **Features:** scroll reveals, mobile scroll spy (single-card highlight), noise grain overlay, gradient dividers, bounce easing hovers, photo lightbox, click-to-play hero video
 
-## Contact Form
+## Links
 
-Uses [Formspree](https://formspree.io) with honeypot spam protection. Update the form action URL in `src/pages/index.astro` with your Formspree form ID.
-
-## External Links
-
-- YouTube: [@CXMixer](https://www.youtube.com/@CXMixer)
-- Spotify: [The CX Mixer](https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ)
-- LinkedIn: [The CX Mixer](https://www.linkedin.com/company/the-cx-mixer/)
+- [YouTube](https://www.youtube.com/@CXMixer)
+- [Spotify](https://open.spotify.com/show/4a2lEUxl4dGm4CqdNm3HvZ)
+- [LinkedIn](https://www.linkedin.com/company/the-cx-mixer/)
+- [Instagram](https://www.instagram.com/cxmixer)
