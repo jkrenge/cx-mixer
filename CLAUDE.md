@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Single-page Astro static site for CX Mixer, a podcast and event series for e-commerce CX leaders. Hosted by Larry Thoma. Deployed to GitHub Pages at `jkrenge.github.io/cx-mixer/`.
+Single-page Astro static site for CX Mixer, a podcast and event series for e-commerce CX leaders. Hosted by Larry Thoma. Deployed to GitHub Pages at the custom domain `cxmixer.com`.
 
 ## Architecture
 
@@ -14,7 +14,7 @@ Single-page Astro static site for CX Mixer, a podcast and event series for e-com
 
 ## Key Conventions
 
-- **Base URL:** Site uses `base: '/cx-mixer/'` in `astro.config.mjs`. All asset refs use `` `${import.meta.env.BASE_URL}filename` ``. The trailing slash is critical — without it, paths like `cxmixer_wordmark.svg` break.
+- **Base URL:** Site is served from the root at `cxmixer.com` (no `base` set in `astro.config.mjs`). All asset refs use `` `${import.meta.env.BASE_URL}filename` `` — `BASE_URL` resolves to `/`, so paths become `/filename`. If the site ever moves back to a subfolder, setting `base` in the config is the only change needed.
 - **Fonts:** Satoshi from Fontshare (display headings), Outfit from Google Fonts (body), Fraunces from Google Fonts (italic serif emphasis). Loaded via CSS `@import`.
 - **CSS variables:** All design tokens live in `:root` in `global.css`. Use `--sp-*` for spacing, `--r-*` for radius, `--fast/--med/--slow` for durations, `--ease/--ease-bounce` for timing functions.
 - **Color palette:** Deep purple base (`--ink: #1A0A2E`), magenta primary accent (`--coral/--magenta: #E91E8C`), cyan secondary (`--teal/--cyan: #53C6D6`), neon green highlight (`--neon: #7FFF00`), purple mid-tone (`--electric: #8B31C7`).

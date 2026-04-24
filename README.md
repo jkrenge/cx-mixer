@@ -2,7 +2,7 @@
 
 Single-page marketing site for **CX Mixer** — a podcast, event series, and community for e-commerce CX leaders. Hosted by Larry Thoma.
 
-**Live site:** [jkrenge.github.io/cx-mixer](https://jkrenge.github.io/cx-mixer/)
+**Live site:** [cxmixer.com](https://cxmixer.com/)
 
 ## Stack
 
@@ -16,11 +16,11 @@ Single-page marketing site for **CX Mixer** — a podcast, event series, and com
 
 ```sh
 npm install
-npm run dev        # http://localhost:4321/cx-mixer/
+npm run dev        # http://localhost:4321/
 npm run build      # outputs to ./dist/
 ```
 
-The site uses `base: '/cx-mixer/'` in `astro.config.mjs` for GitHub Pages. During local dev, navigate to `http://localhost:4321/cx-mixer/`.
+The site is served from the root at the custom domain `cxmixer.com` (no base path).
 
 ## Editing Content
 
