@@ -171,6 +171,7 @@ collective:
       text: "Respect the room"
     - icon: "🤝"
       text: "Build relationships, not transactions"
+  cta: "Join Today"
 
 # ─── PODCAST ───
 podcast:
@@ -310,7 +311,14 @@ contact:
   label: "Get in Touch"
   title: "Let's *connect*"
   subtitle: "Whether you want to attend, partner, sponsor, or just say hey — we'd love to hear from you."
-  form_action: "https://formspree.io/f/Larry@CXMixer.com"
+  # Formspree form endpoint. Two formats:
+  #   1. Form-ID style (recommended once a form is created at formspree.io):
+  #      https://formspree.io/f/<formId>
+  #   2. Legacy direct-email format (works immediately — Formspree sends a
+  #      one-time verification email to the address on first submission):
+  #      https://formspree.io/<email>
+  # The previous URL mixed both formats which silently broke submissions.
+  form_action: "https://formspree.io/Larry@CXMixer.com"
   inquiry_types:
     - "General Inquiry"
     - "Event Questions"
