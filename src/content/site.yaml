@@ -311,14 +311,13 @@ contact:
   label: "Get in Touch"
   title: "Let's *connect*"
   subtitle: "Whether you want to attend, partner, sponsor, or just say hey — we'd love to hear from you."
-  # Formspree form endpoint. Two formats:
-  #   1. Form-ID style (recommended once a form is created at formspree.io):
-  #      https://formspree.io/f/<formId>
-  #   2. Legacy direct-email format (works immediately — Formspree sends a
-  #      one-time verification email to the address on first submission):
-  #      https://formspree.io/<email>
-  # The previous URL mixed both formats which silently broke submissions.
-  form_action: "https://formspree.io/Larry@CXMixer.com"
+  # Submissions are handled by FormSubmit.co — no account needed.
+  # On the FIRST submission, FormSubmit sends Larry a one-time activation
+  # email; after he clicks the link, every subsequent submission is
+  # forwarded to his inbox. Reply-to is auto-set from the form's `email`
+  # field, so hitting Reply in Gmail goes straight to the sender.
+  # Docs: https://formsubmit.co
+  form_action: "https://formsubmit.co/Larry@CXMixer.com"
   inquiry_types:
     - "General Inquiry"
     - "Event Questions"

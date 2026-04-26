@@ -380,10 +380,20 @@ const season2 = podcast.season2;
           </div>
         </div>
         <div class="contact__form-wrap reveal reveal-delay-1">
+          <div class="contact__success" id="contact-success" hidden>
+            <span class="contact__success-icon" aria-hidden="true">✓</span>
+            <div>
+              <strong>Thanks — your note's on its way.</strong>
+              <p>We'll get back to you soon.</p>
+            </div>
+          </div>
           <form class="contact__form" name="contact" method="POST" action={contact.form_action} id="contact-form">
             <!-- Honeypot field — hidden from humans, traps bots -->
-            <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off" />
+            <input type="text" name="_honey" style="display:none !important;" tabindex="-1" autocomplete="off" />
             <input type="hidden" name="_subject" value="New CX Mixer inquiry" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://cxmixer.com/?sent=1" />
             <div class="contact__form-row">
               <div class="contact__field">
                 <label for="name">Name</label>
@@ -703,6 +713,11 @@ const season2 = podcast.season2;
   .contact__field textarea { resize: vertical; min-height: 100px; }
   .contact__field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; color: rgba(255,255,255,0.6); }
   .contact__field option { background: var(--ink); color: #fff; }
+  .contact__success { display: flex; align-items: flex-start; gap: var(--sp-md); padding: var(--sp-md) var(--sp-lg); margin-bottom: var(--sp-md); background: rgba(127,255,0,0.08); border: 1px solid rgba(127,255,0,0.3); border-radius: var(--r-md); color: #fff; }
+  .contact__success[hidden] { display: none; }
+  .contact__success-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--neon, #7FFF00); color: var(--ink); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; }
+  .contact__success strong { display: block; font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.2rem; }
+  .contact__success p { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin: 0; }
 
   @media (max-width: 768px) { .contact__layout { grid-template-columns: 1fr; } .contact__form-row { grid-template-columns: 1fr; } }
 
@@ -718,6 +733,22 @@ const season2 = podcast.season2;
 </style>
 
 <script>
+  // ── Contact form success banner ──
+  // FormSubmit redirects back to the site with ?sent=1 after a successful
+  // submission. Show a confirmation banner and scroll the user to the form.
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    const banner = document.getElementById('contact-success');
+    banner?.removeAttribute('hidden');
+    // Hide the form below to avoid a confusing double-CTA
+    document.getElementById('contact-form')?.setAttribute('style', 'display:none');
+    // Scroll the contact section into view so users see the confirmation
+    requestAnimationFrame(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Clean the URL so a refresh doesn't keep the banner up
+      history.replaceState(null, '', window.location.pathname + window.location.hash);
+    });
+  }
+
   // ── Hero video click-to-play with sound ──
   const heroWrap = document.getElementById('hero-video-wrap');
   const heroVid = document.getElementById('hero-video') as HTMLVideoElement;
