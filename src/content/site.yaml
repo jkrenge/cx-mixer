@@ -311,13 +311,11 @@ contact:
   label: "Get in Touch"
   title: "Let's *connect*"
   subtitle: "Whether you want to attend, partner, sponsor, or just say hey — we'd love to hear from you."
-  # Submissions are handled by FormSubmit.co — no account needed.
-  # On the FIRST submission, FormSubmit sends Larry a one-time activation
-  # email; after he clicks the link, every subsequent submission is
-  # forwarded to his inbox. Reply-to is auto-set from the form's `email`
-  # field, so hitting Reply in Gmail goes straight to the sender.
+  # Submissions handled by FormSubmit.co (forwarded to Larry@CXMixer.com).
+  # The hash below is FormSubmit's anonymized ID for the recipient address —
+  # it keeps the email out of the page source so spam bots can't scrape it.
   # Docs: https://formsubmit.co
-  form_action: "https://formsubmit.co/Larry@CXMixer.com"
+  form_action: "https://formsubmit.co/f9e3002b8bac5c02580c61a3ce6af879"
   inquiry_types:
     - "General Inquiry"
     - "Event Questions"
