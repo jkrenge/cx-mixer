@@ -612,11 +612,17 @@ const season2 = podcast.season2;
   .community__blob { position: absolute; width: 260px; height: 260px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,212,170,0.15), rgba(124,58,237,0.1)); filter: blur(60px); top: 50%; left: 50%; transform: translate(-50%, -50%); }
   .community__float { position: absolute; background: var(--surface); border-radius: var(--r-lg); padding: 0.75rem 1.1rem; display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; box-shadow: 0 12px 40px rgba(10,15,28,0.12); border: 2px solid var(--border); animation: float 6s ease-in-out infinite; white-space: nowrap; }
   .community__quote { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--coral); border-left: 3px solid var(--coral); padding-left: var(--sp-md); }
-  .community__values { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--sp-lg); }
+  .community__values { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: var(--sp-lg); justify-content: flex-start; }
   .community__value { display: flex; align-items: center; gap: 0.5rem; background: rgba(233,30,140,0.06); border: 1px solid rgba(233,30,140,0.15); border-radius: var(--r-pill); padding: 0.45rem 1rem; font-size: 0.85rem; font-weight: 500; }
-  .community__cta { margin-top: var(--sp-lg); }
+  .community__cta { display: flex; justify-content: center; margin-top: var(--sp-xl); }
+  .community__cta .btn { padding-left: var(--sp-xl); padding-right: var(--sp-xl); }
 
-  @media (max-width: 768px) { .community__layout { grid-template-columns: 1fr; } .community__visual { height: 260px; } .community__cta { display: flex; justify-content: center; } .community__cta .btn { width: 100%; max-width: 320px; } }
+  @media (max-width: 768px) {
+    .community__layout { grid-template-columns: 1fr; }
+    .community__visual { height: 260px; }
+    .community__values { justify-content: center; }
+    .community__cta .btn { width: 100%; max-width: 360px; }
+  }
 
   /* ═══ PODCAST ═══ */
   .podcast__head { margin-bottom: var(--sp-xl); }
